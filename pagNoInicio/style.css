@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: "";
+    font-size: "";
+    min-height: 100%;
+}
+
+.grid_container > *{
+    text-align: center;
+}
+
+.grid_container{
+    display: grid;
+    gap: 5px;
+
+    grid-template:
+        "header     header" 10%
+        "sidebar    main"   auto
+        "footer     footer" 5% /
+        25%         auto;
+}
+
+.header{
+    background-color: burlywood;
+    grid-area: header;
+    float: left;
+}
+
+.ISolveIt{
+    max-width: 2004px;
+}
+
+.sidebar{
+    background-color: violet;
+    grid-area: sidebar;
+
+    display: grid;
+
+    grid-template:
+        "sidebar_usuario"
+        "sidebar_menu"
+        "sidebar_nuevaDuda";
+}
+
+.main{
+    background-color: springgreen;
+    grid-area: main;
+}
+
+.footer{
+    background-color: darkcyan;
+    grid-area: footer;
+}
+
+.sidebar_usuario{
+    grid-area: sidebar_usuario;
+}
+
+.cont_sidebar_usuario{
+    margin: 5% 10%;
+    text-align: left;
+}
+
+.sidebar_menu{
+    grid-area: sidebar_menu;
+    font-size: 2rem;
+}
+
+.cont_sidebar_menu{
+    text-align: left;
+    margin-left: 20%;
+}
+
+.sidebar_nuevaDuda{
+    grid-area: sidebar_nuevaDuda;
+}
+
+#cont_nuevaDuda{
+    padding: 1ch;
+    background-color: brown;
+    border-radius: 2ch;
+    max-width: fit-content;
+}
+
+
+@media (max-width: 600px){
+    .grid_container{
+        grid-template:
+        "header"    10%
+        "sidebar"   30%
+        "main"      auto
+        "footer"    5%;
+    }
+}
