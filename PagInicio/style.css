@@ -1,0 +1,114 @@
+*{
+  margin: 0;
+  padding:0;
+  }
+
+body{
+ background-color:darkslateblue;
+font-family: "verdana";
+}
+
+.header {
+background-color: #f1f1f1;
+height: 80px;
+position: fixed;
+width: 100%;
+}
+
+#brand{
+color:white;
+font-size:60px;;
+text-transform: uppercase;
+position:absolute;
+left: 13%;
+top: 23%;
+margin:15px;
+font-family: "verdana";
+}
+
+#slogan{
+  color:white;
+  font-size:20px;
+  position:absolute;
+  left: 14%;
+  top: 34%;
+  margin:24px;
+  font-family: "corbel";
+  font-weight:600
+  }
+
+.nav{
+display: flex;
+justify-content: space-between;
+}
+
+.nav-link{
+color:darkslateblue;
+text-decoration: none;
+}
+
+.logo
+{
+font-size:30px;
+font-weight:bold;
+padding: 0 40px;
+line-height: 80px;
+}
+
+.menu-nav
+{
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+}
+
+.menu-nav-item
+{
+  font-size: 15px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-transform: uppercase;
+  width:max-content;
+  font-family: "corbel";
+  font-weight:600;
+}
+.menu-nav-link
+{
+padding:8px 12px;
+border-radius: 20px;
+}
+
+.menu-nav-link:hover
+{
+  background-color:darkslateblue;
+  color: white;
+  transition: 0.5s;
+}
+
+.boton{
+  border: 3px solid rgb(14, 194, 197);
+  padding: 18px 75px;
+  background-color:rgb(14, 194, 197);
+  color: #ffffff;
+  text-decoration: none;
+  font-family:"corbel";
+  font-weight: bold;
+  border-radius: 50px;
+  line-height: 80px;
+}
+
+.contenedor{
+  left: 14%;
+  top: 49%;
+  position:absolute;
+}
+
+.boton:hover{
+  background-color: rgb(12, 157, 160);
+  transition: 0.5s;
+}
+
+
+
+
+
