@@ -12,30 +12,45 @@ font-family: "corbel";
 .header {
 background-color: #f1f1f1;
 height: 80px;
-position: relative;
+position: relative; 
+}
+
+.main{
+  display: grid;
+
+  grid-template:
+    "brand-cont    divform" 100vh /
+      50vw             auto;
+}
+
+.divform{
+  grid-area: divform;
 }
 
 .brand-cont{
-position:relative;
+  grid-area: brand-cont;
 color:white;
-font-size:40px;;
+font-size:40px;
 text-transform: uppercase;
-margin:15px;
-width:fit-content;
-left: 10%;
-top: 10%;
 font-family: "verdana";
+text-align: center;
+margin-top: 10%;
+  /* display: grid;
+  grid-template:
+    "brand" 10%
+    "slogan" auto; */
 }
 
+/* #brand{
+  grid-area: brand;
+} */
 #slogan{
-  position:relative;
+  /* grid-area: slogan; */
   color:white;
   font-size:15px;
-  left:-10%;
-  top: 12%;
-  margin:24px;
+  margin-top:24px;
   font-family: "corbel";
-  font-weight:600
+  font-weight:600;
   }
 
 .nav{
@@ -97,8 +112,8 @@ border-radius: 20px;
 {
   margin-top: 150px;
   background: white;
-  position: relative;
-  top:80%;
+  width: 90%;
+  max-width: 600px;
 }
 
 h2
@@ -177,7 +192,7 @@ font-size: 15px;
   .formulario
   {
     margin: auto;
-    width: 500px;
+    /* width: 500px; */
     margin-top: 20px;
     left:300px;
     border-radius: 2%;
