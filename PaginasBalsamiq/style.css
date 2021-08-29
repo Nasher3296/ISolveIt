@@ -26,8 +26,9 @@ body{
         "header     header" 10%
         "sidebar    main"   auto
         "footer     footer" 5% /
-        minmax(0%, 250px) auto;         
+        25%         auto;
 }
+
 .header{
     background-color: burlywood;
     grid-area: header;
