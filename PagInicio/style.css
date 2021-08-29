@@ -19,7 +19,7 @@ position: relative;
   display: grid;
 
   grid-template:
-    "brand-cont    divform" 100vh /
+    "brand-cont    divform" 90vh /
       50vw             auto;
 }
 
@@ -34,7 +34,7 @@ font-size:40px;
 text-transform: uppercase;
 font-family: "verdana";
 text-align: center;
-margin-top: 10%;
+margin-top: 35%;
   /* display: grid;
   grid-template:
     "brand" 10%
@@ -110,7 +110,8 @@ border-radius: 20px;
 
 .formulario
 {
-  margin-top: 150px;
+  border-radius: 2%;
+  margin-top: 30%;
   background: white;
   width: 90%;
   max-width: 600px;
@@ -187,20 +188,16 @@ font-size: 15px;
   color: cadetblue;
 }
 
-@media(min-width:768px)
+/* @media(min-width:768px)
 {
   .formulario
   {
     margin: auto;
-    /* width: 500px; */
+    width: 500px;
     margin-top: 20px;
     left:300px;
     border-radius: 2%;
   }
 
 }
-
-
-
-
-
+*/
