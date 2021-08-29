@@ -4,45 +4,65 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>I Solve It</title>
+    <!--link para los iconos [NO BORRAR] -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body>
+
     <!--header -->
     <header class="header">
-
-    <!--barra de navegacion-->
-    <nav class="nav">
-        <a href="#" class="logo nav-link">Logo</a>
-        <ul class="menu-nav">
-        <li class="menu-nav-item">
-            <a href="" class="menu-nav-link nav-link">app</a>
-        </li>
-        <li class="menu-nav-item">
-            <a href="" class="menu-nav-link nav-link">Opiniones</a>
-        </li>
-        <li class="menu-nav-item">
-            <a href="" class="menu-nav-link nav-link">Sobre nosotros</a>
-        </li>
-        <li class="menu-nav-item">
-            <a href="" class="menu-nav-link nav-link">Contacto</a>
-        </li>
-        </ul>
-    </nav>
+        <!--barra de navegacion-->
+        <nav class="nav">
+            <a href="#" class="logo nav-link">Logo</a>
+            <ul class="menu-nav">
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">app</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Opiniones</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Sobre nosotros</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Contacto</a>
+            </li>
+            </ul>
+        </nav>
     </header>
-
     <div class="main">
-    <!--texto pagina principal-->
-    <h1 id="brand">marca</h1>
-    <p id="slogan">acá iría nuestro slogan</p>
-
-    <div class="contenedor">
-        <ul type="none">
-    <li><a class="boton" href="aca va el link" target="_blank" >Crear cuenta</a></li>
-    <li><a class="boton" href="aca va el link" target="_blank" >Iniciar sesion</a></li>
-        </ul>
+            <!--texto pagina principal-->
+        
+            <div class="brand-cont">
+                <h1 id="brand">solve</h1>
+                <div><p id="slogan">Compartí tus conocimientos.</p></div>
     </div>
+        <div>
+            <!--registro y login -->
+            <form class="formulario">
+                <h2>Crear cuenta</h2>
+            <div class="contenedor">
+                <div class="input-contenedor">
+                    <i class="fas fa-user icon"></i>
+                    <input type="text" placeholder="Nombre Completo">
+                </div>
+                
+                <div class="input-contenedor">
+                    <i class="fas fa-envelope icon"></i>
+                    <input type="text" placeholder="Correo Electrónico">
+                </div>
+                
+                <div class="input-contenedor">
+                    <i class="fas fa-key icon"></i>
+                    <input type="password" placeholder="Contraseña">
+                </div>
+                <input type="submit" value="Resgistrate" class="button">
+                <div class="parrafo">
+                    <p>Al registrarte, aceptas nuestras Condiciones de uso y Políticas de privacidad</p>
+                    <p>¿Ya tienes una cuenta?<a class="link" href="aca va el link a la otra pag!!"> Iniciar Sesión</a></p>
+                </div>
+            </div>
+        </form>
     </div>
-
-   
-
 </body>
 </html>

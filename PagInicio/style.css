@@ -1,37 +1,38 @@
 *{
   margin: 0;
   padding:0;
+  box-sizing: border-box;
   }
 
 body{
- background-color:darkslateblue;
-font-family: "verdana";
+background-color:darkslateblue;
+font-family: "corbel";
 }
 
 .header {
 background-color: #f1f1f1;
 height: 80px;
-position: fixed;
-width: 100%;
+position: relative;
 }
 
-#brand{
+.brand-cont{
+position:relative;
 color:white;
-font-size:60px;;
+font-size:40px;;
 text-transform: uppercase;
-position:absolute;
-left: 13%;
-top: 23%;
 margin:15px;
+width:fit-content;
+left: 10%;
+top: 10%;
 font-family: "verdana";
 }
 
 #slogan{
+  position:relative;
   color:white;
-  font-size:20px;
-  position:absolute;
-  left: 14%;
-  top: 34%;
+  font-size:15px;
+  left:-10%;
+  top: 12%;
   margin:24px;
   font-family: "corbel";
   font-weight:600
@@ -83,29 +84,105 @@ border-radius: 20px;
   background-color:darkslateblue;
   color: white;
   transition: 0.5s;
+  box-shadow: 0px 10px 10px -6px rgb(83, 83, 83)
 }
 
-.boton{
-  border: 3px solid rgb(14, 194, 197);
-  padding: 18px 75px;
-  background-color:rgb(14, 194, 197);
-  color: #ffffff;
+.contenedor
+{
+  width: 100%;
+  padding: 15px;
+}
+
+.formulario
+{
+  margin-top: 150px;
+  background: white;
+  position: relative;
+  top:80%;
+}
+
+h2
+{
+  text-align: center;
+  color:#1a2537;
+  font-size: 30px;
+  padding-top: 15px;
+
+}
+
+input[type="text"],
+input[type="password"]
+{
+  font-size: 17px;
+  width: 82%;
+  padding: 5px;
+  border:none;
+}
+
+.input-contenedor
+{
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+}
+
+.icon
+{
+  min-width: 50px;
+  text-align: center;
+  color: #999;
+}
+
+.button
+{
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  background: #1a2537;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover
+{
+background:cadetblue ;
+}
+
+p
+{
+text-align: center;
+font-size: 15px;
+}
+
+.parrafo
+{
+  margin-top: 10px;
+}
+
+.link
+{
   text-decoration: none;
-  font-family:"corbel";
-  font-weight: bold;
-  border-radius: 50px;
-  line-height: 80px;
+  color: #1a2537;
+  font-weight: 600;
 }
 
-.contenedor{
-  left: 14%;
-  top: 49%;
-  position:absolute;
+.link:hover
+{
+  color: cadetblue;
 }
 
-.boton:hover{
-  background-color: rgb(12, 157, 160);
-  transition: 0.5s;
+@media(min-width:768px)
+{
+  .formulario
+  {
+    margin: auto;
+    width: 500px;
+    margin-top: 20px;
+    left:300px;
+    border-radius: 2%;
+  }
+
 }
 
 
