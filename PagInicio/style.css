@@ -69,25 +69,30 @@ margin-top: 22%;
 }
 
 .titulo::before{
+  color: white;
   content:attr(data-text);
   position: absolute;
   white-space : nowrap;
-  width: 0;
-  color: white;
+  width: 100;
   -webkit-text-stroke: 0vw darkslateblue;
   overflow: hidden;
-  animation: animacion 6s linear infinite;
-  border-right: 2px solid white;
+  animation: animacion 4s linear;
 }
 
 @keyframes animacion{
-  0%, 10%, 100%
+  0%
   {
-      width: 0;
+      border-right: 2px solid white;
+      width: 0%;
   }
-  50%, 70%
+  90%
   {
       width: 100%;
+      border-right: 2px solid white;
+  }
+  100%
+  {
+    border-right: 0;
   }
 }
 /* #brand{
