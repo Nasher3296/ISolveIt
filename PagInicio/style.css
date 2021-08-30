@@ -10,21 +10,35 @@ font-family: "corbel";
 }
 
 .header {
-background-color: #f1f1f1;
+background-color: white;
 height: 80px;
-position: relative; 
+width:100vw;
+position: fixed; 
 }
 
 .main{
   display: grid;
 
   grid-template:
-    "brand-cont    divform" 90vh /
+    "brand-cont    divform" 37vh 
+    "ilustracion    divform" 63vh / 
+    /* la linea de arriba deberia ir con auto pero x alguna razon no funciona */
       50vw             auto;
+  justify-items: center;
+}
+
+.ilustracion{
+  grid-area:ilustracion;
+  width: auto;
+  height: 90%;
 }
 
 .divform{
   grid-area: divform;
+  display:grid;
+  grid-template:
+  "form";
+  align-items: center;
 }
 
 .brand-cont{
@@ -34,7 +48,7 @@ font-size:40px;
 text-transform: uppercase;
 font-family: "verdana";
 text-align: center;
-margin-top: 35%;
+margin-top: 22%;
   /* display: grid;
   grid-template:
     "brand" 10%
@@ -48,8 +62,8 @@ margin-top: 35%;
   /* grid-area: slogan; */
   color:white;
   font-size:15px;
-  margin-top:24px;
   font-family: "corbel";
+  text-align: left;
   font-weight:600;
   }
 
@@ -110,11 +124,14 @@ border-radius: 20px;
 
 .formulario
 {
-  border-radius: 2%;
-  margin-top: 30%;
+  border-radius: 6%;
+  margin-top:80px;
   background: white;
   width: 90%;
-  max-width: 600px;
+  padding: 10px 5px;
+  max-width: 500px;
+  min-width: 350px;
+  grid-area:form;
 }
 
 h2
@@ -124,6 +141,10 @@ h2
   font-size: 30px;
   padding-top: 15px;
 
+}
+
+input:focus{
+  outline-style: none;
 }
 
 input[type="text"],
