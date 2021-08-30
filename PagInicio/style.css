@@ -4,6 +4,7 @@
   box-sizing: border-box;
   }
 
+
 body{
 background-color:darkslateblue;
 font-family: "corbel";
@@ -43,6 +44,7 @@ position: fixed;
 
 .brand-cont{
   grid-area: brand-cont;
+  width: max-content;
 color:white;
 font-size:40px;
 text-transform: uppercase;
@@ -55,18 +57,20 @@ margin-top: 22%;
     "slogan" auto; */
 }
 
+.titlecont{
+  position: relative;
+}
+
 .titulo{
   white-space : nowrap;
   -webkit-text-stroke: 0.2vw rgb(92, 82, 160);
   text-transform: uppercase;
   Color: darkslateblue;
-  max-width: fit-content;
 }
 
 .titulo::before{
   content:attr(data-text);
   position: absolute;
-  max-width: max-content;
   white-space : nowrap;
   width: 0;
   color: white;
@@ -83,7 +87,7 @@ margin-top: 22%;
   }
   50%, 70%
   {
-      width: 50%;
+      width: 100%;
   }
 }
 /* #brand{
