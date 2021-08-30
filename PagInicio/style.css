@@ -55,6 +55,41 @@ margin-top: 22%;
     "slogan" auto; */
 }
 
+.titulo{
+  white-space : nowrap;
+  -webkit-text-stroke: 0.2vw rgb(92, 82, 160);
+  text-transform: uppercase;
+  Color: darkslateblue;
+  max-width: fit-content;
+}
+
+.titulo::before{
+  content:attr(data-text);
+  position: absolute;
+  max-width: 100%;
+  white-space : nowrap;
+  width: 0;
+  color: white;
+  -webkit-text-stroke: 0vw darkslateblue;
+  overflow: hidden;
+  animation: animacion 6s linear infinite;
+  border-right: 2px solid white;
+}
+
+.titulo_cont{
+  max-width: 500px;
+}
+
+@keyframes animacion{
+  0%, 10%, 100%
+  {
+      width: 0;
+  }
+  70%, 90%
+  {
+      width: 100%;
+  }
+}
 /* #brand{
   grid-area: brand;
 } */
