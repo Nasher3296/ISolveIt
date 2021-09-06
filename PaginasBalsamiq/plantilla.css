@@ -1,0 +1,46 @@
+.publicaciones{
+    width: 100%;
+    background-color: rgb(243, 177, 78);
+}
+
+.publicacion_preview{
+    height: auto;
+    display: grid;
+    grid-template: 
+    "data" 35%
+    "cuerpo" auto
+    "tags" 20%;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.data{
+    height: 100%;
+    grid-area: data;
+    display: grid;
+    grid-template:
+    "foto  usuario   recoyvenc" 100%/
+    5%         auto        40%;
+}
+
+.cuerpo{
+    grid-area: cuerpo;
+}
+
+.tags{
+    grid-area: tags;
+}
+
+.foto{
+    grid-area: foto;
+}
+
+.usuario{
+    grid-area: usuario;
+}
+
+.recoyvenc{
+    grid-area: recoyvenc;
+    text-align: right;
+}

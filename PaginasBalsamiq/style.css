@@ -32,23 +32,35 @@ body{
 .header{
     background-color: burlywood;
     grid-area: header;
-    float: left;
+    display: grid;
+    align-items: center;
+
+    grid-template:
+        "titu   busc" /
+        auto    25%    
 }
 
 .ISolveIt{
-    max-width: 2004px;
+    grid-area: titu;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.buscador{
+    grid-area: busc;
+    margin-right: 30px;
 }
 
 .sidebar{
     background-color: violet;
     grid-area: sidebar;
-
+    text-align: left;
     display: grid;
 
     grid-template:
-        "sidebar_usuario"
-        "sidebar_menu"
-        "sidebar_nuevaDuda";
+        "sidebar_usuario" 10%
+        "sidebar_menu" auto
+        "sidebar_nuevaDuda" 15%;
 }
 
 .main{
@@ -65,10 +77,9 @@ body{
     grid-area: sidebar_usuario;
 }
 
-.cont_sidebar_usuario{
-    margin: 5% 10%;
-    text-align: left;
-}
+/* .cont_sidebar_usuario{
+
+} */
 
 .sidebar_menu{
     grid-area: sidebar_menu;
@@ -77,7 +88,6 @@ body{
 
 .cont_sidebar_menu{
     text-align: left;
-    margin-left: 20%;
 }
 
 .sidebar_nuevaDuda{
@@ -91,7 +101,7 @@ body{
     max-width: fit-content;
 }
 
-
+/* 
 @media (max-width: 600px){
     .grid_container{
         grid-template:
@@ -100,4 +110,4 @@ body{
         "main"      auto
         "footer"    5%;
     }
-}
+} */

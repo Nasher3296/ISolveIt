@@ -82,6 +82,10 @@ margin-top: 22%;
 @keyframes animacion{
   0%
   {
+
+  }
+  10%
+  {
       border-right: 2px solid white;
       width: 0%;
   }
