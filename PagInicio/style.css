@@ -6,32 +6,87 @@
 
 
 body{
-background-color:darkslateblue;
+background-color:rgb(83, 74, 146);
 font-family: "corbel";
 }
 
 .header {
-background-color: white;
+background-color: rgb(255, 255, 255);
 height: 80px;
 width:100vw;
 position: fixed; 
+z-index: 100;
 }
 
 .main{
-  display: grid;
+display: grid;
+grid-template:
+  "login" 100vh
+  "nosotros" 70vh
+  "contacto" 70vh;
+}
 
+.login{
+  grid-area:login;
+  display: grid;
   grid-template:
-    "brand-cont    divform" 37vh 
+    "brand-cont    divform" 37vh /*esto estaba en 37*/
     "ilustracion    divform" 63vh / 
     /* la linea de arriba deberia ir con auto pero x alguna razon no funciona */
       50vw             auto;
   justify-items: center;
 }
 
+.contacto{
+grid-area: contacto;
+background: rgb(83, 74, 146);
+display: grid;
+    grid-template:
+      "ilustracion3     cont_contacto" 100% /
+        50vw             auto;
+    justify-items: center;
+}
+
+.cont_contacto{
+grid-area: cont_contacto;
+}
+
+.nosotros{
+  grid-area: nosotros;
+  background:white;
+  display: grid;
+    grid-template:
+      "cont_nos      ilustracion2" 100% /
+        50vw             auto;
+    justify-items: center; 
+}
+
+.ilustracion3{
+  grid-area: ilustracion3;
+  width: 80%;
+  height: auto; 
+  position:relative;
+  top: 20%;
+}
+
+.ilustracion2{
+  grid-area: ilustracion2;
+  width: auto;
+  height: 75%; 
+  top: 10%;
+  position:relative;
+}
+
+.cont_nos{
+  grid-area: cont_nos;
+}
+
 .ilustracion{
   grid-area:ilustracion;
   width: auto;
-  height: 90%;
+  height: 70%;
+  position: relative;
+  top: 30px;
 }
 
 .divform{
@@ -46,7 +101,7 @@ position: fixed;
   grid-area: brand-cont;
   width: max-content;
 color:white;
-font-size:40px;
+font-size:35px;
 text-transform: uppercase;
 font-family: "verdana";
 text-align: center;
@@ -76,7 +131,7 @@ margin-top: 22%;
   width: 100;
   -webkit-text-stroke: 0vw darkslateblue;
   overflow: hidden;
-  /* animation: animacion 4s linear; */
+  animation: animacion 1.5s linear; 
 }
 
 @keyframes animacion{
@@ -157,7 +212,7 @@ border-radius: 20px;
   background-color:darkslateblue;
   color: white;
   transition: 0.5s;
-  box-shadow: 0px 10px 10px -6px rgb(83, 83, 83)
+  box-shadow: 0px 10px 10px -6px rgb(185, 185, 185)
 }
 
 .contenedor
