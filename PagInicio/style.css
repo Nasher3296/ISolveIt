@@ -84,7 +84,7 @@ grid-area: cont_contacto;
 .ilustracion{
   grid-area:ilustracion;
   width: auto;
-  height: 70%;
+  height: 50%;
   position: relative;
   top: 30px;
 }
