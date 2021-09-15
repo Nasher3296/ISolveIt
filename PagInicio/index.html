@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>I Solve It</title>
+    <!--link para los iconos [NO BORRAR] -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+<body>
+    <!--header -->
+    <header class="header">
+        <!--barra de navegacion-->
+        <nav class="nav">
+            <a href="#" class="logo nav-link">Logo</a>
+            <ul class="menu-nav">
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">app</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Opiniones</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Sobre nosotros</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Contacto</a>
+            </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main">
+        <section class="login">
+            <!--texto pagina principal-->
+            <div class="brand-cont">
+                <div class="titlecont">
+                    <h1 id="brand" class="titulo" data-text="i solve it">i solve it</h1>
+                </div>
+
+                <div><p id="slogan">Compartí tus conocimientos.</p></div>
+            </div>
+            <img src="Recursos/ilustraciones/Ilustracion_1.svg" class="ilustracion">
+            <div class="divform">
+                <!--registro y login -->
+                <form class="formulario" action="registroUsuario.php" method="POST" id="formRegistro" onsubmit="return verificarPass();">
+                    <h2>Crear cuenta</h2>
+                    <div class="contenedor">
+                        <div class="input-contenedor">
+                            <label for="username"><i class="fas fa-user icon"></i></label>
+                            <input type="text" id="username" placeholder="Nombre de Usuario">
+                        </div>
+                        
+                        <div class="input-contenedor">
+                            <label for="mail"><i class="fas fa-envelope icon"></i></label>
+                            <input type="text" id="mail" placeholder="Correo Electrónico">
+                        </div>
+                        
+                        <div class="input-contenedor">
+                            <label for="pass"><i class="fas fa-key icon"></i></label>
+                            <input type="password" id="pass" placeholder="Contraseña">
+                        </div>
+                        <input type="submit" value="Registrate" class="button"> <!-- El boton puede no ser de tipo button y estar dentro del form o si o si afuera? -->
+                        <div class="parrafo">
+                            <p>Al registrarte, aceptas nuestras Condiciones de uso y Políticas de privacidad.</p>
+                            <p>¿Ya tienes una cuenta?<a class="link" href="aca va el link a la otra pag!!"> Iniciar Sesión</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section> 
+        <section class="nosotros">
+           <div class="cont_nos">
+            <!--aca va el texto uwu-->
+           </div>
+            <img src="Recursos/ilustraciones/Ilustracion_2.svg" class="ilustracion2">
+        </section>
+        <section class="contacto">
+            <div class="cont_contacto">
+            <!-- aca va el texto uwu -->
+            </div> 
+            <img src="Recursos/ilustraciones/Ilustracion_3.svg"class="ilustracion3">
+        </section>
+        </div>
+</body>
+</html>

@@ -34,6 +34,7 @@
                 alert("Usuario registrado!");
                 window.location.href="index.html";
                 </script>';
+                /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
             }
             
         }
