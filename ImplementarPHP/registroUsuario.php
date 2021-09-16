@@ -2,6 +2,7 @@
     include('config.php');
     if(isset($_POST['registro'])){ /* Si se toca el boton con id registro */
         $usuario = $_POST['username'];
+        $mail = $_POST['mail'];
         $pass = $_POST['pass'];
         $passCifrada = password_hash($pass,PASSWORD_DEFAULT);
         
@@ -14,29 +15,43 @@
         if($resultadoUser){ //si hay algo en esa matriz (o sea que el user existe)
             echo'<script type="text/javascript">
             alert("El usuario ya existe");
-            window.location.href="registroUsuario.html";
+            window.location.href="../index.html";
             </script>';
             /* El usuario ya existia, pedimos que ingrese uno diferente */
         }
-        else{ /* Si el usuario no existia */
-            $consultaRegistro = $conn -> prepare("INSERT INTO usuarios(username, pass) VALUES (:usuario , :pass)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
-            $consultaRegistro -> bindParam("usuario",$usuario,PDO::PARAM_STR);
-            $consultaRegistro -> bindParam("pass",$passCifrada,PDO::PARAM_STR);
-            $resultadoRegistro = $consultaRegistro -> execute();
-            if(!$resultadoRegistro){ //si devuelve false es porque fallo la insersion
-                echo'<script type="text/javascript">
-                alert("No se pudo registrar el usuario");
-                window.location.href="registroUsuario.html";
-                </script>';
-            }
-            else{
-                echo'<script type="text/javascript">
-                alert("Usuario registrado!");
-                window.location.href="index.html";
-                </script>';
-                /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
-            }
+        else{
             
+            $consultaMail = $conn -> prepare("SELECT * FROM usuarios WHERE mail= :mail"); 
+            $consultaMail -> bindParam("mail",$mail,PDO::PARAM_STR);
+            $consultaMail -> execute();
+            $resultadoMail = $consultaMail->fetch(PDO::FETCH_ASSOC); 
+            if($resultadoMail){
+                echo'<script type="text/javascript">
+                alert("El mail ya existe");
+                window.location.href="../index.html";
+                </script>';
+                /* El usuario ya existia, pedimos que ingrese uno diferente */
+            }
+
+            else{ /* Si el usuario no existia */
+                $consultaRegistro = $conn -> prepare("INSERT INTO usuarios(username, pass) VALUES (:usuario , :pass)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
+                $consultaRegistro -> bindParam("usuario",$usuario,PDO::PARAM_STR);
+                $consultaRegistro -> bindParam("pass",$passCifrada,PDO::PARAM_STR);
+                $resultadoRegistro = $consultaRegistro -> execute();
+                if(!$resultadoRegistro){ //si devuelve false es porque fallo la insersion
+                    echo'<script type="text/javascript">
+                    alert("No se pudo registrar el usuario");
+                    window.location.href="../index.html";
+                    </script>';
+                }
+                else{
+                    echo'<script type="text/javascript">
+                    alert("Usuario registrado!");
+                    window.location.href="PaginasBalsamiq\index.html";
+                    </script>';
+                    /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
+                }
+            }  
         }
     }
 ?>
