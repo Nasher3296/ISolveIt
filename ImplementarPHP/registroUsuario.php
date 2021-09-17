@@ -7,7 +7,7 @@
         $passCifrada = password_hash($pass,PASSWORD_DEFAULT);
         
         /*consultar si el usuario ya existe*/
-        $consultaUser = $conn -> prepare("SELECT * FROM usuarios WHERE username= :user"); /* Consulta la base de datos, tabla "usuarios" y compara la columna "username" con el placeholder que en la siguiente linea se va a reemplazar */
+        $consultaUser = $conn -> prepare("SELECT * FROM usuario WHERE username= :user"); /* Consulta la base de datos, tabla "usuarios" y compara la columna "username" con el placeholder que en la siguiente linea se va a reemplazar */
         $consultaUser -> bindParam("user",$usuario,PDO::PARAM_STR); /* Cambia el placeholder user por la variable usuario y lo conviere a string */
         $consultaUser -> execute(); /* Confirma el envio de la consulta */
 
@@ -21,7 +21,7 @@
         }
         else{
             
-            $consultaMail = $conn -> prepare("SELECT * FROM usuarios WHERE mail= :mail"); 
+            $consultaMail = $conn -> prepare("SELECT * FROM usuario WHERE mail= :mail"); 
             $consultaMail -> bindParam("mail",$mail,PDO::PARAM_STR);
             $consultaMail -> execute();
             $resultadoMail = $consultaMail->fetch(PDO::FETCH_ASSOC); 
@@ -34,7 +34,7 @@
             }
 
             else{ /* Si el usuario no existia */
-                $consultaRegistro = $conn -> prepare("INSERT INTO usuarios(username, pass) VALUES (:usuario , :pass)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
+                $consultaRegistro = $conn -> prepare("INSERT INTO usuario(username, pass) VALUES (:usuario , :pass)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
                 $consultaRegistro -> bindParam("usuario",$usuario,PDO::PARAM_STR);
                 $consultaRegistro -> bindParam("pass",$passCifrada,PDO::PARAM_STR);
                 $resultadoRegistro = $consultaRegistro -> execute();

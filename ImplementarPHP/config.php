@@ -1,8 +1,7 @@
 <?php
-    /* $user = 'carlos';
+    $user = 'carlos';
     $pass = 'asd123';
-    $database = 'calculadoraPro'; */
-    /* Cambiar losd atos por los de sancor */
+    $database = 'proyecto';
     $host = 'localhost';
 
     try{
