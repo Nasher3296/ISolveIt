@@ -1,6 +1,6 @@
 <?php
-    $user = 'carlos';
-    $pass = 'asd123';
+    $user = 'admin';
+    $pass = 'admin';
     $database = 'proyecto';
     $host = 'localhost';
 
