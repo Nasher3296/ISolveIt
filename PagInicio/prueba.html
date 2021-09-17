@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -7,7 +12,7 @@
     <!--link para los iconos [NO BORRAR] -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
-<body>
+<body> 
     <!--header -->
     <header class="header">
         <!--barra de navegacion-->
@@ -21,10 +26,10 @@
                 <a href="" class="menu-nav-link nav-link">Opiniones</a>
             </li>
             <li class="menu-nav-item">
-                <a href="" class="menu-nav-link nav-link">Sobre nosotros</a>
+                <a href="#SobreNosotros" class="menu-nav-link nav-link" title="SobreNosotros">Sobre Nosotros</a>
             </li>
             <li class="menu-nav-item">
-                <a href="" class="menu-nav-link nav-link">Contacto</a>
+                <a href="#Contacto" class="menu-nav-link nav-link" title="Contacto">Contacto</a>
             </li>
             </ul>
         </nav>
@@ -69,13 +74,17 @@
         </section> 
         <section class="nosotros">
            <div class="cont_nos">
-            <!--aca va el texto uwu-->
+                <a name="SobreNosotros"></a>
+               <div class="SobreNos_Titulo">Nuestro proyecto</div> 
+               <p class="parrafo2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint optio enim maiores, commodi explicabo architecto quisquam ea nemo at natus? A aliquid soluta consequatur adipisci magni deserunt nihil debitis! Soluta!</p>
            </div>
             <img src="Recursos/ilustraciones/Ilustracion_2.svg" class="ilustracion2">
         </section>
         <section class="contacto">
             <div class="cont_contacto">
-            <!-- aca va el texto uwu -->
+                <a name="Contacto"></a>
+                <div class="Contacto_Titulo">Contacto</div>
+                <p class="parrafo2" id=p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint repellendus numquam, nulla beatae consectetur sed. Odio, ducimus voluptas labore corporis ea sequi at. Cumque officia nostrum laborum veniam aliquam quasi.</p>
             </div> 
             <img src="Recursos/ilustraciones/Ilustracion_3.svg"class="ilustracion3">
         </section>
