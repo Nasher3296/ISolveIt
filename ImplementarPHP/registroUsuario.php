@@ -25,7 +25,7 @@
             $consultaMail -> bindParam("mail",$mail,PDO::PARAM_STR);
             $consultaMail -> execute();
             $resultadoMail = $consultaMail->fetch(PDO::FETCH_ASSOC); 
-            if($resultadoMail){
+            if($resultadoMail){                 ////por alguna razon esto no funciona. Se pueden duplicar mails
                 echo'<script type="text/javascript">
                 alert("El mail ya existe");
                 window.location.href="../index.html";
@@ -47,7 +47,7 @@
                 else{
                     echo'<script type="text/javascript">
                     alert("Usuario registrado!");
-                    window.location.href="PaginasBalsamiq\index.html";
+                    window.location.href="../PaginasBalsamiq/index.html";
                     </script>';
                     /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
                 }

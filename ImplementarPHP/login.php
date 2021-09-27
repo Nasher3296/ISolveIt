@@ -6,7 +6,7 @@
         $username = $_POST['username'];
         $pass = $_POST['pass'];
         //consulta para ver si el user existe
-        $consulta = $conn->prepare("SELECT * FROM usuarios WHERE username =:usuario");
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username =:usuario");
         $consulta->bindParam("usuario", $username, PDO::PARAM_STR); 
         $consulta ->execute();
 
@@ -14,7 +14,7 @@
 
         if(!$resultado){ //si el usuario no existe
             echo'<script type="text/javascript">
-            alert("User y pass incorrectos");
+            alert("1User y pass incorrectos");
             window.location.href="index.html";
             </script>';
         }
@@ -24,13 +24,15 @@
                 //crear variables de sesion para conservar el nombre de usuario en las otras paginas
                 $_SESSION['IdUsuario'] = $resultado['ID'];
                 $_SESSION['username'] = $resultado['username'];
-            header("Location:PaginasBalsamiq\index.html"); //redirecciono al home de la calculadora
+            header("Location:PaginasBalsamiq\index.html");
             }
             else{
                 echo'<script type="text/javascript">
-                alert("User y pass incorrectos");
+                alert("2User y pass incorrectos");
                 window.location.href="index.html";
                 </script>';
+
+                //Por alguna razon al loguearse bien o mal entra aca
             }
         }
     }
