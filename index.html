@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="PagInicio/style.css">
+    <meta charset="UTF-8">
+    <title>I Solve It</title>
+    <!--link para los iconos [NO BORRAR] -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+<body>
+    <!--header -->
+    <header class="header">
+        <!--barra de navegacion-->
+        <nav class="nav">
+            <a href="#" class="logo nav-link">Logo</a>
+            <ul class="menu-nav">
+            <li class="menu-nav-item">
+                <a href="#App" class="menu-nav-link nav-link">app</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="" class="menu-nav-link nav-link">Opiniones</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="#SobreNosotros" class="menu-nav-link nav-link" title="SobreNosotros">Sobre Nosotros</a>
+            </li>
+            <li class="menu-nav-item">
+                <a href="#Contacto" class="menu-nav-link nav-link" title="Contacto">Contacto</a>
+            </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main">
+        <section class="login">
+            <!--texto pagina principal-->
+            <div class="brand-cont">
+                <div class="titlecont">
+                    <h1 id="brand" class="titulo" data-text="i solve it">i solve it</h1>
+                </div>
+                
+                <div><p id="slogan">Compartí tus conocimientos.</p></div>
+            </div>
+            <img src="PagInicio/Recursos/ilustraciones/Ilustracion_1.svg" class="ilustracion">
+            <div class="divform">
+                <a name="App"></a>
+                <!--registro y login -->
+                <div class="registroDiv">
+                    <form class="formulario" action="ImplementarPHP/registroUsuario.php" method="POST" id="formRegistro" onsubmit="return verificarPass();">
+                        <h2>Crear cuenta</h2>
+                        <div class="contenedor">
+                            <div class="input-contenedor">
+                                <label for="username"><i class="fas fa-user icon"></i></label>
+                                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required>
+                            </div>
+                            
+                            <div class="input-contenedor">
+                                <label for="mail"><i class="fas fa-envelope icon"></i></label>
+                                <input type="text" id="mail" name="mail" placeholder="Correo Electrónico" required>
+                            </div>
+                            
+                            <div class="input-contenedor">
+                                <label for="pass"><i class="fas fa-key icon"></i></label>
+                                <input type="password" id="pass" name="pass" placeholder="Contraseña" required>
+                            </div>
+                            <input type="submit" value="Registrate" class="button" id="registro" name="registro" form="formRegistro">
+                            <div class="parrafo">
+                                <p>Al registrarte, aceptas nuestras Condiciones de uso y Políticas de privacidad.</p>
+                                <p>¿Ya tienes una cuenta?<a class="link" href="aca va el link a la otra pag!!"> Iniciar Sesión</a></p>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Aca iria el verificar pass
+                    <script type="text/javascript">
+                        function verificarPass(){
+                            pass1 = document.getElementById('pass');
+                            pass2 = document.getElementById('pass2');
+                            if(pass1.value != pass2.value){
+                                alert("El usuario y contraseña no coinciden");
+                                return false;
+                            }
+                            else{
+                                return true;
+                            }
+                        }
+                    </script>
+                    -->
+                </div>
+                <div class="loginDiv">
+                    <form action="ImplementarPHP/login.php" method="POST" id="formLogin">
+                        <label for="username">Nombre de usuario:</label>
+                        <br>
+                        <input type="text" id="username" name="username" required>
+                        <br>
+                        <label for="pass">Constraseña:</label>
+                        <br>
+                        <input type="password" id="pass" name="pass" required>
+                        <br>
+                    </form>
+                    <button type="submit" value="login" id="login" name="login" form="formLogin">iniciar sesion</button>
+                </div>
+            </div>
+        </section> 
+        <section class="nosotros">
+            <div class="cont_nos">
+                 <a name="SobreNosotros"></a>
+                <div class="SobreNos_Titulo">Nuestro proyecto</div> 
+                <p class="parrafo2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint optio enim maiores, commodi explicabo architecto quisquam ea nemo at natus? A aliquid soluta consequatur adipisci magni deserunt nihil debitis! Soluta!</p>
+            </div>
+             <img src="PagInicio/Recursos/ilustraciones/Ilustracion_2.svg" class="ilustracion2">
+         </section>
+         <section class="contacto">
+             <div class="cont_contacto">
+                 <a name="Contacto"></a>
+                 <div class="Contacto_Titulo">Contacto</div>
+                 <p class="parrafo2" id=p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint repellendus numquam, nulla beatae consectetur sed. Odio, ducimus voluptas labore corporis ea sequi at. Cumque officia nostrum laborum veniam aliquam quasi.</p>
+             </div> 
+             <img src="PagInicio/Recursos/ilustraciones/Ilustracion_3.svg"class="ilustracion3">
+         </section>
+         </div>
+ </body>
+ </html>
