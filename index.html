@@ -15,16 +15,16 @@
             <a href="#" class="logo nav-link">Logo</a>
             <ul class="menu-nav">
             <li class="menu-nav-item">
-                <a href="" class="menu-nav-link nav-link">app</a>
+                <a href="#App" class="menu-nav-link nav-link">app</a>
             </li>
             <li class="menu-nav-item">
                 <a href="" class="menu-nav-link nav-link">Opiniones</a>
             </li>
             <li class="menu-nav-item">
-                <a href="" class="menu-nav-link nav-link">Sobre nosotros</a>
+                <a href="#SobreNosotros" class="menu-nav-link nav-link" title="SobreNosotros">Sobre Nosotros</a>
             </li>
             <li class="menu-nav-item">
-                <a href="" class="menu-nav-link nav-link">Contacto</a>
+                <a href="#Contacto" class="menu-nav-link nav-link" title="Contacto">Contacto</a>
             </li>
             </ul>
         </nav>
@@ -41,6 +41,7 @@
             </div>
             <img src="PagInicio/Recursos/ilustraciones/Ilustracion_1.svg" class="ilustracion">
             <div class="divform">
+                <a name="App"></a>
                 <!--registro y login -->
                 <div class="registroDiv">
                     <form class="formulario" action="ImplementarPHP/registroUsuario.php" method="POST" id="formRegistro" onsubmit="return verificarPass();">
@@ -99,17 +100,21 @@
             </div>
         </section> 
         <section class="nosotros">
-           <div class="cont_nos">
-            <!--aca va el texto uwu-->
-           </div>
-            <img src="PagInicio/Recursos/ilustraciones/Ilustracion_2.svg" class="ilustracion2">
-        </section>
-        <section class="contacto">
-            <div class="cont_contacto">
-            <!-- aca va el texto uwu -->
-            </div> 
-            <img src="PagInicio/Recursos/ilustraciones/Ilustracion_3.svg"class="ilustracion3">
-        </section>
+            <div class="cont_nos">
+                 <a name="SobreNosotros"></a>
+                <div class="SobreNos_Titulo">Nuestro proyecto</div> 
+                <p class="parrafo2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint optio enim maiores, commodi explicabo architecto quisquam ea nemo at natus? A aliquid soluta consequatur adipisci magni deserunt nihil debitis! Soluta!</p>
+            </div>
+             <img src="PagInicio/Recursos/ilustraciones/Ilustracion_2.svg" class="ilustracion2">
+         </section>
+         <section class="contacto">
+             <div class="cont_contacto">
+                 <a name="Contacto"></a>
+                 <div class="Contacto_Titulo">Contacto</div>
+                 <p class="parrafo2" id=p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint repellendus numquam, nulla beatae consectetur sed. Odio, ducimus voluptas labore corporis ea sequi at. Cumque officia nostrum laborum veniam aliquam quasi.</p>
+             </div> 
+             <img src="PagInicio/Recursos/ilustraciones/Ilustracion_3.svg"class="ilustracion3">
+         </section>
         </div>
 </body>
 </html>

@@ -4,6 +4,9 @@
   box-sizing: border-box;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
 
 body{
 background-color:rgb(83, 74, 146);
