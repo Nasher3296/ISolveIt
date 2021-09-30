@@ -34,9 +34,10 @@
             }
 
             else{ /* Si el usuario no existia */
-                $consultaRegistro = $conn -> prepare("INSERT INTO usuario(username, pass) VALUES (:usuario , :pass)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
+                $consultaRegistro = $conn -> prepare("INSERT INTO usuario(username, pass, mail) VALUES (:usuario , :pass, :mail)"); /* Prepara la insercion del usuario y contraseña en la tabla usuarios con los placeholders que reemplaza despues */
                 $consultaRegistro -> bindParam("usuario",$usuario,PDO::PARAM_STR);
                 $consultaRegistro -> bindParam("pass",$passCifrada,PDO::PARAM_STR);
+                $consultaRegistro -> bindParam("mail",$mail,PDO::PARAM_STR);
                 $resultadoRegistro = $consultaRegistro -> execute();
                 if(!$resultadoRegistro){ //si devuelve false es porque fallo la insersion
                     echo'<script type="text/javascript">

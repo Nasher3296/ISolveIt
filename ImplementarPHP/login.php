@@ -14,7 +14,7 @@
 
         if(!$resultado){ //si el usuario no existe
             echo'<script type="text/javascript">
-            alert("1User y pass incorrectos");
+            alert("User o pass incorrectos");
             window.location.href="index.html";
             </script>';
         }
@@ -24,11 +24,11 @@
                 //crear variables de sesion para conservar el nombre de usuario en las otras paginas
                 $_SESSION['IdUsuario'] = $resultado['ID'];
                 $_SESSION['username'] = $resultado['username'];
-            header("Location:PaginasBalsamiq\index.html");
+                header("Location:../PaginasBalsamiq/index.html");
             }
             else{
                 echo'<script type="text/javascript">
-                alert("2User y pass incorrectos");
+                alert("User o pass incorrectos");
                 window.location.href="index.html";
                 </script>';
 

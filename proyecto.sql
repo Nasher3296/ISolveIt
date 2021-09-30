@@ -60,7 +60,7 @@ CREATE TABLE `consulta` (
 CREATE TABLE `usuario` (
   `id_us` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `pass` varchar(50) NOT NULL,
+  `pass` varchar(200) NOT NULL,
   `mail` varchar(100) NOT NULL,
   `estrellas` int(2) DEFAULT NULL,
   `empleo` tinyint(1) NOT NULL,

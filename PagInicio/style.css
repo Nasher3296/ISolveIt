@@ -41,6 +41,7 @@ grid-template:
 }
 
 .contacto{
+  position: relative;
 grid-area: contacto;
 background: rgb(83, 74, 146);
 display: grid;
@@ -55,6 +56,7 @@ grid-area: cont_contacto;
 }
 
 .nosotros{
+  position: relative;
   grid-area: nosotros;
   background:white;
   display: grid;
@@ -119,6 +121,10 @@ margin-top: 22%;
   position: relative;
 }
 
+.referencia{
+  position: absolute;
+  top: -80px;
+}
 .titulo{
   white-space : nowrap;
   -webkit-text-stroke: 0.2vw rgb(92, 82, 160);

@@ -1,5 +1,5 @@
 <?php
-    $user = 'admin';
+    $user = 'root';
     $pass = '';
     $database = 'proyecto';
     $host = 'localhost';
