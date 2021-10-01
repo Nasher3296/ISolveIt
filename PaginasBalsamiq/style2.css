@@ -10,13 +10,7 @@ html{
 }
 
 body{
-    font-family: "";
-    font-size: "";
     min-height: 100%;
-}
-
-.grid_container > *{
-    text-align: center;
 }
 
 .grid_container{
@@ -25,8 +19,7 @@ body{
 
     grid-template:
         "sidebar     header" 10%
-        "sidebar    main"   auto
-        "footer     footer" 5% /
+        "sidebar    main"   auto/
         25%         auto;
 }
 
@@ -49,47 +42,17 @@ body{
 
 .buscador{
     grid-area: busc;
-    margin-right: 30px;
 }
 
 .sidebar{
     background-color: rgb(83, 74, 146);
     grid-area: sidebar;
     text-align: left;
-    display: grid;
-
-    grid-template:
-        "sidebar_usuario" 10%
-        "sidebar_menu" auto
-        "sidebar_nuevaDuda" 15%;
 }
 
 .main{
     background-color: springgreen;
     grid-area: main;
-}
-
-.footer{
-    background-color: darkcyan;
-    grid-area: footer;
-}
-
-.sidebar_usuario{
-    grid-area: sidebar_usuario;
-}
-
-/* .cont_sidebar_usuario{
-
-} */
-
-.sidebar_menu{
-    grid-area: sidebar_menu;
-    font-size: 2rem;
-}
-
-a{
-    text-decoration: none;
-    color:white;
 }
 
 .botones_sidebar{
@@ -105,30 +68,3 @@ a{
     transition: 0.5s;
     background-color:rgb(226, 25, 25);
 }
-
-.cont_sidebar_menu{
-    
-    text-align: left;
-}
-
-.sidebar_nuevaDuda{
-    grid-area: sidebar_nuevaDuda;
-}
-
-#cont_nuevaDuda{
-    padding: 1ch;
-    background-color: brown;
-    border-radius: 2ch;
-    max-width: fit-content;
-}
-
-/* 
-@media (max-width: 600px){
-    .grid_container{
-        grid-template:
-        "header"    10%
-        "sidebar"   30%
-        "main"      auto
-        "footer"    5%;
-    }
-} */
