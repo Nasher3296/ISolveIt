@@ -24,7 +24,7 @@
                 //crear variables de sesion para conservar el nombre de usuario en las otras paginas
                 $_SESSION['IdUsuario'] = $resultado['ID'];
                 $_SESSION['username'] = $resultado['username'];
-                header("Location:../PaginasBalsamiq/index.html");
+                header("Location:../PaginasBalsamiq/inicio.php");
             }
             else{
                 echo'<script type="text/javascript">
