@@ -24,7 +24,7 @@ body{
 }
 
 .header{
-    background-color: burlywood;
+    background-color: white;
     grid-area: header;
     display: grid;
     align-items: center;
@@ -44,27 +44,56 @@ body{
     grid-area: busc;
 }
 
+.a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color:white;
+}
+
 .sidebar{
-    background-color: rgb(83, 74, 146);
+    background-color:  darkslateblue;;
     grid-area: sidebar;
-    text-align: left;
+    text-align: center;
+    color:rgb(26, 21, 21);
+}
+.h2{
+background-color: rgb(98, 86, 160);
+color:white;
+border-radius: 30px;
+padding:11px;
+}
+
+.h4{
+color:white;
+text-align: left;
+margin:30px 0px -40px 40px;
+font-size: 1.8rem;
+}
+
+.h5{
+color:white;
+text-align: left;
+margin:40px;
+font-size: 1rem;
 }
 
 .main{
-    background-color: springgreen;
+    background-color: darkslateblue;
     grid-area: main;
 }
 
 .botones_sidebar{
-    margin: 20px;
+    margin: 30px;
     padding: 10px;
-    border-radius: 20px;
-    background-color:rgb(83, 74, 146);
-    font-size: 1.5rem;
-    width: max-content;
+    list-style: none;
+    text-align: left;
 }
 
-.botones_sidebar::hover{
+.a:hover{
     transition: 0.5s;
-    background-color:rgb(226, 25, 25);
+    background-color:rgb(98, 86, 160);
+    color:white;
+    border-radius: 20px;
+    padding: 10px;
 }
+    
