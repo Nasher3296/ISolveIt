@@ -4,6 +4,7 @@
 }
 
 .publicacion_preview{
+    border-style: solid;
     height: auto;
     display: grid;
     grid-template: 

@@ -46,9 +46,10 @@
                     </script>';
                 }
                 else{
+                    //agregar el inicio de la sesion
                     echo'<script type="text/javascript">
                     alert("Usuario registrado!");
-                    window.location.href="../PaginasBalsamiq/index.html";
+                    window.location.href="../PaginasBalsamiq/inicio.php";
                     </script>';
                     /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
                 }
