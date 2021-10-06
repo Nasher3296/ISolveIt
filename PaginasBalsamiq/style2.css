@@ -15,7 +15,6 @@ body{
 
 .grid_container{
     display: grid;
-    gap: 5px;
 
     grid-template:
         "sidebar     header" 10%
@@ -38,10 +37,12 @@ body{
     grid-area: titu;
     text-align: left;
     margin-left: 100px;
+    color:#1a2537;
 }
 
 .buscador{
     grid-area: busc;
+    width: max-content;
 }
 
 .a{
@@ -52,18 +53,31 @@ body{
     background-color: none;
 }
 
+a{
+    text-decoration: none;
+}
+
 .sidebar{
     background-color:  rgb(83, 74, 146);
     grid-area: sidebar;
     text-align: center;
     color:rgb(26, 21, 21);
+    border-right:1px solid rgb(122, 110, 184);
+    
 }
+
 .h2{
 background-color: rgb(106, 93, 168);
 color:white;
 border-radius: 30px;
 padding:11px;
 width: 85%;
+margin-left: 20px;
+}
+
+.h2:hover{
+    transition: 0.5;
+    background-color: rgb(101, 88, 163);
 }
 
 .h4{
