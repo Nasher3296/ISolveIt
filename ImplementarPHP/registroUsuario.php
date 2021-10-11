@@ -1,5 +1,8 @@
 <?php /* Todo esto está trabajando en el form del html del mismo nombre y se hace el link con <form action="resgistroUsuario.php...> Desde el html */
     include('config.php');
+    
+
+
     if(isset($_POST['registro'])){ /* Si se toca el boton con id registro */
         $usuario = $_POST['username'];
         $mail = $_POST['mail'];
@@ -46,12 +49,9 @@
                     </script>';
                 }
                 else{
-                    //agregar el inicio de la sesion
-                    echo'<script type="text/javascript">
-                    alert("Usuario registrado!");
-                    window.location.href="../PaginasBalsamiq/inicio.php";
-                    </script>';
-                    /* Al haber creado exitosamente el usuario, que se haga el login de forma automática */
+                    session_start();
+                    $_SESSION['username'] = $usuario;
+                    header("Location:../PaginasBalsamiq/inicio.php");
                 }
             }  
         }

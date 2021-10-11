@@ -355,3 +355,11 @@ font-size: 15px;
 
 }
 */
+
+.loginDiv{
+  display: none;
+}
+
+.registroDiv{
+  display: block;
+}

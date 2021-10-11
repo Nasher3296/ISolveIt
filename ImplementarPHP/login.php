@@ -22,7 +22,6 @@
 
             if(password_verify($pass,$resultado['pass'])){ 
                 //crear variables de sesion para conservar el nombre de usuario en las otras paginas
-                $_SESSION['IdUsuario'] = $resultado['ID'];
                 $_SESSION['username'] = $resultado['username'];
                 header("Location:../PaginasBalsamiq/inicio.php");
             }

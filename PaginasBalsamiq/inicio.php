@@ -10,6 +10,7 @@
 
     <?php
         include('../ImplementarPHP/config.php');
+        session_start();
     ?>
 
     <header class="header">
@@ -20,7 +21,7 @@
         <div class="sidebar_usuario">
             <div class="cont_sidebar_usuario">
                 <h4>Nombre</h4>
-                <h5>@nombre</h5>
+                <h5>@<?php echo $_SESSION['username']?></h5>                        <!-- Inyeccion del usuario desde la variable de sesion -->
                 <div class="valoracion">
                     <!--Aca van las estrellas. Dejo esto para hacer un AFTER en css-->
                 </div>

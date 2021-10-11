@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="PagInicio/js.js"></script>
 </head>
+<script>
+    function Alternar(){
+        let login = document.getElementById("loginDiv");
+        let registro = document.getElementById("registroDiv");
+        if(registro.style.display == "none"){
+            registro.style.display = "block";
+            login.style.display = "none";
+        }
+        else{
+            login.style.display = "block";
+            registro.style.display = "none";
+        }
+    }
+</script>
 <body>
     <!--header -->
     <header class="header">
@@ -44,7 +58,7 @@
             <div class="divform">
                 <a name="App" class="referencia"></a>
                 <!--registro y login -->
-                <div class="registroDiv">
+                <div class="registroDiv" id="registroDiv">
                     <form class="formulario" action="ImplementarPHP/registroUsuario.php" method="POST" id="formRegistro" onsubmit="return verificarPass();">
                         <h2>Crear cuenta</h2>
                         <div class="contenedor">
@@ -65,7 +79,7 @@
                             <input type="submit" value="Registrate" class="button" id="registro" name="registro" form="formRegistro">
                             <div class="parrafo">
                                 <p>Al registrarte, aceptas nuestras Condiciones de uso y Políticas de privacidad.</p>
-                                <p>¿Ya tienes una cuenta?<a class="link" href=""> Iniciar Sesión</a></p>
+                                <p>¿Ya tienes una cuenta?<a class="link" href="" id="link" onclick="Alternar()">Iniciar Sesión</a></p>
                             </div>
                         </div>
                     </form>
@@ -85,7 +99,7 @@
                     </script>
                     -->
                 </div>
-                <div class="loginDiv">
+                <div class="loginDiv" id="loginDiv">
                     <form action="ImplementarPHP/login.php" method="POST" id="formLogin">
                         <label for="username">Nombre de usuario:</label>
                         <br>
@@ -98,6 +112,8 @@
                     </form>
                     <button type="submit" value="login" id="login" name="login" form="formLogin">iniciar sesion</button>
                 </div>
+
+                <input type="submit" value="Alternar" onclick="Alternar()">
             </div>
         </section> 
         <section class="nosotros">
