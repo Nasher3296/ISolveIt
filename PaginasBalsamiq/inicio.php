@@ -3,51 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>I solve it</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="plantilla.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body class="grid_container">
-
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
     ?>
 
-    <header class="header">
-            <h1 class="ISolveIt">I solve it</h1>
-            <input class="buscador" type="text" placeholder="buscar...">
+<header class="header">
+        <h1 class="ISolveIt">I solve it</h1>
+        <input class="buscador" type="text" placeholder="buscar...">
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
-            <div class="cont_sidebar_usuario">
-                <h4>Nombre</h4>
-                <h5>@<?php echo $_SESSION['username']?></h5>                        <!-- Inyeccion del usuario desde la variable de sesion -->
-                <div class="valoracion">
-                    <!--Aca van las estrellas. Dejo esto para hacer un AFTER en css-->
-                </div>
-            </div>
+            <h4 class="h4">Nombre</h4>
+            <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
         </div>
         <div class="sidebar_menu">
-            <div class="cont_sidebar_menu">
-                <ul type="none">
-                    <li class="botones_sidebar"><a href="">Inicio</a></li>
-                    <li class="botones_sidebar"><a href="">Dudas</a></li>
-                    <li class="botones_sidebar"><a href="">Postulaciones</a></li>
-                    <li class="botones_sidebar"><a href="">Seguidos</a></li>
-                    <li class="botones_sidebar"><a href="">Mensajes</a></li>
-                    <li class="botones_sidebar"><a href="">Mi perfil</a></li>
-                </ul>
-            </div>
+            <ul>
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-question"></i> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-user-circle"></i> Mi perfil</a></li>
+            </ul>
         </div>
-        <div class="sidebar_nuevaDuda">
-            <h2 id="cont_nuevaDuda">Nueva duda</h2>
-        </div>
+        <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
     </aside>
     <div class="main">
-        <button type="submit" value="consultar" id="consultar" name="consultar" form="formPostPreview">Consultar</button>
         <div class="publicaciones">
         <?php
             for($i = 1 ; $i < 3 ; $i++){
+                /* Hay que optimizar esto. No debería consultarse la base de datos en bucle. Tiene que ser una unica consulta y luego recorrer el array obtenido */
                 $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = $i"); 
                 $consulta ->execute();
                 $resultadoCon = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -89,8 +80,5 @@
         ?>
         </div> 
     </div>
-    <footer class="footer">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quasi earum praesentium pariatur obcaecati. Vero quidem odit ipsa id incidunt
-    </footer>
 </body>
 </html>

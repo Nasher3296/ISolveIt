@@ -1,13 +1,24 @@
 <?php
     include('config.php');
-    $tit=$_GET["title"];
-    $desc=$_GET["desc"];
-    $rec=$_GET["rec"];
-    $lim=$_GET["lim"];
+    session_start();
+    if(isset($_POST["postear"])){
+        $tit=$_POST["title"];
+        $desc=$_POST["desc"];
+        $rec=$_POST["rec"];
+        $lim=$_POST["lim"];
+        
+    }
+    $consultaid = $conn -> prepare("SELECT * FROM usuario WHERE username= :username"); 
+    $consultaid -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+    $consultaid -> execute();
+    $resultadoid = $consultaid->fetch(PDO::FETCH_ASSOC);
 
-    $consultaRegistro = $conn -> prepare("INSERT INTO consulta(titulo, descripcion, recompensa, fecha_limite) VALUES (:titulo , :descripcion, :recompensa, :limite)");
-    $consultaRegistro -> bindParam("titulo",$tit,PDO::PARAM_STR);
-    $consultaRegistro -> bindParam("descripcion",$desc,PDO::PARAM_STR);
-    $consultaRegistro -> bindParam("recompensa",$rec,PDO::PARAM_STR);
-    $consultaRegistro -> bindParam("limite",$lim,PDO::PARAM_STR);
+    $publicar = $conn -> prepare("INSERT INTO consulta(id_us, titulo, descripcion, recompensa, fecha_limite) VALUES (:id_us, :titulo , :descripcion, :recompensa, :limite)");
+    $publicar -> bindParam("id_us",$resultadoid['id_us'],PDO::PARAM_STR);
+    $publicar -> bindParam("titulo",$tit,PDO::PARAM_STR);
+    $publicar -> bindParam("descripcion",$desc,PDO::PARAM_STR);
+    $publicar -> bindParam("recompensa",$rec,PDO::PARAM_STR);
+    $publicar -> bindParam("limite",$lim,PDO::PARAM_STR);
+    $publicar ->execute();
+    header("Location:../PaginasBalsamiq/inicio.php");
 ?>
