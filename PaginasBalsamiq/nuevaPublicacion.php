@@ -52,6 +52,7 @@
             Descripcion: <input type="text" name="desc"><br>
             Recompensa: <input type="number" name="rec"><br>
             Fecha Limite: <input type="date" name="lim"><br>
+            Tags: <input type="text" name="tag"><br>
             <input type="submit" name="postear">
         </form>
     </div>

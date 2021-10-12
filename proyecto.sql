@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 03:26:28
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 12-10-2021 a las 13:30:57
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,21 +45,20 @@ CREATE TABLE `consulta` (
   `titulo` varchar(20) NOT NULL,
   `descripcion` varchar(280) NOT NULL,
   `recompensa` float NOT NULL,
-  `fecha_subida` date NOT NULL DEFAULT current_timestamp(),
-  `fecha_limite` date NOT NULL
+  `fecha_subida` datetime NOT NULL DEFAULT current_timestamp(),
+  `fecha_limite` date NOT NULL,
+  `tag` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `consulta`
 --
 
-INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`) VALUES
-(1, 1, 'titulo juan', 'descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion ', 400, '2021-10-01', '2021-10-15'),
-(2, 1, 'otro titulo', 'adukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfudyvwapoadukvfud', 23, '2021-10-07', '2021-10-16'),
-(14, 5, 'a', 'a', 0, '2021-10-11', '0000-00-00'),
-(15, 5, 'a', 'a', 0, '2021-10-11', '2021-10-29'),
-(16, 5, 'e', 'e', 33, '2021-10-11', '2021-10-05'),
-(17, 5, 'tituloxd', 'tituloxdtituloxd', 23333300, '2021-10-11', '2021-12-02');
+INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`, `tag`) VALUES
+(1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06', ''),
+(2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31', ''),
+(4, 6, '', '', 0, '2021-10-12 00:00:00', '0000-00-00', ''),
+(6, 6, 'dawdawd', 'wadawdawdawdawd', 3424, '2021-10-12 08:24:48', '2021-10-27', 'dasfghgfdaddwefrgthk');
 
 -- --------------------------------------------------------
 
@@ -74,20 +73,20 @@ CREATE TABLE `usuario` (
   `mail` varchar(100) NOT NULL,
   `estrellas` int(2) DEFAULT NULL,
   `empleo` tinyint(1) NOT NULL,
-  `descripcion` varchar(256) DEFAULT NULL,
-  `tokens` int(11) NOT NULL DEFAULT 500
+  `descripcion` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_us`, `username`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`, `tokens`) VALUES
-(1, 'juan', '$2y$10$dnQ.59sOrhHhvTaHyWk2POmwsVzepmKhW6krZtaAnNnOt6J5hYQgO', 'juan', NULL, 0, NULL, 500),
-(2, 'rrrrrar', '$2y$10$SKQHaFK1gww/5qAHlMNKUekt4nS2Z7Z/cPXeZElRv1/LgtYSeN/pO', 'rrrrrrrrrra', NULL, 0, NULL, 500),
-(3, 'yyyy', '$2y$10$qweOLinLa3/EuMnDcj0G/.MhoTWKarNsVF0ywgqXoPlTIrbiRfwZ.', 'yyyy', NULL, 0, NULL, 500),
-(4, 'aaaaaaaaaaa', '$2y$10$ql/GV4YHX/5NGUY8GMbuCu5KzCCN9Nf/QgBDnnxOzU/IiM8AKT8Nu', 'aaaaaaaaaaa', NULL, 0, NULL, 500),
-(5, 'dddd', '$2y$10$VnA/soHoWpOjBvOCjk9VPe4wpyN4dGTlPQMxQGfXcc3qNTIMzXy/u', 'ddddddd', NULL, 0, NULL, 500);
+INSERT INTO `usuario` (`id_us`, `username`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`) VALUES
+(1, 'fesf', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL),
+(2, 'juan', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL),
+(3, 'a', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL),
+(4, 'v', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL),
+(5, 'fe', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL),
+(6, 'juanperez', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -126,13 +125,13 @@ ALTER TABLE `concurso`
 -- AUTO_INCREMENT de la tabla `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

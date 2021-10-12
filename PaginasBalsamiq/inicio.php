@@ -37,9 +37,9 @@
     <div class="main">
         <div class="publicaciones">
         <?php
-            for($i = 1 ; $i < 3 ; $i++){
+            /* for($i = 1 ; $i < 3 ; $i++){ */
                 /* Hay que optimizar esto. No debería consultarse la base de datos en bucle. Tiene que ser una unica consulta y luego recorrer el array obtenido */
-                $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = $i"); 
+                $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = 6"); 
                 $consulta ->execute();
                 $resultadoCon = $consulta->fetch(PDO::FETCH_ASSOC);
 
@@ -48,6 +48,7 @@
                 $consulta ->execute();
         
                 $resultadoUser = $consulta->fetch(PDO::FETCH_ASSOC);
+                
 
                 echo'
                 <div class="publicacion_preview">
@@ -73,10 +74,19 @@
                 <div class="tags">
                     <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
                     <h4>Etiquetas: </h4>
-                </div>
-            </div>
                 ';
-            }
+                if($resultadoCon['tag']){
+                    $tags = explode(",", $resultadoCon['tag']);
+                    foreach($tags as $t){
+                        echo'<h6 class="tag">'.$t.'     </h6>';
+                    }
+                }
+                            
+                echo'
+                        </div>
+                    </div>
+                ';
+            /* } */
         ?>
         </div> 
     </div>
