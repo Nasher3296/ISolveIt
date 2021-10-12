@@ -1,20 +1,17 @@
-.publicaciones{
-    width: 100%;
-    background-color: rgb(243, 177, 78);
-}
+
 
 .publicacion_preview{
-    background-color: green;
-    border-style: solid;
+    background-color: white;
+    border-radius: 30px;
     height: auto;
     display: grid;
     grid-template: 
     "data" 35%
     "cuerpo" auto
     "tags" 20%;
-    padding: 15px;
+    padding: 30px;
     text-align: left;
-    margin-bottom: 5px;
+    margin: 15px;
 }
 
 .data{
