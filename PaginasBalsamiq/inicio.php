@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>I solve it</title>
     <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="plantilla.css">
+    <link rel="stylesheet" href="publicacion_plantilla.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body class="grid_container">
