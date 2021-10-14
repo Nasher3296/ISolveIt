@@ -49,9 +49,10 @@
                     </script>';
                 }
                 else{
-                    session_start();
-                    $_SESSION['username'] = $usuario;
-                    header("Location:../PaginasBalsamiq/inicio.php");
+                    echo'<script type="text/javascript">
+                    alert("Registro exitoso");
+                    window.location.href="../index.html";
+                    </script>';
                 }
             }  
         }

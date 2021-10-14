@@ -43,3 +43,16 @@
     grid-area: recoyvenc;
     text-align: right;
 }
+
+.tags_list{
+    display: flex;
+    list-style: none;
+}
+
+.tag{
+    margin-right: 10px;
+    background-color: rgb(83, 74, 146);
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+}

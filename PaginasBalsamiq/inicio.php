@@ -11,6 +11,15 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
+
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['tag'] = $usuarioSession['tag'];
     ?>
 
 <header class="header">
@@ -19,7 +28,7 @@
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
-            <h4 class="h4">Nombre</h4>
+            <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
             <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
         </div>
         <div class="sidebar_menu">
@@ -37,8 +46,6 @@
     <div class="main">
         <div class="publicaciones">
         <?php
-            /* for($i = 1 ; $i < 3 ; $i++){ */
-                /* Hay que optimizar esto. No debería consultarse la base de datos en bucle. Tiene que ser una unica consulta y luego recorrer el array obtenido */
                 $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = 6"); 
                 $consulta ->execute();
                 $resultadoCon = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -57,13 +64,13 @@
                         A
                     </div>
                     <div class="usuario">
-                        <h4>Nombre</h4>
+                        <h4>'.$resultadoUser["nombre"].'</h4>
                         <h5>@'.$resultadoUser["username"].'</h5>
                     </div>
                     <div class="recoyvenc">
                         <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>
                         <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
-                        <h4>Vencimiento: 23:49</h4>
+                        <h4>Vencimiento: '.$resultadoCon["fecha_limite"].'</h4>
                     </div>
                 </div>
                 <div class="cuerpo">
@@ -74,15 +81,17 @@
                 <div class="tags">
                     <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
                     <h4>Etiquetas: </h4>
+                    <ul class="tags_list">
                 ';
                 if($resultadoCon['tag']){
                     $tags = explode(",", $resultadoCon['tag']);
                     foreach($tags as $t){
-                        echo'<h6 class="tag">'.$t.'     </h6>';
+                        echo'<li class="tag">'.$t.'</li>';
                     }
                 }
                             
                 echo'
+                            </ul>
                         </div>
                     </div>
                 ';

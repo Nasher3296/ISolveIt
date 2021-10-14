@@ -357,9 +357,9 @@ font-size: 15px;
 */
 
 .loginDiv{
-  display: none;
+  display: block;
 }
 
 .registroDiv{
-  display: block;
+  display: none;
 }

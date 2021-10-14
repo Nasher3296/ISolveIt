@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="PagInicio/style.css">
     <meta charset="UTF-8">
     <title>I Solve It</title>
     <!--link para los iconos [NO BORRAR] -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="PagInicio/js.js"></script>
+    <link rel="stylesheet" href="PagInicio/style.css">
 </head>
 <script>
     function Alternar(){
         let login = document.getElementById("loginDiv");
         let registro = document.getElementById("registroDiv");
-        if(registro.style.display == "none"){
-            registro.style.display = "block";
-            login.style.display = "none";
-        }
-        else{
+        if(registro.style.display == "block"){
             login.style.display = "block";
             registro.style.display = "none";
+        }
+        else{
+            
+            registro.style.display = "block";
+            login.style.display = "none";
         }
     }
 </script>

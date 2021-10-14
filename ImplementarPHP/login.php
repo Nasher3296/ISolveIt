@@ -15,20 +15,21 @@
         if(!$resultado){ //si el usuario no existe
             echo'<script type="text/javascript">
             alert("User o pass incorrectos");
-            window.location.href="index.html";
+            window.location.href="../index.html";
             </script>';
         }
         else{
 
             if(password_verify($pass,$resultado['pass'])){ 
                 //crear variables de sesion para conservar el nombre de usuario en las otras paginas
+                session_start();
                 $_SESSION['username'] = $resultado['username'];
                 header("Location:../PaginasBalsamiq/inicio.php");
             }
             else{
                 echo'<script type="text/javascript">
                 alert("User o pass incorrectos");
-                window.location.href="index.html";
+                window.location.href="../index.html";
                 </script>';
 
                 //Por alguna razon al loguearse bien o mal entra aca
