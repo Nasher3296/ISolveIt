@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 13:30:57
+-- Tiempo de generación: 14-10-2021 a las 14:21:20
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -58,7 +58,7 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 (1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06', ''),
 (2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31', ''),
 (4, 6, '', '', 0, '2021-10-12 00:00:00', '0000-00-00', ''),
-(6, 6, 'dawdawd', 'wadawdawdawdawd', 3424, '2021-10-12 08:24:48', '2021-10-27', 'dasfghgfdaddwefrgthk');
+(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR');
 
 -- --------------------------------------------------------
 
@@ -69,24 +69,41 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 CREATE TABLE `usuario` (
   `id_us` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `nombre` varchar(20) NOT NULL DEFAULT 'Nuevo usuario',
   `pass` varchar(200) NOT NULL,
   `mail` varchar(100) NOT NULL,
   `estrellas` int(2) DEFAULT NULL,
   `empleo` tinyint(1) NOT NULL,
-  `descripcion` varchar(256) DEFAULT NULL
+  `descripcion` varchar(256) DEFAULT NULL,
+  `tag` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_us`, `username`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`) VALUES
-(1, 'fesf', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL),
-(2, 'juan', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL),
-(3, 'a', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL),
-(4, 'v', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL),
-(5, 'fe', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL),
-(6, 'juanperez', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, NULL);
+INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`, `tag`) VALUES
+(1, 'fesf', '', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL, ''),
+(2, 'juan', '', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL, ''),
+(3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, ''),
+(4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, ''),
+(5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, ''),
+(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, NULL, 'matematica,ETIQUETA1'),
+(8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, ''),
+(9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, ''),
+(10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, ''),
+(11, '12345', '', '$2y$10$JfzIMSlwJKR8UnpE.bb.QOwgwpQclYfr8h5mJmKBCuhWh3CIZG2A2', '12345', NULL, 0, NULL, ''),
+(12, '123456', '', '$2y$10$fSc/fE6vNdmLqkF.PkMVf.RPiYNqZc2ZL1bWRLu75bvDH1uX2gb5O', '123456', NULL, 0, NULL, ''),
+(13, 'po', '', '$2y$10$c/mB9RTFS6fhr4G6EjJuBO/9ppE4qAVPDolaCEHQQchy2WAkykyg6', 'po', NULL, 0, NULL, ''),
+(14, 'pe', '', '$2y$10$fyCBYUOIRXCplAgroTA4QOoxVhPtG.HWu0Nkkq4xf26kWEIvSYPNi', 'pe', NULL, 0, NULL, ''),
+(15, 'dadaw', '', '$2y$10$GjBxpVaBNShQLxWGBS0IvOGzhOx/Ksxk93Nhe/XY/zIelhvSATFtK', 'dadaw', NULL, 0, NULL, ''),
+(16, 'fesfs', '', '$2y$10$0QNdGSTIp0nNkcAqenGi7e5.D9QXdncQtaGnokivFjGdMx4jsC5u2', 'faefesf', NULL, 0, NULL, ''),
+(17, 'lucas', '', '$2y$10$83oFp/b7Q2PAg2OQEcBbD.wd0L.2ADN3qeboknWkUxYqATY3.SFZO', 'lucas', NULL, 0, NULL, ''),
+(18, 'juancho', '', '$2y$10$cCP4f9y/a63JDmDtJCq5D.xkHvVosBwuo7C5io/Ygw./X2QOx4VTi', 'juancho', NULL, 0, NULL, ''),
+(19, '654', '', '$2y$10$ETdzVrPrOXaA8HeEPoMt9.iIyzvhATIR5o8.tCp.Kq6yCke8Ls.76', '654', NULL, 0, NULL, ''),
+(20, '987', '', '$2y$10$wLK6hZruKtnR22QVok4H6.yJpnUTKmJ2XvbuWdSwGhYkgyfQzMeO.', '987', NULL, 0, NULL, ''),
+(21, '9876', '', '$2y$10$A4yDK/cCtaCgOlwT/gH4XOKcCwyurbVlVJynjrfg7Tfh34eMqZQnu', '9876', NULL, 0, NULL, ''),
+(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, '');
 
 --
 -- Índices para tablas volcadas
@@ -131,7 +148,7 @@ ALTER TABLE `consulta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
