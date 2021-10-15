@@ -101,19 +101,28 @@
                     -->
                 </div>
                 <div class="loginDiv" id="loginDiv">
-                    <form action="ImplementarPHP/login.php" method="POST" id="formLogin">
-                        <label for="username">Nombre de usuario:</label>
-                        <br>
-                        <input type="text" id="username" name="username" required>
-                        <br>
-                        <label for="pass">Constraseña:</label>
-                        <br>
-                        <input type="password" id="pass" name="pass" required>
-                        <br>
-                    </form>
-                    <button type="submit" value="login" id="login" name="login" form="formLogin">iniciar sesion</button>
-                </div>
+                    <form class="formulario" action="ImplementarPHP/login.php" method="POST" id="formLogin">
+                        <h2>Iniciar Sesión</h2>
+                        <div class="contenedor">
+                                
+                                <div class="input-contenedor">
+                                <label for="username"><i class="fas fa-user icon"></i></label>
+                                <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
+                                </div>
+                              
+                                <div class="input-contenedor">
+                                <label for="pass"><i class="fas fa-key icon"></i></label>
+                                <input type="password" id="pass" name="pass" placeholder="Contraseña" required>
+                                </div>
 
+                                <div class="parrafo">
+                                    <p>¿No tienes una cuenta?<a class="link" href="" id="link" onclick="Alternar()"> Registrate</a></p>
+                                </div>
+                                <input type="submit" value="Inicia Sesión" class="button" id="registro" name="login" form="formLogin">
+                    </div>
+                    </form>
+                    
+                </div>
                 <input type="submit" value="Alternar" onclick="Alternar()">
             </div>
         </section> 
