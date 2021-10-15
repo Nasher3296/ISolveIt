@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "corbel";
+}
+
+.cont_perfil{
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    place-content: center;
+    position: relative;
+    padding-top: 15px;
+}
+
+.perfil{
+    background-color: white;
+    border-radius: 15px;
+    width: 90%;
+    height: 100%;
+    margin:0px auto;
+    position: relative;
+}
+
+.cuerpo_perfil{
+    display: flex;
+    padding-top: 15px;
+}
+
+.datos_perfil{
+    display: block;
+    width: 100%;
+}
+
+.subcont_perfil{
+    display: flex;
+}
+
+.UsuarioNombre{
+    font-size: 2rem;
+    width: 40%;
+}
+
+.nombre{
+    font-size: 2rem;
+}
+
+.usuario{
+    font-size: 1.2rem;
+}
+
+.estrellas{
+    margin-top: 15px;
+    margin-left: 20%;
+}
+
+.tags{
+    
+}
+
+.Taglist{
+    list-style: none;
+    display: flex;
+    margin-right: 15px;
+}
+
+.Taglist > li{
+    margin-right: 15px;
+}

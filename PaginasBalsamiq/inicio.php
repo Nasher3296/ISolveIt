@@ -20,6 +20,7 @@
         $_SESSION['nombre'] = $usuarioSession['nombre'];
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['tag'] = $usuarioSession['tag'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
     ?>
 
 <header class="header">
@@ -38,7 +39,7 @@
                 <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-user-circle"></i> Mi perfil</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
             </ul>
         </div>
         <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 14:21:20
+-- Tiempo de generación: 14-10-2021 a las 16:31:48
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -74,8 +74,8 @@ CREATE TABLE `usuario` (
   `mail` varchar(100) NOT NULL,
   `estrellas` int(2) DEFAULT NULL,
   `empleo` tinyint(1) NOT NULL,
-  `descripcion` varchar(256) DEFAULT NULL,
-  `tag` varchar(100) NOT NULL
+  `descripcion` varchar(256) DEFAULT '"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!',
+  `tag` varchar(100) NOT NULL DEFAULT 'matematica,historia,literatura'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -88,7 +88,7 @@ INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas
 (3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, ''),
 (4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, ''),
 (5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, ''),
-(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, NULL, 'matematica,ETIQUETA1'),
+(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1'),
 (8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, ''),
 (9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, ''),
 (10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, ''),
@@ -103,7 +103,9 @@ INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas
 (19, '654', '', '$2y$10$ETdzVrPrOXaA8HeEPoMt9.iIyzvhATIR5o8.tCp.Kq6yCke8Ls.76', '654', NULL, 0, NULL, ''),
 (20, '987', '', '$2y$10$wLK6hZruKtnR22QVok4H6.yJpnUTKmJ2XvbuWdSwGhYkgyfQzMeO.', '987', NULL, 0, NULL, ''),
 (21, '9876', '', '$2y$10$A4yDK/cCtaCgOlwT/gH4XOKcCwyurbVlVJynjrfg7Tfh34eMqZQnu', '9876', NULL, 0, NULL, ''),
-(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, '');
+(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, ''),
+(23, '96', 'Nuevo usuario', '$2y$10$QjDBnWjFO2ixlKyJwbGVDuwZnijAOg/dBfzdegmDRQjO5cbllP72.', '96', NULL, 0, NULL, ''),
+(24, 'yup', 'Nuevo usuario', '$2y$10$2aumV3EfUYtUULFrBbsnyO8hoFq0JdKwY6IWYWhpVOKXaQ5zO8dZa', 'yup', NULL, 0, NULL, '');
 
 --
 -- Índices para tablas volcadas
@@ -148,7 +150,7 @@ ALTER TABLE `consulta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
