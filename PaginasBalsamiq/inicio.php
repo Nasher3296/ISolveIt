@@ -21,6 +21,7 @@
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['tag'] = $usuarioSession['tag'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imgagen'] = $usuarioSession['imagen'];
     ?>
 
 <header class="header">
@@ -63,6 +64,7 @@
                 <div class="data">
                     <div class="foto">
                         A
+                        <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">-->
                     </div>
                     <div class="usuario">
                         <h4>'.$resultadoUser["nombre"].'</h4>

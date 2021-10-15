@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 16:31:48
+-- Tiempo de generación: 15-10-2021 a las 14:22:49
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -63,6 +63,41 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tag`
+--
+
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL,
+  `desc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tag_cons`
+--
+
+CREATE TABLE `tag_cons` (
+  `id_cons` int(11) NOT NULL,
+  `tag` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tag_usuario`
+--
+
+CREATE TABLE `tag_usuario` (
+  `id` int(11) NOT NULL,
+  `id_us` int(11) NOT NULL,
+  `tag_us` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -75,37 +110,40 @@ CREATE TABLE `usuario` (
   `estrellas` int(2) DEFAULT NULL,
   `empleo` tinyint(1) NOT NULL,
   `descripcion` varchar(256) DEFAULT '"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!',
-  `tag` varchar(100) NOT NULL DEFAULT 'matematica,historia,literatura'
+  `tag` varchar(100) NOT NULL DEFAULT 'matematica,historia,literatura',
+  `tokens` double NOT NULL,
+  `imagen` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`, `tag`) VALUES
-(1, 'fesf', '', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL, ''),
-(2, 'juan', '', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL, ''),
-(3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, ''),
-(4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, ''),
-(5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, ''),
-(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1'),
-(8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, ''),
-(9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, ''),
-(10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, ''),
-(11, '12345', '', '$2y$10$JfzIMSlwJKR8UnpE.bb.QOwgwpQclYfr8h5mJmKBCuhWh3CIZG2A2', '12345', NULL, 0, NULL, ''),
-(12, '123456', '', '$2y$10$fSc/fE6vNdmLqkF.PkMVf.RPiYNqZc2ZL1bWRLu75bvDH1uX2gb5O', '123456', NULL, 0, NULL, ''),
-(13, 'po', '', '$2y$10$c/mB9RTFS6fhr4G6EjJuBO/9ppE4qAVPDolaCEHQQchy2WAkykyg6', 'po', NULL, 0, NULL, ''),
-(14, 'pe', '', '$2y$10$fyCBYUOIRXCplAgroTA4QOoxVhPtG.HWu0Nkkq4xf26kWEIvSYPNi', 'pe', NULL, 0, NULL, ''),
-(15, 'dadaw', '', '$2y$10$GjBxpVaBNShQLxWGBS0IvOGzhOx/Ksxk93Nhe/XY/zIelhvSATFtK', 'dadaw', NULL, 0, NULL, ''),
-(16, 'fesfs', '', '$2y$10$0QNdGSTIp0nNkcAqenGi7e5.D9QXdncQtaGnokivFjGdMx4jsC5u2', 'faefesf', NULL, 0, NULL, ''),
-(17, 'lucas', '', '$2y$10$83oFp/b7Q2PAg2OQEcBbD.wd0L.2ADN3qeboknWkUxYqATY3.SFZO', 'lucas', NULL, 0, NULL, ''),
-(18, 'juancho', '', '$2y$10$cCP4f9y/a63JDmDtJCq5D.xkHvVosBwuo7C5io/Ygw./X2QOx4VTi', 'juancho', NULL, 0, NULL, ''),
-(19, '654', '', '$2y$10$ETdzVrPrOXaA8HeEPoMt9.iIyzvhATIR5o8.tCp.Kq6yCke8Ls.76', '654', NULL, 0, NULL, ''),
-(20, '987', '', '$2y$10$wLK6hZruKtnR22QVok4H6.yJpnUTKmJ2XvbuWdSwGhYkgyfQzMeO.', '987', NULL, 0, NULL, ''),
-(21, '9876', '', '$2y$10$A4yDK/cCtaCgOlwT/gH4XOKcCwyurbVlVJynjrfg7Tfh34eMqZQnu', '9876', NULL, 0, NULL, ''),
-(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, ''),
-(23, '96', 'Nuevo usuario', '$2y$10$QjDBnWjFO2ixlKyJwbGVDuwZnijAOg/dBfzdegmDRQjO5cbllP72.', '96', NULL, 0, NULL, ''),
-(24, 'yup', 'Nuevo usuario', '$2y$10$2aumV3EfUYtUULFrBbsnyO8hoFq0JdKwY6IWYWhpVOKXaQ5zO8dZa', 'yup', NULL, 0, NULL, '');
+INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`, `tag`, `tokens`, `imagen`) VALUES
+(1, 'fesf', '', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL, '', 0, 0),
+(2, 'juan', '', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL, '', 0, 0),
+(3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, '', 0, 0),
+(4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, '', 0, 0),
+(5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, '', 0, 0),
+(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 500, 0),
+(8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, '', 0, 0),
+(9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, '', 0, 0),
+(10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, '', 0, 0),
+(11, '12345', '', '$2y$10$JfzIMSlwJKR8UnpE.bb.QOwgwpQclYfr8h5mJmKBCuhWh3CIZG2A2', '12345', NULL, 0, NULL, '', 0, 0),
+(12, '123456', '', '$2y$10$fSc/fE6vNdmLqkF.PkMVf.RPiYNqZc2ZL1bWRLu75bvDH1uX2gb5O', '123456', NULL, 0, NULL, '', 0, 0),
+(13, 'po', '', '$2y$10$c/mB9RTFS6fhr4G6EjJuBO/9ppE4qAVPDolaCEHQQchy2WAkykyg6', 'po', NULL, 0, NULL, '', 0, 0),
+(14, 'pe', '', '$2y$10$fyCBYUOIRXCplAgroTA4QOoxVhPtG.HWu0Nkkq4xf26kWEIvSYPNi', 'pe', NULL, 0, NULL, '', 0, 0),
+(15, 'dadaw', '', '$2y$10$GjBxpVaBNShQLxWGBS0IvOGzhOx/Ksxk93Nhe/XY/zIelhvSATFtK', 'dadaw', NULL, 0, NULL, '', 0, 0),
+(16, 'fesfs', '', '$2y$10$0QNdGSTIp0nNkcAqenGi7e5.D9QXdncQtaGnokivFjGdMx4jsC5u2', 'faefesf', NULL, 0, NULL, '', 0, 0),
+(17, 'lucas', '', '$2y$10$83oFp/b7Q2PAg2OQEcBbD.wd0L.2ADN3qeboknWkUxYqATY3.SFZO', 'lucas', NULL, 0, NULL, '', 0, 0),
+(18, 'juancho', '', '$2y$10$cCP4f9y/a63JDmDtJCq5D.xkHvVosBwuo7C5io/Ygw./X2QOx4VTi', 'juancho', NULL, 0, NULL, '', 0, 0),
+(19, '654', '', '$2y$10$ETdzVrPrOXaA8HeEPoMt9.iIyzvhATIR5o8.tCp.Kq6yCke8Ls.76', '654', NULL, 0, NULL, '', 0, 0),
+(20, '987', '', '$2y$10$wLK6hZruKtnR22QVok4H6.yJpnUTKmJ2XvbuWdSwGhYkgyfQzMeO.', '987', NULL, 0, NULL, '', 0, 0),
+(21, '9876', '', '$2y$10$A4yDK/cCtaCgOlwT/gH4XOKcCwyurbVlVJynjrfg7Tfh34eMqZQnu', '9876', NULL, 0, NULL, '', 0, 0),
+(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, '', 0, 0),
+(23, '96', 'Nuevo usuario', '$2y$10$QjDBnWjFO2ixlKyJwbGVDuwZnijAOg/dBfzdegmDRQjO5cbllP72.', '96', NULL, 0, NULL, '', 0, 0),
+(24, 'yup', 'Nuevo usuario', '$2y$10$2aumV3EfUYtUULFrBbsnyO8hoFq0JdKwY6IWYWhpVOKXaQ5zO8dZa', 'yup', NULL, 0, NULL, '', 0, 0),
+(25, 'rivero', 'Nuevo usuario', '$2y$10$K8Y6HUE80vlGB7vYXgngreq6YjpWdTImQHRriXSv69cYy7g2NFyhO', 'rivero', NULL, 0, '\"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!', 'matematica,historia,literatura', 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -123,6 +161,29 @@ ALTER TABLE `concurso`
 ALTER TABLE `consulta`
   ADD PRIMARY KEY (`id_consulta`),
   ADD KEY `usuario` (`id_us`);
+
+--
+-- Indices de la tabla `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tag_cons`
+--
+ALTER TABLE `tag_cons`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`id_cons`),
+  ADD UNIQUE KEY `tag` (`tag`),
+  ADD KEY `id_cons` (`id_cons`);
+
+--
+-- Indices de la tabla `tag_usuario`
+--
+ALTER TABLE `tag_usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `tag` (`tag_us`),
+  ADD KEY `id_us` (`id_us`);
 
 --
 -- Indices de la tabla `usuario`
@@ -147,10 +208,16 @@ ALTER TABLE `consulta`
   MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `tag_cons`
+--
+ALTER TABLE `tag_cons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
@@ -161,6 +228,25 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `consulta`
   ADD CONSTRAINT `usuario` FOREIGN KEY (`id_us`) REFERENCES `usuario` (`id_us`);
+
+--
+-- Filtros para la tabla `tag`
+--
+ALTER TABLE `tag`
+  ADD CONSTRAINT `tag_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tag_cons` (`tag`);
+
+--
+-- Filtros para la tabla `tag_cons`
+--
+ALTER TABLE `tag_cons`
+  ADD CONSTRAINT `tag_cons_ibfk_1` FOREIGN KEY (`id_cons`) REFERENCES `consulta` (`id_consulta`);
+
+--
+-- Filtros para la tabla `tag_usuario`
+--
+ALTER TABLE `tag_usuario`
+  ADD CONSTRAINT `tag_usuario_ibfk_1` FOREIGN KEY (`id_us`) REFERENCES `usuario` (`id_us`),
+  ADD CONSTRAINT `tag_usuario_ibfk_2` FOREIGN KEY (`tag_us`) REFERENCES `tag` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
