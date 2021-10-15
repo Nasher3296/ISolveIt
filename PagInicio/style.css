@@ -242,6 +242,7 @@ border-radius: 20px;
   grid-area:form;
   max-height: 400px;
 }
+
 .SobreNos_Titulo{
   text-align: center;
   color:#1a2537;
@@ -312,6 +313,7 @@ input[type="password"]
   padding: 10px 25px;
   border-radius: 5px;
   cursor: pointer;
+  margin: 10px;
 }
 
 .button:hover
@@ -357,7 +359,7 @@ font-size: 15px;
 */
 
 .loginDiv{
-  display: block;
+  display:none
 }
 
 .registroDiv{
