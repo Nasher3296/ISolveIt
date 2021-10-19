@@ -26,6 +26,7 @@ display: grid;
 grid-template:
   "login" 100vh
   "nosotros" 70vh
+  "opiniones" 70vh
   "contacto" 70vh;
 }
 
@@ -64,6 +65,31 @@ grid-area: cont_contacto;
       "cont_nos      ilustracion2" 100% /
         50vw             auto;
     justify-items: center; 
+}
+
+.opiniones{
+  position: relative;
+  grid-area: opiniones;
+  background: red;
+}
+
+#opiniones_titulo {
+  padding: 10px;
+}
+
+
+.opiniones .imagenes {
+  position: relative;
+  width: 10%;
+  border-radius: 50%;
+}
+
+.opiniones #opinion1_opinion{
+  position: relative;
+}
+
+.opiniones #opinion1_nombre{
+  position: relative;
 }
 
 .ilustracion3{
@@ -358,3 +384,10 @@ font-size: 15px;
 }
 */
 
+.loginDiv{
+  display: block;
+}
+
+.registroDiv{
+  display:none;
+}

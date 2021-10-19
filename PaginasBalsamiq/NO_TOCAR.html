@@ -5,6 +5,7 @@
     <title>I solve it</title>
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="plantilla.css">
+    <link rel="stylesheet" href="NO_TOCAR.css">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
@@ -33,12 +34,32 @@
     </aside>
     <div class="main">
         <form action="../ImplementarPHP/publicar.php" method="POST">
-            Titulo: <input type="text" name="title"><br>    
-            Descripcion: <input type="text" name="desc"><br>
-            Recompensa: <input type="number" name="rec"><br>
-            Fecha Limite: <input type="date" name="lim"><br>
-            Tags: <input type="text" name="tag"><br>
-            <input type="submit" name="postear">
+            <div class="contenedor">
+                <h2 id="h2">Crea tu consulta</h2>
+                            <div class="cont">
+                                <input type="text" name="title" placeholder="Título" required><br>
+                            </div>
+                            
+                            <div class="cont">
+                                <input type="text" name="desc" placeholder="Descripción" required><br>
+                            </div>
+                            
+                            <div class="cont">
+                                <input type="number" name="rec" placeholder="Recompensa" required><br>
+                            </div>
+
+                            <div class="cont">
+                                <input type="date" name="lim" placeholder="Fecha Límite" required><br>
+                            </div>
+
+                            <div class="cont">
+                                <input type="text" name="tag" placeholder="Tags"><br>
+                            </div>
+                            
+                            <div class="enviar">
+                                <input type="submit" name="postear">
+                            </div>
+                </div>
         </form>
     </div>
 </body>
