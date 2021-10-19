@@ -1,0 +1,22 @@
+.contenedor{
+    background-color: white;
+    border-radius: 30px;
+    height: auto;
+    display: grid;
+    padding: 30px;
+    text-align: left;
+    margin: 15px;
+}
+
+.cont{
+    padding: 5px;
+    width: max-content;
+}
+
+#h2{
+    text-align: center;
+}
+
+.enviar{
+    padding: 5px;
+}

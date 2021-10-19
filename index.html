@@ -9,19 +9,33 @@
     <link rel="stylesheet" href="PagInicio/style.css">
 </head>
 <script>
+    function Alternar(){
+        let login = document.getElementById("loginDiv");
+        let registro = document.getElementById("registroDiv");
+    if(registro.style.display == "block"){
+            login.style.display = "block";
+            registro.style.display = "none";
+        }
+        else{
+            
+            registro.style.display = "block";
+            login.style.display = "none";
+        }
+    }
+
     function login(){
         let login2 = document.getElementById("loginDiv");
         let registro2 = document.getElementById("registroDiv");
-        registro2.style.display = "block";
-        login2.style.display = "none";
+        registro2.style.display = "none";
+        login2.style.display = "block";
     }
 
     function crearCuenta(){
         let login = document.getElementById("loginDiv");
         let registro = document.getElementById("registroDiv");
         
-        registro.style.display = "none";
-        login.style.display = "block";
+        registro.style.display = "block";
+        login.style.display = "none";
     }
 </script>
 <body>
@@ -93,18 +107,18 @@
                                 
                                 <div class="input-contenedor">
                                 <label for="username"><i class="fas fa-user icon"></i></label>
-                                <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
+                                <input type="text" id="username2" name="username" placeholder="Nombre de usuario" required>
                                 </div>
                               
                                 <div class="input-contenedor">
                                 <label for="pass"><i class="fas fa-key icon"></i></label>
-                                <input type="password" id="pass" name="pass" placeholder="Contraseña" required>
+                                <input type="password" id="pass2" name="pass" placeholder="Contraseña" required>
                                 </div>
 
                                 <div class="parrafo">
-                                    <p>¿No tienes una cuenta?<a class="link" href="" id="link" onclick="crearCuenta()"> Registrate</a></p>
+                                    <p>¿No tienes una cuenta?<a class="link" id="link" onclick="Alternar()"> Registrate</a></p>
                                 </div>
-                                <input type="submit" value="Inicia Sesión" class="button" id="registro" name="login" form="formLogin">
+                                <input type="submit" value="Inicia Sesión" class="button" id="login" name="login" form="formLogin">
                         </div>
                     </form>
                     

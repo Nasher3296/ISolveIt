@@ -358,3 +358,10 @@ font-size: 15px;
 }
 */
 
+.loginDiv{
+  display: block;
+}
+
+.registroDiv{
+  display:none;
+}
