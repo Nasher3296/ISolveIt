@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2021 a las 14:22:49
+-- Tiempo de generación: 18-10-2021 a las 16:48:40
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -68,7 +68,7 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 
 CREATE TABLE `tag` (
   `id` int(11) NOT NULL,
-  `desc` varchar(50) NOT NULL
+  `tag` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,9 +78,9 @@ CREATE TABLE `tag` (
 --
 
 CREATE TABLE `tag_cons` (
+  `id` int(11) NOT NULL,
   `id_cons` int(11) NOT NULL,
-  `tag` int(11) NOT NULL,
-  `id` int(11) NOT NULL
+  `tag_cons` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -172,18 +172,13 @@ ALTER TABLE `tag`
 -- Indices de la tabla `tag_cons`
 --
 ALTER TABLE `tag_cons`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQUE` (`id_cons`),
-  ADD UNIQUE KEY `tag` (`tag`),
-  ADD KEY `id_cons` (`id_cons`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tag_usuario`
 --
 ALTER TABLE `tag_usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tag` (`tag_us`),
-  ADD KEY `id_us` (`id_us`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
@@ -208,9 +203,21 @@ ALTER TABLE `consulta`
   MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tag_cons`
 --
 ALTER TABLE `tag_cons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tag_usuario`
+--
+ALTER TABLE `tag_usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -228,25 +235,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `consulta`
   ADD CONSTRAINT `usuario` FOREIGN KEY (`id_us`) REFERENCES `usuario` (`id_us`);
-
---
--- Filtros para la tabla `tag`
---
-ALTER TABLE `tag`
-  ADD CONSTRAINT `tag_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tag_cons` (`tag`);
-
---
--- Filtros para la tabla `tag_cons`
---
-ALTER TABLE `tag_cons`
-  ADD CONSTRAINT `tag_cons_ibfk_1` FOREIGN KEY (`id_cons`) REFERENCES `consulta` (`id_consulta`);
-
---
--- Filtros para la tabla `tag_usuario`
---
-ALTER TABLE `tag_usuario`
-  ADD CONSTRAINT `tag_usuario_ibfk_1` FOREIGN KEY (`id_us`) REFERENCES `usuario` (`id_us`),
-  ADD CONSTRAINT `tag_usuario_ibfk_2` FOREIGN KEY (`tag_us`) REFERENCES `tag` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -21,7 +21,7 @@
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['tag'] = $usuarioSession['tag'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
-        $_SESSION['imgagen'] = $usuarioSession['imagen'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
     ?>
 
 <header class="header">
@@ -52,11 +52,11 @@
                 $consulta ->execute();
                 $resultadoCon = $consulta->fetch(PDO::FETCH_ASSOC);
 
-                $consulta = $conn->prepare("SELECT * FROM usuario WHERE id_us= :id_us"); 
-                $consulta -> bindParam("id_us",$resultadoCon['id_us'],PDO::PARAM_STR);
+                $consulta = $conn->prepare("SELECT * FROM usuario WHERE id_us= '".$resultadoCon['id_us']."'"); 
                 $consulta ->execute();
         
                 $resultadoUser = $consulta->fetch(PDO::FETCH_ASSOC);
+                
                 
 
                 echo'
@@ -98,6 +98,13 @@
                         </div>
                     </div>
                 ';
+
+                /* mysql_connect("localhost","root","");
+                mysql_select_db("proyecto");
+                $result = mysql_query("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
+                while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+                    echo'Juan';
+                } */
             /* } */
         ?>
         </div> 
