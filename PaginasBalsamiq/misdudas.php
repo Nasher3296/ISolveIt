@@ -39,7 +39,7 @@
         
         <?php
             session_start();
-            foreach ($publcacion as $p) {
+            foreach ($publicacion as $p) {
                 $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_us = :id_usuario");
                 $consulta -> bindParam("id_usuario",$resultadoCon['id_us'],PDO::PARAM_STR);
                 $consulta ->execute();
