@@ -15,25 +15,24 @@
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
-        <input class="buscador" type="text" placeholder="Buscar...">
+        <input class="buscador" type="text" placeholder="buscar...">
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
-            <h4 class="h4">Nombre</h4>
-            <h5 class="h5">@nombre</h5>
+            <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
+            <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
         </div>
         <div class="sidebar_menu">
             <ul>
-                <li class="botones_sidebar"><a class="a" href="inicio2.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li class="botones_sidebar"><a class="a" href="misdudas.html"><i class="fas fa-question"></i> Dudas</a></li>
-
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-user-circle"></i> Mi perfil</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
             </ul>
         </div>
-        <a href=""><h2 class="h2">Nueva duda</h2></a>
+        <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
     </aside>
     <div>
         <!----- Esto es para los datos del usuario!!! ----->
