@@ -38,33 +38,27 @@
     <div class="main"> 
         
         <?php
+            include('config.php');
             session_start();
-            foreach ($publicacion as $p) {
-                $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_us = :id_usuario");
-                $consulta -> bindParam("id_usuario",$resultadoCon['id_us'],PDO::PARAM_STR);
-                $consulta ->execute();
-                $resultadoCon = $consulta->fetch(PDO::FETCH_ASSOC);
 
-                $consulta = $conn->prepare("SELECT * FROM usuario WHERE id_us= :id_us"); 
-                $consulta -> bindParam("id_us",$resultadoCon['id_us'],PDO::PARAM_STR);
-                $consulta ->execute();
-        
-                $resultadoUser = $consulta->fetch(PDO::FETCH_ASSOC);
-
+            $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_us = '".$_SESSION['id_us']."'")
+            $consulta ->execute();
+            while ($resUsr = $consulta->fetch(PDO::FETCH_ASSOC)) {    
                 echo'
                 <div class="publicacion_preview">
                 <div class="data">
                     <div class="foto">
                         A
+                        <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">-->
                     </div>
                     <div class="usuario">
-                        <h4>Nombre</h4>
+                        <h4>'.$resultadoUser["nombre"].'</h4>
                         <h5>@'.$resultadoUser["username"].'</h5>
                     </div>
                     <div class="recoyvenc">
                         <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>
                         <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
-                        <h4>Vencimiento: 23:49</h4>
+                        <h4>Vencimiento: '.$resultadoCon["fecha_limite"].'</h4>
                     </div>
                 </div>
                 <div class="cuerpo">
@@ -75,8 +69,19 @@
                 <div class="tags">
                     <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
                     <h4>Etiquetas: </h4>
-                </div>
-            </div>
+                    <ul class="tags_list">
+                ';
+                if($resultadoCon['tag']){
+                    $tags = explode(",", $resultadoCon['tag']);
+                    foreach($tags as $t){
+                        echo'<li class="tag">'.$t.'</li>';
+                    }
+                }
+                            
+                echo'
+                            </ul>
+                        </div>
+                    </div>
                 ';
             }
         ?>
