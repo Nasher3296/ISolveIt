@@ -47,58 +47,76 @@
     </aside>
     <div class="main">
         <div class="publicaciones">
-        <?php
-            
+            <?php
+                
 
                 $consulta = $conn->prepare("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
                 $consulta ->execute();
                 while($resultadoTagUsr = $consulta->fetch(PDO::FETCH_ASSOC)){
                     $consulta2 = $conn->prepare("SELECT id_cons FROM tag_cons WHERE tag_cons = '".$resultadoTagUsr['tag_us']."'");
                     $consulta2 ->execute();
-                    $resultadoTag = $consulta2->fetch(PDO::FETCH_ASSOC);
+                    if($resultadoTag = $consulta2->fetch(PDO::FETCH_ASSOC)){
 
-                    $consulta3 = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$resultadoTag['id_cons']."'");
-                    $consulta3 ->execute();
-                    $resultadoTag = $consulta3->fetch(PDO::FETCH_ASSOC);
+                        $consulta3 = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$resultadoTag['id_cons']."'");
+                        $consulta3 ->execute();
+                        if($resultadoCon = $consulta3->fetch(PDO::FETCH_ASSOC)){
+                            
 
-                    $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoTag['id_us']."'");
-                    $consulta4 ->execute();
-                    $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
-                    
+                            $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
+                            $consulta4 ->execute();
+                            $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
+                        
+                        
 
 
-                    echo'
-                        <div class="publicacion_preview">
-                        <div class="data">
-                            <div class="foto">
-                                A
-                                <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">-->
-                            </div>
-                            <div class="usuario">
-                                <h4>'.$resultadoUser["nombre"].'</h4>
-                                <h5>@'.$resultadoUser["username"].'</h5>
-                            </div>
-                            <div class="recoyvenc">
-                                <h4>Recompensa: $'.$resultadoTag["recompensa"].'</h4>
-                                <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
-                                <h4>Vencimiento: '.$resultadoTag["fecha_limite"].'</h4>
-                            </div>
-                        </div>
-                        <div class="cuerpo">
-                            <h2>'.$resultadoTag['titulo'].'</h2>
-                            <!--Descripcion-->
-                            <p>'.$resultadoTag['descripcion'].'</p>
-                        </div>
-                        <div class="tags">
-                            <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
-                            <h4>Etiquetas: </h4>
-                            <ul class="tags_list">
-                                    </ul>
+                            echo'
+                                <div class="publicacion_preview">
+                                    <div class="data">
+                                        <div class="foto">
+                                            A
+                                            <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">-->
+                                        </div>
+                                        <div class="usuario">
+                                            <h4>'.$resultadoUser["nombre"].'</h4>
+                                            <h5>@'.$resultadoUser["username"].'</h5>
+                                        </div>
+                                        <div class="recoyvenc">
+                                            <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>
+                                            <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
+                                            <h4>Vencimiento: '.$resultadoCon["fecha_limite"].'</h4>
+                                        </div>
+                                    </div>
+                                    <div class="cuerpo">
+                                        <h2>'.$resultadoCon['titulo'].'</h2>
+                                        <!--Descripcion-->
+                                        <p>'.$resultadoCon['descripcion'].'</p>
+                                    </div>
+                                    <div class="tags">
+                                        <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
+                                        <h4>Etiquetas: </h4>
+                                        <ul class="tags_list">
+                            ';
+                                        
+                            $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
+                            $consulta5 ->execute();
+                            while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
+                                $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                                $consulta6 ->execute();
+                                while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
+                                    echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                                }
+                            }
+                                           
+                                                    
+                            echo'
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        ';
+                            ';
+                        }
                     }
-        ?>
+                }
+            ?>
         </div> 
     </div>
 </body>
