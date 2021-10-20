@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>I solve it</title>
     <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="plantilla.css">
     <link rel="stylesheet" href="NO_TOCAR.css">
-    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body class="grid_container">
@@ -33,34 +31,57 @@
         <a href=""><h2 class="h2">Nueva duda</h2></a>
     </aside>
     <div class="main">
-        <form action="../ImplementarPHP/publicar.php" method="POST">
-            <div class="contenedor">
-                <h2 id="h2">Crea tu consulta</h2>
+        <div class="main_form">
+                <div class="form">
+                    <form action="../ImplementarPHP/publicar.php" method="POST">
+                        <div class="contenedor">
+                            <h2 id="h2">Crea tu consulta</h2>
                             <div class="cont">
+                                <center>
+                                <label for="" class="label"> </label>
                                 <input type="text" name="title" placeholder="Título" required><br>
+                                </center>
                             </div>
                             
-                            <div class="cont">
+                            <div class="cont" id="cont_grande">
+                                <center>
+                                 <label for="" class="label"> </label>
                                 <input type="text" name="desc" placeholder="Descripción" required><br>
+                                </center>
+                                <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
                             </div>
-                            
+                    
                             <div class="cont">
+                                <center>
+                                <label for="" class="label"> </label>
                                 <input type="number" name="rec" placeholder="Recompensa" required><br>
+                                </center>
                             </div>
 
                             <div class="cont">
-                                <input type="date" name="lim" placeholder="Fecha Límite" required><br>
+                                <center>
+                                <label for="" class="label"> </label>
+                                <input type="datetime-local" name="lim" placeholder="Fecha Límite" required><br>
+                                </center>
                             </div>
 
                             <div class="cont">
-                                <input type="text" name="tag" placeholder="Tags"><br>
+                                <center>
+                                <label for="" class="label"> </label>
+                                <input type="text" name="tag" placeholder="Tags (separar por ¨,¨)"><br>
+                                </center>
                             </div>
                             
                             <div class="enviar">
-                                <input type="submit" name="postear">
+                                <center>
+                                <a href="" type="submit" name="postear"><h6>Enviar</h6></a>
+                                </center>
                             </div>
+                        </div>
+                    </form>
                 </div>
-        </form>
+        </div>
     </div>
+
 </body>
 </html>
