@@ -26,7 +26,7 @@
             <ul>
                 <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
                 <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
                 <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
                 <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
@@ -34,11 +34,9 @@
         </div>
         <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
     </aside>
-    <div>
-        <!----- Esto es para los datos del usuario!!! ----->
-    </div>
-    <!----- Esto es para publicaciones ----->
     <div class="main"> 
+        <div class="mainCont">
+
         
         <?php
             $consulta = $conn->prepare("SELECT * FROM consulta WHERE id_us = '".$_SESSION['id_us']."'");
@@ -71,13 +69,17 @@
                     <h4>Etiquetas: </h4>
                     <ul class="tags_list">
                 ';
-                if($resultadoUser['tag']){
-                    $tags = explode(",", $resultadoUser['tag']);
-                    foreach($tags as $t){
-                        echo'<li class="tag">'.$t.'</li>';
+                $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoUser['id_consulta']."'");
+                $consulta5 ->execute();
+                while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
+                    $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                    $consulta6 ->execute();
+                    while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
+                        echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
                     }
                 }
-                            
+                                
+                                        
                 echo'
                             </ul>
                         </div>
@@ -85,6 +87,7 @@
                 ';
             }
         ?>
+        </div>
     </div>
 </body>
 </html>
