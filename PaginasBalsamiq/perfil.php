@@ -54,6 +54,17 @@
                         <div class="tags">
                             <ul class=Taglist>
                                 <?php
+                                    
+                                    $consulta = $conn->prepare("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
+                                    $consulta ->execute();
+                                    while($resultadoTagUs = $consulta->fetch(PDO::FETCH_ASSOC)){
+                                        $consulta2 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagUs['tag_us']."'");
+                                        $consulta2 ->execute();
+                                        while($resultadoTag = $consulta2->fetch(PDO::FETCH_ASSOC)){
+                                            echo'<li>'.$resultadoTag['tag'].'</li>';
+                                        }
+                                    }
+
 
                                     if($_SESSION['tag']){
                                         $tags = explode(",", $_SESSION['tag']);

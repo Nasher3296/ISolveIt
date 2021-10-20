@@ -19,7 +19,6 @@
 
         $_SESSION['nombre'] = $usuarioSession['nombre'];
         $_SESSION['id_us'] = $usuarioSession['id_us'];
-        $_SESSION['tag'] = $usuarioSession['tag'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
         $_SESSION['imagen'] = $usuarioSession['imagen'];
     ?>

@@ -49,6 +49,13 @@
                     </script>';
                 }
                 else{
+                    $consultaUsr = $conn->prepare("SELECT id_us FROM usuario WHERE username = '".$usuario."'");
+                    $consultaUsr ->execute();
+                    $resultadoUsr = $consultaUsr->fetch(PDO::FETCH_ASSOC);
+                    $consulta = $conn -> prepare("INSERT INTO tag_usuario(id, id_us,tag_us) VALUES (NULL, :id_us , 1)");
+                    $consulta -> bindParam("id_us",$resultadoUsr['id_us'],PDO::PARAM_STR);
+                    $resultado = $consulta -> execute();
+
                     echo'<script type="text/javascript">
                     alert("Registro exitoso");
                     window.location.href="../index.html";
