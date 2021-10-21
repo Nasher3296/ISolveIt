@@ -46,13 +46,34 @@
         </aside>
         <div class="main">
             <div>
-                <div>
-                    <img src=Foto.usuario.publicacion width=píxelespx height=píxelespx alt="Foto del Usuario que publicó">
-                </div>
+                <?php
+                    $fotoperfil=$GET["varFotoperfil"];
+                    $nombre=$GET["varNombre"];
+                    $arroba=$GET["varArroba"];
+                    $titulo=$GET["varTitulo"];
+                    $recompensa=$GET["varRecompensa"];
+                    $arroba=$GET["varArroba"];
+                    $descripcion=$GET["varDescripcion"];
+                    $fechasubida=$GET["varFechasubida"];
+                    $fechalimite=$GET["varFechalimite"];
+
+
+
+                    $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
+                    $consulta5 ->execute();
+                    while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
+                        $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                        $consulta6 ->execute();
+                        while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
+                            echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                        }
+                    }
+                ?>
                 <div><p>nombre de usuario que publico</p></div>
                 <div><p>arroba del usuario que publico</p></div>
                 <div><p>titulo</p></div>
                 <div>fecha de carga/fecha limite</div>
+                <div>RECOMPENSA</div>
                 <div>descripcion</div>
                 <div>archivos</div>
                 <div>tags</div>

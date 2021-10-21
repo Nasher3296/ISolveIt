@@ -115,6 +115,7 @@
                         }
                     }
                 }
+                header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']");
             ?>
         </div> 
     </div>
