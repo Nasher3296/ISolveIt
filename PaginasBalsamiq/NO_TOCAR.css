@@ -117,3 +117,44 @@ center{
   font-size: 0.8rem;
   left: 0.8rem;
 }
+
+.buscador{
+    width: 220px;
+    height: 30px;
+    padding: 5px;
+}
+
+.buscador input{
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    padding: 0 20px;
+    width:0px;
+    height:30px;
+    font-size: 15px;
+    color:black;
+    transition: all 0.6s ease;
+}
+
+.btn{
+    position:absolute;
+    top:25px;
+    right:0;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    background-color: #440080;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.buscador:hover input{
+    width: 220px;
+}
+
+.buscador input:focus{
+    width: 220px;
+}
