@@ -24,7 +24,7 @@ body{
     grid-template:
         "sidebar     header" 10%
         "sidebar    main"   auto/
-        25%         auto;
+        22%         auto;
 }
 
 .header{
@@ -41,7 +41,7 @@ body{
 .ISolveIt{
     grid-area: titu;
     text-align: left;
-    margin-left: 100px;
+    margin-left: 50px;
     color:#1a2537;
     font-size: 2.5rem;
 }

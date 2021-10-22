@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>I solve it</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="NO_TOCAR.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
-<body>
-    <header>
-        <div class="header">
-            <h1>I solve it</h1>
-            <input type="text" value="buscar..."> <!--Quiero que el buscar se lea pero no sea parte del texto. Que al escribir se borre solo-->
-        </div>
-    </header>
-    <div class="lateral">
-        <div class="lateral_usuario">
-            <h4>Nombre</h4>
-            <h5>@nombre</h5>
-            <div class="valoracion">
-                <!--Aca van las estrellas. Dejo esto para hacer un AFTER en css-->
+<body class="grid_container">
+    <header class="header">
+        <h1 class="ISolveIt">I solve it</h1>
+
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
             </div>
         </div>
-        <div class="lateral_menu">
-            <ul type="none">
-                <li><h3>Inicio</h3></li>
-                <li><h3>Mis dudas</h3></li>
-                <li><h3>Dudas propuestas</h3></li>
-                <li><h3>Usuarios seguidos</h3></li>
-                <li><h3>Mensajes privados</h3></li>
-                <li><h3>Mi perfil</h3></li>
+
+    </header>
+    <aside class="sidebar">
+        <div class="sidebar_usuario">
+            <h4 class="h4">Nombre</h4>
+            <h5 class="h5">@jaime</h5>
+        </div>
+        <div class="sidebar_menu">
+            <ul>
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-question"></i> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-user-circle"></i> Mi perfil</a></li>
             </ul>
         </div>
-        <div class="lateral_nuevaDuda">
-            <h2>Nueva duda</h2>
-        </div>
+        <a href=""><h2 class="h2">Nueva duda</h2></a>
+    </aside>
     </div>
     <div class="main">
         <div class="perfil_info">
