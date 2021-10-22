@@ -11,7 +11,14 @@
 
 <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
-        <input class="buscador" type="text" placeholder="buscar...">
+
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
+
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
@@ -36,41 +43,52 @@
                     <form action="../ImplementarPHP/publicar.php" method="POST">
                         <div class="contenedor">
                             <h2 id="h2">Crea tu consulta</h2>
-                            <div class="cont">
+                            <!-- <div class="cont"> -->
                                 <center>
-                                <label for="" class="label"> </label>
-                                <input type="text" name="title" placeholder="Título" required><br>
-                                </center>
+                            <div class="form2">
+                                <input type="text" id="titulo" class="form__input" autocomplete="off" placeholder=" ">
+                                <label for="email" class="form__label">Título</label>
                             </div>
+                                </center>
+                            <!-- </div> -->
                             
-                            <div class="cont" id="cont_grande">
+                            <!-- <div class="cont" id="cont_grande"> -->
                                 <center>
-                                 <label for="" class="label"> </label>
-                                <input type="text" name="desc" placeholder="Descripción" required><br>
+                                <div class="form2">
+                                    <input type="text" name="desc" class="form__input" autocomplete="off" placeholder=" ">
+                                    <label for="" class="form__label">Descripción</label>
+                                </div>
                                 </center>
                                 <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
-                            </div>
+                            <!-- </div> -->
                     
-                            <div class="cont">
+                            <!-- <div class="cont"> -->
                                 <center>
-                                <label for="" class="label"> </label>
-                                <input type="number" name="rec" placeholder="Recompensa" required><br>
+                               
+                                <div class="form2">
+                                    <input type="number" name=rec class="form__input" autocomplete="off" placeholder=" ">
+                                    <label for="" class="form__label">Recompensa</label>
+                                </div>
                                 </center>
-                            </div>
+                            <!-- </div> -->
 
-                            <div class="cont">
+                            <!-- <div class="cont"> -->
                                 <center>
-                                <label for="" class="label"> </label>
-                                <input type="datetime-local" name="lim" placeholder="Fecha Límite" required><br>
+                                <div class="form2">
+                                    <input type="datetime-local" name="lim" class="form__input" autocomplete="off" placeholder=" ">
+                                    <label for="email" class="form__label"></label>
+                                </div>
                                 </center>
-                            </div>
+                            <!-- </div> -->
 
-                            <div class="cont">
+                            <!-- <div class="cont"> -->
                                 <center>
-                                <label for="" class="label"> </label>
-                                <input type="text" name="tag" placeholder="Tags (separar por ¨,¨)"><br>
+                                <div class="form2">
+                                    <input type="text" name="tag" class="form__input" autocomplete="off" placeholder=" ">
+                                    <label for="tag" class="form__label">Tags</label>
+                                </div>
                                 </center>
-                            </div>
+                            <!-- </div> -->
                             
                             <div class="enviar">
                                 <center>

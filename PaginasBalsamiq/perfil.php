@@ -15,7 +15,12 @@
 
 <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
-        <input class="buscador" type="text" placeholder="buscar...">
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
