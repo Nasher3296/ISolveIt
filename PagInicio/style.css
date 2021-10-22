@@ -71,25 +71,59 @@ grid-area: cont_contacto;
   position: relative;
   grid-area: opiniones;
   background: red;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.cont_opiniones {
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 #opiniones_titulo {
+  margin-top: 90px;
+  font-size: 40px;
+  height: 30%;
   padding: 10px;
+  text-align: center;
+  
 }
 
 
 .opiniones .imagenes {
   position: relative;
-  width: 10%;
+  width: auto;
+  height: auto;
   border-radius: 50%;
+  width: auto;
+  height: 35%;
 }
 
-.opiniones #opinion1_opinion{
-  position: relative;
+
+.tamaño_opinion {
+  display: inline-flex;
+  height: 70%;
+  width: 33%;
 }
 
-.opiniones #opinion1_nombre{
+ .opinion_opinion{
+   font-size: 20px;
   position: relative;
+   top: 30%;
+   left: 10%;
+  height: 15%;
+  width: 70%;
+}
+
+.opinion_nombre{
+  font-size: 15px;
+  position: relative;
+  height: 15%;
+  top: 40%;
+  width: 70%;
+  right: 20%;
 }
 
 .ilustracion3{
