@@ -25,7 +25,12 @@
 
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
-        <input class="buscador" type="text" placeholder="buscar...">
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
     </header>
     <aside class="sidebar">
         <div class="sidebar_usuario">
@@ -143,7 +148,7 @@
                         }
                     }
                 }
-                header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']");
+                /* header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
             ?>
         </div> 
     </div>
