@@ -22,7 +22,7 @@ body{
     display: grid;
 
     grid-template:
-        "sidebar     header" 10%
+        "sidebar     header" 100px
         "sidebar    main"   auto/
         22%         auto;
 }
@@ -46,10 +46,6 @@ body{
     font-size: 2.5rem;
 }
 
-.buscador{
-    grid-area: busc;
-    width: max-content;
-}
 
 .a{
     font-size: 1.5rem;
