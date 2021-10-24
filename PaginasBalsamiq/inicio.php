@@ -52,15 +52,13 @@
     <div class="main">
         <div class="publicaciones">
             <?php
-                /* in o notin */
                 $cargadas = array();
                 $consulta = $conn->prepare("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
                 $consulta ->execute();
                 while($resultadoTagUsr = $consulta->fetch(PDO::FETCH_ASSOC)){
                     $consulta2 = $conn->prepare("SELECT id_cons FROM tag_cons WHERE tag_cons = '".$resultadoTagUsr['tag_us']."'");
                     $consulta2 ->execute();
-                    if($resultadoTag = $consulta2->fetch(PDO::FETCH_ASSOC)){
-
+                    while($resultadoTag = $consulta2->fetch(PDO::FETCH_ASSOC)){
                         $consulta3 = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$resultadoTag['id_cons']."'");
                         $consulta3 ->execute();
                         if($resultadoCon = $consulta3->fetch(PDO::FETCH_ASSOC)){
@@ -79,8 +77,7 @@
                                     <div class="publicacion_preview">
                                         <div class="data">
                                             <div class="foto">
-                                                A
-                                                <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">-->
+                                                <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
                                             </div>
                                             <div class="usuario">
                                                 <h4>'.$resultadoUser["nombre"].'</h4>
@@ -95,7 +92,7 @@
                                         <div class="cuerpo">
                                             <h2>'.$resultadoCon['titulo'].'</h2>
                                             <!--Descripcion-->
-                                            <p>'.$resultadoCon['descripcion'].'</p>
+                                            <p class="desc">'.$resultadoCon['descripcion'].'</p>
                                         </div>
                                         <div class="tags">
                                             <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
@@ -126,13 +123,20 @@
                                     
                                     $consultaConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$resultadoCon["id_consulta"]."'");
                                     $consultaConcurso ->execute();
-                                    $resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC);
-                                    
-                                    if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
-                                        echo'
-                                            <a class="postularBtn cancelar">Cancelar postulacion</a>
-                                        ';
-                                    }else{
+                                    if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){      
+                                        if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
+                                            echo'
+                                                <form action="../ImplementarPHP/cancelar.php" method="POST" id="cancelar">
+                                                    <input type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar">
+                                                </form>
+                                            ';
+                                        }else{
+                                            echo'
+                                                <a class="postularBtn postular">Quiero postularme</a>
+                                            ';
+                                        }
+                                    }
+                                    else{
                                         echo'
                                             <a class="postularBtn postular">Quiero postularme</a>
                                         ';
@@ -141,6 +145,13 @@
                                         </div>
                                     ';
                                     }
+                                else{
+                                    echo'
+                                        <div class="postularDiv">
+                                            <a>Ver postulantes</a>
+                                        </div>
+                                    ';
+                                }
                                 echo'
                                     </div>
                                 ';

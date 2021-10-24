@@ -22,9 +22,22 @@ body{
     display: grid;
 
     grid-template:
-        "sidebar     header" 10%
-        "sidebar    main"   auto/
-        25%         auto;
+        "sidebar     header" 10vh
+        "sidebar    main"   90vh/
+        22%         auto;
+}
+
+@media(max-height: 760px)
+{
+    .grid_container{
+        display: grid;
+    
+        grid-template:
+            "sidebar     header" 15vh
+            "sidebar    main"   85vh/
+            22%         auto;
+    }
+
 }
 
 .header{
@@ -41,15 +54,11 @@ body{
 .ISolveIt{
     grid-area: titu;
     text-align: left;
-    margin-left: 100px;
+    margin-left: 50px;
     color:#1a2537;
     font-size: 2.5rem;
 }
 
-.buscador{
-    grid-area: busc;
-    width: max-content;
-}
 
 .a{
     font-size: 1.5rem;
@@ -64,7 +73,7 @@ a{
 }
 
 .sidebar{
-    background-color:  rgb(83, 74, 146);
+    background-color:  rgb(59, 44, 98);
     grid-area: sidebar;
     text-align: center;
     color:rgb(26, 21, 21);
@@ -73,7 +82,7 @@ a{
 }
 
 .h2{
-background-color: rgb(106, 93, 168);
+background-color: rgb(78, 62, 155);
 color:white;
 border-radius: 30px;
 padding:11px;
@@ -101,12 +110,13 @@ font-size: 1rem;
 }
 
 .main{
-    background-color: rgb(83, 74, 146);
+    background-color: rgb(59, 44, 98);
     grid-area: main;
+    overflow-y: scroll;
 }
 
 .botones_sidebar{
-    margin: 30px;
+    margin: 17px;
     padding: 10px;
     list-style: none;
     text-align: left;
@@ -114,7 +124,7 @@ font-size: 1rem;
 
 .a:hover{
     transition: 0.5s;
-    background-color:rgb(106, 93, 168);
+    background-color:rgb(78, 62, 155);
     color:white;
     border-radius: 50px;
 }
