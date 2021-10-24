@@ -12,32 +12,36 @@
     padding: 30px;
     text-align: left;
     margin: 15px;
-    max-width: 95%;
 }
 
 .data{
     height: 100%;
     grid-area: data;
-    display: flex;
+    display: grid;
+    grid-template:
+    "foto  usuario   recoyvenc" 100%/
+    5%         auto        40%;
 }
 
 .cuerpo{
     grid-area: cuerpo;
-    width: 60vw;
 }
 
-.desc{
-    width: 100%;
-    word-wrap: break-word;
-    max-height: 3rem;
-    overflow: hidden;
+.tags{
+    grid-area: tags;
 }
 
+.foto{
+    grid-area: foto;
+}
+
+.usuario{
+    grid-area: usuario;
+}
 
 .recoyvenc{
-
-    margin-right: 0;
-    margin-left: auto;
+    grid-area: recoyvenc;
+    text-align: right;
 }
 
 .tags_list{
@@ -55,17 +59,4 @@
 
 .fotoPerfil{
     width: 60px;
-}
-
-.postularDiv{
-    background-color: rgb(106, 93, 168);
-    display:block;
-    width: 20%;
-    margin-right: 15px;
-    margin-left: auto;
-    padding: 10px;
-    border-radius: 12px;
-    color: white;
-    text-align: center;
-    cursor: pointer;
 }
