@@ -59,8 +59,7 @@
                     <div class="publicacion_preview">
                     <div class="data">
                         <div class="foto">
-                            A
-                            <!--<img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">-->
+                            <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">
                         </div>
                         <div class="usuario">
                             <h4>'.$resultadoUsr["nombre"].'</h4>
@@ -92,10 +91,46 @@
                         }
                     }
                                     
-                                            
                     echo'
-                                </ul>
+                            </ul>
+                        </div>
+                    ';
+
+                    if($resultadoConsulta['id_us'] != $_SESSION['id_us']){
+                        echo'
+                        <div class="postularDiv">
+                        ';
+                        
+                        $consultaConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$resultadoConsulta["id_consulta"]."'");
+                        $consultaConcurso ->execute();
+                        if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){      
+                            if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
+                                echo'
+                                    <a class="postularBtn cancelar">Cancelar postulacion</a>
+                                ';
+                            }else{
+                                echo'
+                                    <a class="postularBtn postular">Quiero postularme</a>
+                                ';
+                            }
+                        }
+                        else{
+                            echo'
+                                <a class="postularBtn postular">Quiero postularme</a>
+                            ';
+                        }
+                        echo'
                             </div>
+                        ';
+                        }
+                    else{
+                        echo'
+                            <div class="postularDiv">
+                                <a>Ver postulantes</a>
+                            </div>
+                        ';
+                    }
+                    echo'
                         </div>
                     ';
                 }
