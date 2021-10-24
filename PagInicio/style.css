@@ -9,9 +9,23 @@ html{
 }
 
 body{
-  background: #675682;
-font-family: "corbel";
+  background:#3d1a7ddf;
+  font-family: "corbel";
+  background-image: linear-gradient(to bottom, #355c7d, #6c5b7b, #C06c84, #f67280, #f8b195);
 }
+
+/* .login::after{
+  content: "";
+  position: absolute;
+  display:block;
+  height: 45%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #857dB1;
+  z-index: -1;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+} */
 
 .header {
 background-color: rgb(255, 255, 255);
@@ -43,7 +57,7 @@ grid-template:
 .contacto{
   position: relative;
 grid-area: contacto;
-background: #675682;
+background-image: linear-gradient(to bottom, #6c5b7b, #C06c84, #f6727f91);
 display: grid;
     grid-template:
       "ilustracion3     cont_contacto" 100% /
@@ -127,11 +141,13 @@ grid-area: cont_contacto;
   position: absolute;
   top: -78px;
 }
+
 .titulo{
   white-space : nowrap;
   -webkit-text-stroke: 0.2vw #675682;
   text-transform: uppercase;
   Color: #675682;
+  font-family: sans-serif;
 }
 
 .titulo::before{
@@ -296,6 +312,7 @@ input[type="password"]
 {
   margin-bottom: 15px;
   border: 1px solid #aaa;
+  border-radius: 5px;
 }
 
 .icon
