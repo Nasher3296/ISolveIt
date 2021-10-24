@@ -9,7 +9,7 @@ html{
 }
 
 body{
-background-color:rgb(83, 74, 146);
+  background: #675682;
 font-family: "corbel";
 }
 
@@ -43,7 +43,7 @@ grid-template:
 .contacto{
   position: relative;
 grid-area: contacto;
-background: rgb(83, 74, 146);
+background: #675682;
 display: grid;
     grid-template:
       "ilustracion3     cont_contacto" 100% /
@@ -129,9 +129,9 @@ grid-area: cont_contacto;
 }
 .titulo{
   white-space : nowrap;
-  -webkit-text-stroke: 0.2vw rgb(92, 82, 160);
+  -webkit-text-stroke: 0.2vw #675682;
   text-transform: uppercase;
-  Color: darkslateblue;
+  Color: #675682;
 }
 
 .titulo::before{
@@ -140,7 +140,7 @@ grid-area: cont_contacto;
   position: absolute;
   white-space : nowrap;
   width: 100;
-  -webkit-text-stroke: 0vw darkslateblue;
+  -webkit-text-stroke: 0vw #675682;
   overflow: hidden;
   animation: animacion 1.5s linear; 
 }
@@ -336,6 +336,7 @@ font-size: 15px;
 
 .link
 {
+  cursor:pointer;
   text-decoration: none;
   color: #1a2537;
   font-weight: 600;
