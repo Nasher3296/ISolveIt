@@ -55,9 +55,9 @@
     margin-left: 20%;
 }
 
-.tags{
+/* .tags{
     
-}
+} */
 
 .Taglist{
     list-style: none;
@@ -68,3 +68,5 @@
 .Taglist > li{
     margin-right: 15px;
 }
+
+

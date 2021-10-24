@@ -22,8 +22,8 @@ body{
     display: grid;
 
     grid-template:
-        "sidebar     header" 10vh
-        "sidebar    main"   90vh/
+        "sidebar     header" 100px
+        "sidebar    main"   auto/
         22%         auto;
 }
 
