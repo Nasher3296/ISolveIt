@@ -22,9 +22,22 @@ body{
     display: grid;
 
     grid-template:
-        "sidebar     header" 100px
-        "sidebar    main"   auto/
+        "sidebar     header" 10vh
+        "sidebar    main"   90vh/
         22%         auto;
+}
+
+@media(max-height: 760px)
+{
+    .grid_container{
+        display: grid;
+    
+        grid-template:
+            "sidebar     header" 15vh
+            "sidebar    main"   85vh/
+            22%         auto;
+    }
+
 }
 
 .header{
@@ -103,7 +116,7 @@ font-size: 1rem;
 }
 
 .botones_sidebar{
-    margin: 30px;
+    margin: 17px;
     padding: 10px;
     list-style: none;
     text-align: left;
