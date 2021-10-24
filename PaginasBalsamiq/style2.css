@@ -73,7 +73,7 @@ a{
 }
 
 .sidebar{
-    background-color:  rgb(83, 74, 146);
+    background-color:  rgb(59, 44, 98);
     grid-area: sidebar;
     text-align: center;
     color:rgb(26, 21, 21);
@@ -82,7 +82,7 @@ a{
 }
 
 .h2{
-background-color: rgb(106, 93, 168);
+background-color: rgb(78, 62, 155);
 color:white;
 border-radius: 30px;
 padding:11px;
@@ -110,7 +110,7 @@ font-size: 1rem;
 }
 
 .main{
-    background-color: rgb(83, 74, 146);
+    background-color: rgb(59, 44, 98);
     grid-area: main;
     overflow-y: scroll;
 }
@@ -124,7 +124,7 @@ font-size: 1rem;
 
 .a:hover{
     transition: 0.5s;
-    background-color:rgb(106, 93, 168);
+    background-color:rgb(78, 62, 155);
     color:white;
     border-radius: 50px;
 }
