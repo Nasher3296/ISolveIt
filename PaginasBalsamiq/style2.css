@@ -22,8 +22,8 @@ body{
     display: grid;
 
     grid-template:
-        "sidebar     header" 100px
-        "sidebar    main"   auto/
+        "sidebar     header" 10vh
+        "sidebar    main"   90vh/
         22%         auto;
 }
 
@@ -99,6 +99,7 @@ font-size: 1rem;
 .main{
     background-color: rgb(83, 74, 146);
     grid-area: main;
+    overflow-y: scroll;
 }
 
 .botones_sidebar{
