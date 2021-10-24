@@ -26,7 +26,7 @@ display: grid;
 grid-template:
   "login" 100vh
   "nosotros" 70vh
-  "opiniones" 70vh
+  /*"opiniones" 70vh*/
   "contacto" 70vh;
 }
 
@@ -67,6 +67,7 @@ grid-area: cont_contacto;
     justify-items: center; 
 }
 
+<<<<<<< Updated upstream
 .opiniones{
   position: relative;
   grid-area: opiniones;
@@ -126,6 +127,10 @@ grid-area: cont_contacto;
   right: 20%;
 }
 
+=======
+
+
+>>>>>>> Stashed changes
 .ilustracion3{
   grid-area: ilustracion3;
   width: 80%;
