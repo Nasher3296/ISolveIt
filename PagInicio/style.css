@@ -26,7 +26,6 @@ display: grid;
 grid-template:
   "login" 100vh
   "nosotros" 70vh
-  /*"opiniones" 70vh*/
   "contacto" 70vh;
 }
 
@@ -67,70 +66,8 @@ grid-area: cont_contacto;
     justify-items: center; 
 }
 
-<<<<<<< Updated upstream
-.opiniones{
-  position: relative;
-  grid-area: opiniones;
-  background: red;
-  display: flex;
-  flex-wrap: wrap;
-}
 
 
-.cont_opiniones {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-#opiniones_titulo {
-  margin-top: 90px;
-  font-size: 40px;
-  height: 30%;
-  padding: 10px;
-  text-align: center;
-  
-}
-
-
-.opiniones .imagenes {
-  position: relative;
-  width: auto;
-  height: auto;
-  border-radius: 50%;
-  width: auto;
-  height: 35%;
-}
-
-
-.tamaño_opinion {
-  display: inline-flex;
-  height: 70%;
-  width: 33%;
-}
-
- .opinion_opinion{
-   font-size: 20px;
-  position: relative;
-   top: 30%;
-   left: 10%;
-  height: 15%;
-  width: 70%;
-}
-
-.opinion_nombre{
-  font-size: 15px;
-  position: relative;
-  height: 15%;
-  top: 40%;
-  width: 70%;
-  right: 20%;
-}
-
-=======
-
-
->>>>>>> Stashed changes
 .ilustracion3{
   grid-area: ilustracion3;
   width: 80%;
