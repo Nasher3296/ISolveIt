@@ -1,46 +1,63 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>I solve it</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="grid_container">
-    <header class="header">
-            <h1 class="ISolveIt">I solve it</h1>
-            <input class="buscador" type="text" placeholder="buscar...">
-    </header>
-    <aside class="sidebar">
-        <div class="sidebar_usuario">
-            <div class="cont_sidebar_usuario">
-                <h4>Nombre</h4>
-                <h5>@nombre</h5>
-                <div class="valoracion">
-                    <!--Aca van las estrellas. Dejo esto para hacer un AFTER en css-->
-                </div>
-            </div>
-        </div>
-        <div class="sidebar_menu">
-            <div class="cont_sidebar_menu">
-                <ul type="none">
-                    <li><h3>Inicio</h3></li>
-                    <li><h3>Dudas</h3></li>
-                    <li><h3>Postulaciones</h3></li>
-                    <li><h3>Seguidos</h3></li>
-                    <li><h3>Mensajes</h3></li>
-                    <li><h3>Mi perfil</h3></li>
-                </ul>
-            </div>
-        </div>
-        <div class="sidebar_nuevaDuda">
-            <h2 id="cont_nuevaDuda">Nueva duda</h2>
-        </div>
-    </aside>
-    <div class="main">
 
+<div class="publicacion_preview">
+    <div class="data">
+        <div class="foto">
+            <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">
+        </div>
+        <div class="usuario">
+            <h4>'.$resultadoUsr["nombre"].'</h4>
+            <h5>@'.$resultadoUsr["username"].'</h5>
+        </div>
+        <div class="recoyvenc">
+            <h4>Recompensa: $'.$resultadoConsulta["recompensa"].'</h4>
+            <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
+            <h4>Vencimiento: '.$resultadoConsulta["fecha_limite"].'</h4>
+        </div>
     </div>
-    <footer class="footer">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quasi earum praesentium pariatur obcaecati. Vero quidem odit ipsa id incidunt
-    </footer>
-</body>
-</html>
+    <div class="cuerpo">
+        <h2>'.$resultadoConsulta['titulo'].'</h2>
+        <p class="desc">'.$resultadoConsulta['descripcion'].'</p>
+    </div>
+    <div class="tags">
+        <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
+        <h4>Etiquetas: </h4>
+        <ul class="tags_list">
+        while(){
+            $consultaTag = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+            $consultaTag ->execute();
+            while($resultadoTag = $consultaTag->fetch(PDO::FETCH_ASSOC)){
+                <li class="tag">'.$resultadoTag['tag'].'</li>';
+            }
+        }
+        </ul>
+    </div>
+        
+if($resultadoConsulta['id_us'] != $_SESSION['id_us']){
+    <div class="postularDiv">     
+    if(){        
+                
+        <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
+            <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+            <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
+        </form>
+    }
+    else{
+                
+        <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
+            <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+            <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
+        </form>
+    }
+            
+    </div>
+}
+else{
+            
+    <div class="postularDiv">
+        <input value="Ver postulantes" type="submit" class="postularBtn verPostulantes" name="verPostulantes">
+    </div>
+        }
+        
+</div>
+        
+       

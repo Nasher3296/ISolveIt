@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="publicacion_plantilla.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="EntrarPublicacion.js"></script>
 </head>
 <body class="grid_container">
     <?php
@@ -64,7 +65,7 @@
                         $consulta3 ->execute();
                         if($resultadoCon = $consulta3->fetch(PDO::FETCH_ASSOC)){
                             
-                            if(!in_array($resultadoTag['id_cons'],$cargadas)){
+                            if((!in_array($resultadoTag['id_cons'],$cargadas))&&($resultadoCon['id_us'] != $_SESSION['id_us'])){
                                 array_push($cargadas,$resultadoTag['id_cons']);
 
                                 $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
@@ -75,7 +76,7 @@
 
 
                                 echo'
-                                    <div class="publicacion_preview">
+                                    <div class="publicacion_preview" onclick="EntrarPublicacion()">
                                         <div class="data">
                                             <div class="foto">
                                                 <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
@@ -128,6 +129,7 @@
                                         echo'
                                             <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
                                                 <input type="hidden" name="id_cons" value="'.$resultadoCon['id_consulta'].'">
+                                                <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/inicio.php">
                                                 <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
                                             </form>
                                         ';
@@ -136,6 +138,7 @@
                                         echo'
                                         <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
                                             <input type="hidden" name="id_cons" value="'.$resultadoCon['id_consulta'].'">
+                                            <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/inicio.php">
                                             <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
                                         </form>
                                         ';

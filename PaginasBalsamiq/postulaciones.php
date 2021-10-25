@@ -102,12 +102,13 @@
                                 <div class="postularDiv">
                             ';
                             $i++;
-                            $consultaConcurso = $conn->prepare("SELECT id_concurso FROM concurso WHERE (id_consulta = '".$resultadoConsulta["id_consulta"]."' AND id_us = '".$_SESSION['id_us']."')");
-                            $consultaConcurso ->execute();
-                            if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){        
+                            $consultaConc = $conn->prepare("SELECT id_concurso FROM concurso WHERE (id_consulta = '".$resultadoConsulta["id_consulta"]."' AND id_us = '".$_SESSION['id_us']."')");
+                            $consultaConc ->execute();
+                            if($resultadoConc = $consultaConc->fetch(PDO::FETCH_ASSOC)){        
                                 echo'
                                     <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
                                         <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+                                        <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/postulaciones.php">
                                         <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
                                     </form>
                                 ';
@@ -116,6 +117,7 @@
                                 echo'
                                 <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
                                     <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+                                    <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/postulaciones.php">
                                     <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
                                 </form>
                                 ';
@@ -133,6 +135,7 @@
                         }
                         echo'
                             </div>
+                        
                         ';
                 }
             }
