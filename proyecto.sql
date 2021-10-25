@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2021 a las 15:04:59
+-- Tiempo de generación: 24-10-2021 a las 20:31:20
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -33,6 +33,14 @@ CREATE TABLE `concurso` (
   `id_us` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `concurso`
+--
+
+INSERT INTO `concurso` (`id_concurso`, `id_consulta`, `id_us`) VALUES
+(1, 6, 6),
+(2, 2, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -46,7 +54,7 @@ CREATE TABLE `consulta` (
   `descripcion` varchar(280) NOT NULL,
   `recompensa` float NOT NULL,
   `fecha_subida` datetime NOT NULL DEFAULT current_timestamp(),
-  `fecha_limite` date NOT NULL
+  `fecha_limite` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -54,11 +62,11 @@ CREATE TABLE `consulta` (
 --
 
 INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`) VALUES
-(1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06'),
-(2, 1, '222222222', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31'),
-(4, 6, '', '', 0, '2021-10-12 00:00:00', '0000-00-00'),
-(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27'),
-(7, 1, '3333333333', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31');
+(1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06 00:00:00'),
+(2, 1, '222222222', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00'),
+(4, 6, '', '', 0, '2021-10-12 00:00:00', '0000-00-00 00:00:00'),
+(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00'),
+(7, 1, '3333333333', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -226,7 +234,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `concurso`
 --
 ALTER TABLE `concurso`
-  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `consulta`

@@ -127,18 +127,22 @@
                                         if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
                                             echo'
                                                 <form action="../ImplementarPHP/cancelar.php" method="POST" id="cancelar">
-                                                    <input type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar">
+                                                    <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar">
                                                 </form>
                                             ';
                                         }else{
                                             echo'
-                                                <a class="postularBtn postular">Quiero postularme</a>
+                                                <form action="../ImplementarPHP/postular.php" method="POST" id="postular">
+                                                    <input value="Postularme" type="submit" class="postularBtn postular" name="cancelar" form="postular">
+                                                </form>
                                             ';
                                         }
                                     }
                                     else{
                                         echo'
-                                            <a class="postularBtn postular">Quiero postularme</a>
+                                            <form action="../ImplementarPHP/postular.php" method="POST" id="postular">
+                                                <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular">
+                                            </form>
                                         ';
                                     }
                                     echo'
@@ -148,7 +152,7 @@
                                 else{
                                     echo'
                                         <div class="postularDiv">
-                                            <a>Ver postulantes</a>
+                                            <input value="Ver postulantes" type="submit" class="postularBtn verPostulantes" name="verPostulantes">
                                         </div>
                                     ';
                                 }

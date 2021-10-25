@@ -11,18 +11,7 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
-
-        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
-        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
-        $consulta ->execute();
-        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
-
-        $_SESSION['nombre'] = $usuarioSession['nombre'];
-        $_SESSION['id_us'] = $usuarioSession['id_us'];
-        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
-        $_SESSION['imagen'] = $usuarioSession['imagen'];
     ?>
-
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
         <div class="buscador">
@@ -52,13 +41,13 @@
     <div class="main">
         <div class="main_form">
                 <div class="form">
-                    <form action="../ImplementarPHP/publicar.php" method="POST">
+                    <form action="../ImplementarPHP/publicar.php" method="POST" id="formPost">
                         <div class="contenedor">
                             <h2 id="h2">Crea tu consulta</h2>
                             <!-- <div class="cont"> -->
                                 <center>
                             <div class="form2">
-                                <input type="text" id="titulo" name="titulo" class="form__input" autocomplete="off" placeholder=" ">
+                                <input type="text" id="titulo" name="titulo" class="form__input" autocomplete="off" placeholder="" required>
                                 <label for="titulo" class="form__label">Título</label>
                             </div>
                                 </center>
@@ -67,7 +56,7 @@
                             <!-- <div class="cont" id="cont_grande"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="text" id="desc" name="desc" class="form__input" autocomplete="off" placeholder=" ">
+                                    <input type="text" id="desc" name="desc" class="form__input" autocomplete="off" placeholder="" maxlength="280" required>
                                     <label for="desc" class="form__label">Descripción</label>
                                 </div>
                                 </center>
@@ -78,7 +67,7 @@
                                 <center>
                                
                                 <div class="form2">
-                                    <input type="number" name="rec" id="rec" class="form__input" autocomplete="off" placeholder=" ">
+                                    <input type="number" name="rec" id="rec" class="form__input" autocomplete="off" placeholder="" required>
                                     <label for="rec" class="form__label">Recompensa</label>
                                 </div>
                                 </center>
@@ -87,7 +76,7 @@
                             <!-- <div class="cont"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="datetime-local" id="lim" name="lim" class="form__input" autocomplete="off" placeholder=" ">
+                                    <input type="datetime-local" id="lim" name="lim" class="form__input" autocomplete="off" placeholder="" required>
                                     <label for="lim" class="form__label">Vencimiento</label>
                                 </div>
                                 </center>
@@ -96,17 +85,17 @@
                             <!-- <div class="cont"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="text" name="tag" id="tag" class="form__input" autocomplete="off" placeholder=" ">
+                                    <input type="text" name="tag" id="tag" class="form__input" autocomplete="off" placeholder="" required maxlength="30" onkeypress="return (event.charCode != 32)">
                                     <label for="tag" class="form__label">Tags</label>
                                 </div>
                                 </center>
                             <!-- </div> -->
                             
-                            <div class="enviar">
+                            
                                 <center>
-                                <a href="" type="submit" name="postear"><h6>Enviar</h6></a>
+                                <input type="submit" value="Enviar" name="postear" form="formPost" class="enviar">
                                 </center>
-                            </div>
+                            
                         </div>
                     </form>
                 </div>
