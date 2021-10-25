@@ -52,6 +52,7 @@
     <div class="main">
         <div class="publicaciones">
             <?php
+                $i = 0;
                 $cargadas = array();
                 $consulta = $conn->prepare("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
                 $consulta ->execute();
@@ -115,40 +116,34 @@
                                             </ul>
                                         </div>
                                 ';
-
+                                
                                 if($resultadoCon['id_us'] != $_SESSION['id_us']){
                                     echo'
-                                    <div class="postularDiv">
+                                        <div class="postularDiv">
                                     ';
-                                    
-                                    $consultaConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$resultadoCon["id_consulta"]."'");
+                                    $i++;
+                                    $consultaConcurso = $conn->prepare("SELECT id_concurso FROM concurso WHERE (id_consulta = '".$resultadoCon["id_consulta"]."' AND id_us = '".$_SESSION['id_us']."')");
                                     $consultaConcurso ->execute();
-                                    if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){      
-                                        if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
-                                            echo'
-                                                <form action="../ImplementarPHP/cancelar.php" method="POST" id="cancelar">
-                                                    <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar">
-                                                </form>
-                                            ';
-                                        }else{
-                                            echo'
-                                                <form action="../ImplementarPHP/postular.php" method="POST" id="postular">
-                                                    <input value="Postularme" type="submit" class="postularBtn postular" name="cancelar" form="postular">
-                                                </form>
-                                            ';
-                                        }
+                                    if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){        
+                                        echo'
+                                            <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
+                                                <input type="hidden" name="id_cons" value="'.$resultadoCon['id_consulta'].'">
+                                                <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
+                                            </form>
+                                        ';
                                     }
                                     else{
                                         echo'
-                                            <form action="../ImplementarPHP/postular.php" method="POST" id="postular">
-                                                <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular">
-                                            </form>
+                                        <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
+                                            <input type="hidden" name="id_cons" value="'.$resultadoCon['id_consulta'].'">
+                                            <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
+                                        </form>
                                         ';
                                     }
                                     echo'
                                         </div>
                                     ';
-                                    }
+                                }
                                 else{
                                     echo'
                                         <div class="postularDiv">

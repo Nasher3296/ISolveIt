@@ -41,6 +41,7 @@
     </aside>
     <div class="main"> 
         <?php
+            $i = 0;
             $consultaConcurso = $conn->prepare("SELECT id_consulta FROM concurso WHERE id_us = '".$_SESSION['id_us']."'");
             $consultaConcurso ->execute();
             while ($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)) {
@@ -74,7 +75,7 @@
                     <div class="cuerpo">
                         <h2>'.$resultadoConsulta['titulo'].'</h2>
                         <!--Descripcion-->
-                        <p>'.$resultadoConsulta['descripcion'].'</p>
+                        <p class="desc">'.$resultadoConsulta['descripcion'].'</p>
                     </div>
                     <div class="tags">
                         <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
@@ -92,47 +93,47 @@
                     }
                                     
                     echo'
-                            </ul>
-                        </div>
-                    ';
-
-                    if($resultadoConsulta['id_us'] != $_SESSION['id_us']){
-                        echo'
-                        <div class="postularDiv">
+                                    </ul>
+                                </div>
                         ';
                         
-                        $consultaConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$resultadoConsulta["id_consulta"]."'");
-                        $consultaConcurso ->execute();
-                        if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){      
-                            if($resultadoConcurso['id_us'] == $_SESSION['id_us']){    
+                        if($resultadoConsulta['id_us'] != $_SESSION['id_us']){
+                            echo'
+                                <div class="postularDiv">
+                            ';
+                            $i++;
+                            $consultaConcurso = $conn->prepare("SELECT id_concurso FROM concurso WHERE (id_consulta = '".$resultadoConsulta["id_consulta"]."' AND id_us = '".$_SESSION['id_us']."')");
+                            $consultaConcurso ->execute();
+                            if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){        
                                 echo'
-                                    <a class="postularBtn cancelar">Cancelar postulacion</a>
-                                ';
-                            }else{
-                                echo'
-                                    <a class="postularBtn postular">Quiero postularme</a>
+                                    <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
+                                        <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+                                        <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
+                                    </form>
                                 ';
                             }
+                            else{
+                                echo'
+                                <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
+                                    <input type="hidden" name="id_cons" value="'.$resultadoConsulta['id_consulta'].'">
+                                    <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
+                                </form>
+                                ';
+                            }
+                            echo'
+                                </div>
+                            ';
                         }
                         else{
                             echo'
-                                <a class="postularBtn postular">Quiero postularme</a>
+                                <div class="postularDiv">
+                                    <input value="Ver postulantes" type="submit" class="postularBtn verPostulantes" name="verPostulantes">
+                                </div>
                             ';
                         }
                         echo'
                             </div>
                         ';
-                        }
-                    else{
-                        echo'
-                            <div class="postularDiv">
-                                <a>Ver postulantes</a>
-                            </div>
-                        ';
-                    }
-                    echo'
-                        </div>
-                    ';
                 }
             }
         ?>
