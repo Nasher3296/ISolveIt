@@ -43,6 +43,10 @@
         <div class="main">
             <div>
                 <?php
+                    $conus = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
+                    $conus ->execute();
+                    $resus = $conus->fetch(PDO::FETCH_ASSOC);
+
                     $fotoperfil=$GET["varFotoperfil"];
                     $nombre=$GET["varNombre"];
                     $arroba=$GET["varArroba"];
