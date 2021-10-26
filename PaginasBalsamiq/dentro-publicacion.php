@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>I solve it</title>
         <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="NO_TOCAR.css"> 
         <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
         <meta name="description" content="Publicacion">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

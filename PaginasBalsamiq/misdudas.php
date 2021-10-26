@@ -6,6 +6,7 @@
     <!--link para los iconos [NO BORRAR] -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="NO_TOCAR.css"> 
     <link rel="stylesheet" href="publicacion_plantilla.css">
 </head>
 <body class="grid_container">
