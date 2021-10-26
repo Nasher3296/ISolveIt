@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>I solve it</title>
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="NO_TOCAR.css"> 
     <link rel="stylesheet" href="publicacion_plantilla.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="EntrarPublicacion.js"></script>
@@ -25,7 +26,7 @@
     ?>
 
     <header class="header">
-        <h1 class="ISolveIt">I solve it</h1>
+    <h1 class="ISolveIt">I solve it</h1>
         <div class="buscador">
         <input type="text" placeholder="Buscar..." required>
             <div class="btn">
