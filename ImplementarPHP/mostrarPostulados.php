@@ -6,6 +6,7 @@ session_start();
 $consulta = ??;
 $id_us = ??;
 $i = 0;
+if($_SESSION['id_us' == $])
 $consultaConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$consulta."'");
 $consultaConcurso ->execute();
 while($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){
