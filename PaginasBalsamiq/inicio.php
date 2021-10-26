@@ -71,52 +71,61 @@
                                 $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
                                 $consulta4 ->execute();
                                 $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
-                            
-                            
-
-
+            ?>
+        <!--  <script>
+                var fotoperfil = </?php echo json_encode($myPHPVar); ?>;
+                var nombre = </?php echo json_encode($myPHPVar); ?>;
+                var arroba = </?php echo json_encode($myPHPVar); ?>;
+                var titulo = </?php echo json_encode($myPHPVar); ?>;
+                var recompensa = </?php echo json_encode($myPHPVar); ?>;
+                var descripcion = </?php echo json_encode($myPHPVar); ?>;
+                var FechaSubida = </?php echo json_encode($myPHPVar); ?>;
+                var FechaLimite = </?php echo json_encode($myPHPVar); ?>;
+            </script> -->
+            <?php                      
+                /*header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
                                 echo'
-                                    <div class="publicacion_preview" onclick="EntrarPublicacion()">
-                                        <div class="data">
-                                            <div class="foto">
-                                                <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
+                                        <div class="publicacion_preview"  onclick="EntrarPublicacion();">
+                                            <div class="data">
+                                                <div class="foto">
+                                                    <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
+                                                </div>
+                                                <div class="usuario">
+                                                    <h4>'.$resultadoUser["nombre"].'</h4>
+                                                    <h5>@'.$resultadoUser["username"].'</h5>
+                                                </div>
+                                                <div class="recoyvenc">
+                                                    <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>
+                                                    <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
+                                                    <h4>Vencimiento: '.$resultadoCon["fecha_limite"].'</h4>
+                                                </div>
                                             </div>
-                                            <div class="usuario">
-                                                <h4>'.$resultadoUser["nombre"].'</h4>
-                                                <h5>@'.$resultadoUser["username"].'</h5>
+                                            <div class="cuerpo">
+                                                <h2>'.$resultadoCon['titulo'].'</h2>
+                                                <!--Descripcion-->
+                                                <p class="desc">'.$resultadoCon['descripcion'].'</p>
                                             </div>
-                                            <div class="recoyvenc">
-                                                <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>
-                                                <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
-                                                <h4>Vencimiento: '.$resultadoCon["fecha_limite"].'</h4>
-                                            </div>
-                                        </div>
-                                        <div class="cuerpo">
-                                            <h2>'.$resultadoCon['titulo'].'</h2>
-                                            <!--Descripcion-->
-                                            <p class="desc">'.$resultadoCon['descripcion'].'</p>
-                                        </div>
-                                        <div class="tags">
-                                            <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
-                                            <h4>Etiquetas: </h4>
-                                            <ul class="tags_list">
-                                ';
-                                            
-                                $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
-                                $consulta5 ->execute();
-                                while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
-                                    $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
-                                    $consulta6 ->execute();
-                                    while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
-                                        echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                                            <div class="tags">
+                                                <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
+                                                <h4>Etiquetas: </h4>
+                                                <ul class="tags_list">
+                                        ';
+                                                
+                                    $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
+                                    $consulta5 ->execute();
+                                    while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
+                                        $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                                        $consulta6 ->execute();
+                                        while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
+                                            echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                                        }
                                     }
-                                }
-                                            
-                                                        
-                                echo'
-                                            </ul>
-                                        </div>
-                                ';
+                                                
+                                                            
+                                    echo'
+                                                </ul>
+                                            </div>
+                                    ';
                                 
                                 if($resultadoCon['id_us'] != $_SESSION['id_us']){
                                     echo'
@@ -161,7 +170,6 @@
                         }
                     }
                 }
-                /* header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
             ?>
         </div> 
     </div>

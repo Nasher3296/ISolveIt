@@ -47,31 +47,51 @@
                     $arroba=$GET["varArroba"];
                     $titulo=$GET["varTitulo"];
                     $recompensa=$GET["varRecompensa"];
-                    $arroba=$GET["varArroba"];
                     $descripcion=$GET["varDescripcion"];
                     $fechasubida=$GET["varFechasubida"];
                     $fechalimite=$GET["varFechalimite"];
 
-
-
-                    $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
-                    $consulta5 ->execute();
-                    while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
-                        $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
-                        $consulta6 ->execute();
-                        while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
-                            echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
-                        }
+                    echo'
+                    <div class="publicacion_preview" onclick="EntrarPublicacion()">
+                        <div class="data">
+                            <div class="foto">
+                                <img src="recursos/fotoPerfil/'.$fotoperfil.'.png" alt="'.$nombre.'">
+                            </div>
+                            <div>
+                                <h4>'.$nombre.'</h4>
+                                <h5>@'.$arroba.'</h5>
+                            </div>
+                            <div>
+                            <h4>Recompensa: $'.$recompensa.'</h4>
+                            </div>
+                            <div>
+                                <h4>Subida: '.$fechasubida.'</h4>
+                                <h4>Vencimiento: '.$fechalimite.'</h4>
+                            </div>
+                        </div>
+                        <div class="cuerpo">
+                            <h2>'.$titulo.'</h2>
+                            <p class="desc">'.$descripcion.'</p>
+                        </div>
+                        <div class="tags">
+                            <h4>Etiquetas: </h4>
+                            <ul class="tags_list">
+                ';
+                $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
+                $consulta5 ->execute();
+                while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
+                    $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                    $consulta6 ->execute();
+                    while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
+                        echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
                     }
+                }                      
+                echo'
+                            </ul>
+                        </div>
+                ';
                 ?>
-                <div><p>nombre de usuario que publico</p></div>
-                <div><p>arroba del usuario que publico</p></div>
-                <div><p>titulo</p></div>
-                <div>fecha de carga/fecha limite</div>
-                <div>RECOMPENSA</div>
-                <div>descripcion</div>
                 <div>archivos</div>
-                <div>tags</div>
             </div>
         </div>
     </body>

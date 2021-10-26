@@ -1,3 +1,3 @@
 function EntrarPublicacion(){
-    console.log("juan");
+    document.location="dentro-publicacion.php";
 }
