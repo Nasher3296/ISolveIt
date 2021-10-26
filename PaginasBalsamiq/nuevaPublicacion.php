@@ -47,7 +47,7 @@
                             <!-- <div class="cont"> -->
                                 <center>
                             <div class="form2">
-                                <input type="text" id="titulo" name="titulo" class="form__input" autocomplete="off" placeholder="" required>
+                                <input type="text" id="titulo" name="titulo" class="form__input" autocomplete="off" placeholder=" " required>
                                 <label for="titulo" class="form__label">Título</label>
                             </div>
                                 </center>
@@ -56,7 +56,7 @@
                             <!-- <div class="cont" id="cont_grande"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="text" id="desc" name="desc" class="form__input" autocomplete="off" placeholder="" maxlength="280" required>
+                                    <input type="text" id="desc" name="desc" class="form__input" autocomplete="off" placeholder=" " maxlength="280" required>
                                     <label for="desc" class="form__label">Descripción</label>
                                 </div>
                                 </center>
@@ -67,7 +67,7 @@
                                 <center>
                                
                                 <div class="form2">
-                                    <input type="number" name="rec" id="rec" class="form__input" autocomplete="off" placeholder="" required>
+                                    <input type="number" name="rec" id="rec" class="form__input" autocomplete="off" placeholder=" " required>
                                     <label for="rec" class="form__label">Recompensa</label>
                                 </div>
                                 </center>
@@ -76,7 +76,7 @@
                             <!-- <div class="cont"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="datetime-local" id="lim" name="lim" class="form__input" autocomplete="off" placeholder="" required>
+                                    <input type="datetime-local" id="lim" name="lim" class="form__input" autocomplete="off" placeholder=" " required>
                                     <label for="lim" class="form__label">Vencimiento</label>
                                 </div>
                                 </center>
@@ -85,7 +85,7 @@
                             <!-- <div class="cont"> -->
                                 <center>
                                 <div class="form2">
-                                    <input type="text" name="tag" id="tag" class="form__input" autocomplete="off" placeholder="" required maxlength="30" onkeypress="return (event.charCode != 32)">
+                                    <input type="text" name="tag" id="tag" class="form__input" autocomplete="off" placeholder=" " required maxlength="30" onkeypress="return (event.charCode != 32)">
                                     <label for="tag" class="form__label">Tags</label>
                                 </div>
                                 </center>
