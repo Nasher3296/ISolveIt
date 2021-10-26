@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>I solve it</title>
-        <link rel="stylesheet" href="style2.css">
         <link rel="stylesheet" href="NO_TOCAR.css"> 
+        <link rel="stylesheet" href="style2.css">
         <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
         <meta name="description" content="Publicacion">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,46 +43,42 @@
         <div class="main">
             <div>
                 <?php
-                    $conus = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
+
+                    $conCon = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$_GET['id']."'");
+                    $conCon ->execute();
+                    $resCon = $conCon->fetch(PDO::FETCH_ASSOC);
+
+                    $conus = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resCon['id_us']."'");
                     $conus ->execute();
                     $resus = $conus->fetch(PDO::FETCH_ASSOC);
-
-                    $fotoperfil=$GET["varFotoperfil"];
-                    $nombre=$GET["varNombre"];
-                    $arroba=$GET["varArroba"];
-                    $titulo=$GET["varTitulo"];
-                    $recompensa=$GET["varRecompensa"];
-                    $descripcion=$GET["varDescripcion"];
-                    $fechasubida=$GET["varFechasubida"];
-                    $fechalimite=$GET["varFechalimite"];
 
                     echo'
                     <div class="publicacion_preview" onclick="EntrarPublicacion()">
                         <div class="data">
                             <div class="foto">
-                                <img src="recursos/fotoPerfil/'.$fotoperfil.'.png" alt="'.$nombre.'">
+                                <img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
                             </div>
                             <div>
-                                <h4>'.$nombre.'</h4>
-                                <h5>@'.$arroba.'</h5>
+                                <h4>'.$resus['nombre'].'</h4>
+                                <h5>@'.$resus['nombre'].'</h5>
                             </div>
                             <div>
-                            <h4>Recompensa: $'.$recompensa.'</h4>
+                            <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
                             </div>
                             <div>
-                                <h4>Subida: '.$fechasubida.'</h4>
-                                <h4>Vencimiento: '.$fechalimite.'</h4>
+                                <h4>Subida: '.$resCon['fecha_subida'].'</h4>
+                                <h4>Vencimiento: '.$resCon['fecha_limite'].'</h4>
                             </div>
                         </div>
                         <div class="cuerpo">
-                            <h2>'.$titulo.'</h2>
-                            <p class="desc">'.$descripcion.'</p>
+                            <h2>'.$resCon['titulo'].'</h2>
+                            <p class="desc">'.$resCon['descripcion'].'</p>
                         </div>
                         <div class="tags">
                             <h4>Etiquetas: </h4>
                             <ul class="tags_list">
                 ';
-                $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoCon['id_consulta']."'");
+                $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resCon['id_consulta']."'");
                 $consulta5 ->execute();
                 while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
                     $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
@@ -94,7 +90,23 @@
                 echo'
                             </ul>
                         </div>
-                ';
+                '; 
+                
+                
+                if($resCon['id_us'] == $_SESSION['id_us']){
+                    echo'
+                        <div class="postularDiv">
+                            <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                <input type="hidden" name="id_cons" value="'.$resCon['id_consulta'].'">
+                                <input value="Ver postulantes" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
+                            </form>
+                        </div>
+
+                    ';
+
+
+                }
+                
                 ?>
                 <div>archivos</div>
             </div>

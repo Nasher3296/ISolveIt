@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -154,6 +155,13 @@
                                             <input value="Ver postulantes" type="submit" class="postularBtn verPostulantes" name="verPostulantes">
                                         </div>
                                     ';
+                                    /* <div class="postularDiv">
+                                            <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                                <input type="hidden" name="id_cons" value="'.$resultadoCon['id_consulta'].'">
+                                                <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/inicio.php">
+                                                <input value="Ver postulantes" type="submit" class="postularBtn aceptar" name="postular" form="aceptar'.$i.'">
+                                            </form>
+                                        </div> */
                                 }
                                 echo'
                                     </div>

@@ -2,7 +2,7 @@
 
 include(config.php);
 session_start();
-if(isset($_POST['login'])){
+if(isset($_POST['aceptar'])){
     $consulta = $_POST['id_cons'];
     $user = $_POST['id_us'];
     $asignar = $conn -> prepare("INSERT INTO asignado(id,id_consulta,id_us,estado) VALUES (NULL,id_consulta=:id_consulta,id_us:id_us,estado=:estado)");
