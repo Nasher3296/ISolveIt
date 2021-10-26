@@ -1,6 +1,7 @@
-function EntrarPublicacion(event){
-    id = document.getElementById();
-    document.location="dentro-publicacion.php?id=";
+function EntrarPublicacion(id){
+    alert(id);
+    /*id = document.getElementById();
+    document.location="dentro-publicacion.php?id=";*/
 }
 
 /* var fotoperfil = </?php echo json_encode($resultadoUser['imagen']); ?>;
