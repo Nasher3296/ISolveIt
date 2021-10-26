@@ -53,7 +53,7 @@
                     $resus = $conus->fetch(PDO::FETCH_ASSOC);
 
                     echo'
-                    <div class="publicacion_preview" onclick="EntrarPublicacion()">
+                    <div class="publicacion_preview">
                         <div class="data">
                             <div class="foto">
                                 <img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
@@ -103,13 +103,39 @@
                         </div>
 
                     ';
-
-
                 }
                 
+                echo'
+                    <div class="postulantesDiv">
+                        <div class="postulantesCuerpo">
+                            <h4>Postulados</h4>
+                            <ul class="postuladosLista">
+                                <li class="postulanteLi">
+                                    <img src="recursos/fotoPerfil/0.png" alt="">
+                                    <h5>Nombre</h5>
+                                    <h6>Arroba</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                ';
                 ?>
-                <div>archivos</div>
             </div>
         </div>
     </body>
+</html>
+
+<html>
+    <div class="postulantesDiv">
+        <div class="postulantesCuerpo">
+            <h4>Postulados</h4>
+            <ul class="postuladosLista">
+                <li class="postulanteLi">
+                    <img src="recursos/fotoPerfil/0.png" alt="">
+                    <h5>Nombre</h5>
+                    <h6>Arroba</h6>
+                </li>
+            </ul>
+        </div>
+    </div>
 </html>
