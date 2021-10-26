@@ -72,21 +72,9 @@
                                 $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
                                 $consulta4 ->execute();
                                 $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
-            ?>
-        <!--  <script>
-                var fotoperfil = </?php echo json_encode($myPHPVar); ?>;
-                var nombre = </?php echo json_encode($myPHPVar); ?>;
-                var arroba = </?php echo json_encode($myPHPVar); ?>;
-                var titulo = </?php echo json_encode($myPHPVar); ?>;
-                var recompensa = </?php echo json_encode($myPHPVar); ?>;
-                var descripcion = </?php echo json_encode($myPHPVar); ?>;
-                var FechaSubida = </?php echo json_encode($myPHPVar); ?>;
-                var FechaLimite = </?php echo json_encode($myPHPVar); ?>;
-            </script> -->
-            <?php                      
-                /*header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
+                                /*header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
                                 echo'
-                                        <div class="publicacion_preview"  onclick="EntrarPublicacion();">
+                                        <div class="publicacion_preview"  onclick="EntrarPublicacion(); id='".$resultadoTag['id_cons']."';">
                                             <div class="data">
                                                 <div class="foto">
                                                     <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
