@@ -66,15 +66,18 @@
                         $consulta3 ->execute();
                         if($resultadoCon = $consulta3->fetch(PDO::FETCH_ASSOC)){
                             
-                            if((!in_array($resultadoTag['id_cons'],$cargadas))&&($resultadoCon['id_us'] != $_SESSION['id_us'])){
-                                array_push($cargadas,$resultadoTag['id_cons']);
+                            $consultaAsignado = $conn->prepare("SELECT id_consulta FROM asignado WHERE id_consulta = '".$resultadoTag['id_cons']."'");
+                            $consultaAsignado ->execute();
+                            if(!$resultadoAsignado = $consultaAsignado->fetch(PDO::FETCH_ASSOC)){
 
-                                $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
-                                $consulta4 ->execute();
-                                $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
-                                /*header("dentro-publicacion.php?varNombre=$resultadoUser['nombre']&varArroba=$resultadoUser['username']&varFotoperfil=$resultadoUser['imagen']&varTitulo=$resultadoCon['titulo']&varRecompensa=$resultadoCon['recompensa']&varDescripcion=$resultadoCon['descripcion']&varFechalimite=$resultadoCon['fecha_limite']&varFechasubida=$resultadoCon['fecha_subida']"); */
+                                if((!in_array($resultadoTag['id_cons'],$cargadas))&&($resultadoCon['id_us'] != $_SESSION['id_us'])){
+                                    array_push($cargadas,$resultadoTag['id_cons']);
+
+                                    $consulta4 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoCon['id_us']."'");
+                                    $consulta4 ->execute();
+                                    $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
                                 echo'
-                                        <div class="publicacion_preview"  onclick="EntrarPublicacion(); id='".$resultadoTag['id_cons']."';">
+                                        <div class="publicacion_preview"  onclick="EntrarPublicacion(); id="'.$resultadoTag['id_cons'].'";">
                                             <div class="data">
                                                 <div class="foto">
                                                     <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">
@@ -155,6 +158,7 @@
                                 echo'
                                     </div>
                                 ';
+                            }
                             }
                         }
                     }
