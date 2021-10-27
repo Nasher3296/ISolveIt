@@ -6,10 +6,22 @@
         <link rel="stylesheet" href="NO_TOCAR.css"> 
         <link rel="stylesheet" href="style2.css">
         <link rel="stylesheet" href="dentro-publicacion.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
         <meta name="description" content="Publicacion">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <script>
+        function Alternar(){
+            let cancelar = document.getElementById("entregarCanvas");
+            if(cancelar.style.display == "block"){
+                    cancelar.style.display = "none";          
+                }
+                else{
+                    cancelar.style.display = "block";
+                }
+            }
+    </script>
     <body class="grid_container">
         <header class="header">
             <h1 class="ISolveIt">I solve it</h1>
@@ -63,9 +75,33 @@
                     <div class="tags">
                         <h4>Etiquetas: </h4>
                         <ul class="tags_list">
-                            <li class="tag">Programacion</li>'
-                            <li class="tag">Literatura</li>'
+                            <li class="tag">Programacion</li>
+                            <li class="tag">Literatura</li>
                         </ul>
+                    </div>
+                    <button onclick="Alternar()">entregar</button>
+                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                        <div class="entregarDiv">
+                            <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                                <h2>Entregar trabajo</h2>
+                                <div class="contenedor">
+                                    <div class="input-contenedor">
+                                        <label for="descripcion"></label>
+                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                    </div>
+                                    
+                                    <div class="input-contenedor">
+                                        <label for="archivo"></label>
+                                        <input type="file" id="archivo" name="archivo" required>
+                                    </div>
+                                    <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
+                                    <input type="hidden" name="id_us" value="">
+                                    <input name="entregar" type="submit" value="entregar"></input>
+                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                                </div>
+                            </form>
+                            
+                        </div>
                     </div>
                     <!-- <div class="postularDiv">
                         <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar">

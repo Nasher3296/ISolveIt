@@ -6,44 +6,67 @@
         <link rel="stylesheet" href="NO_TOCAR.css"> 
         <link rel="stylesheet" href="style2.css">
         <link rel="stylesheet" href="dentro-publicacion.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
         <meta name="description" content="Publicacion">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+        </head>
+    <script>
+        function Alternar(){
+            let cancelar = document.getElementById("entregarCanvas");
+            if(cancelar.style.display == "block"){
+                    cancelar.style.display = "none";          
+                }
+                else{
+                    cancelar.style.display = "block";
+                }
+            }
+    </script>
     <body class="grid_container">
-        <?php
-            include('../ImplementarPHP/config.php');
-            session_start();
-        ?>
-        <header class="header">
-            <h1 class="ISolveIt">I solve it</h1>
-            <div class="buscador">
-                <input type="text" placeholder="Buscar..." required>
-                <div class="btn">
-                    <i class="fas fa-search icon"></i>
-                </div>
-            </div>
-        </header>
-        <aside class="sidebar">
-            <div class="sidebar_usuario">
-                <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
-                <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
-            </div>
-            <div class="sidebar_menu">
-                <ul>
-                    <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
-                    <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
-                    <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
-                    <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
-                    <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
-                </ul>
-            </div>
-            <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
-        </aside>
-        <div class="main">
-                <?php
+    <?php
+        include('../ImplementarPHP/config.php');
+        session_start();
 
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
+    ?>
+
+    <header class="header">
+    <h1 class="ISolveIt">I solve it</h1>
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <div class="sidebar_usuario">
+            <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
+            <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
+        </div>
+        <div class="sidebar_menu">
+            <ul>
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
+            </ul>
+        </div>
+        <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
+    </aside>
+    <div class="main">
+                <?php
+                    $i = 0;
                     $conCon = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$_GET['id']."'");
                     $conCon ->execute();
                     $resCon = $conCon->fetch(PDO::FETCH_ASSOC);
@@ -52,8 +75,9 @@
                     $conus ->execute();
                     $resus = $conus->fetch(PDO::FETCH_ASSOC);
 
+                    
                     echo' <div class="generalCont">';
-                    /* echo'
+                    echo'
                     <div class="publicacion">
                         <div class="data">
                             <div class="foto">
@@ -61,14 +85,14 @@
                             </div>
                             <div>
                                 <h4>'.$resus['nombre'].'</h4>
-                                <h5>@'.$resus['nombre'].'</h5>
+                                <h5>@'.$resus['username'].'</h5>
                             </div>
                             <div>
                             <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
                             </div>
                             <div>
                                 <h4>Subida: '.$resCon['fecha_subida'].'</h4>
-                                <h4>Vencimiento: '.$resCon['fecha_limite'].'</h4>
+                                <h4>Limite: '.$resCon['fecha_limite'].'</h4>
                             </div>
                         </div>
                         <div class="cuerpo">
@@ -94,18 +118,44 @@
                 '; 
                 
                 
+                /* <button onclick="Alternar()">entregar</button>
+                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                        <div class="entregarDiv">
+                            <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                                <h2>Entregar trabajo</h2>
+                                <div class="contenedor">
+                                    <div class="input-contenedor">
+                                        <label for="descripcion"></label>
+                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                    </div>
+                                    
+                                    <div class="input-contenedor">
+                                        <label for="archivo"></label>
+                                        <input type="file" id="archivo" name="archivo" required>
+                                    </div>
+                                    <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
+                                    <input type="hidden" name="id_us" value="">
+                                    <input name="entregar" type="submit" value="entregar"></input>
+                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div> */
+
+
                 if($resCon['id_us'] == $_SESSION['id_us']){
                     echo'
                         <div class="postularDiv">
                             <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
-                                <input type="hidden" name="id_cons" value="'.$resCon['id_consulta'].'">
+                                <input type="hidden" name="id_cons" value="'.$resCon['id_consulta'].'"> 
                                 <input value="Ver postulantes" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
                             </form>
                         </div>
 
                     ';
                 }
-                 */
+                
                 
                 echo'</div>';
                 
@@ -144,9 +194,39 @@
                             </div>
                         </div>
                     ';
+                }else{
+                    echo'
+                        <button onclick="Alternar()">entregar</button>
+                        <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                            <div class="entregarDiv">
+                                <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                                    <h2>Entregar trabajo</h2>
+                                    <div class="contenedor">
+                                        <div class="input-contenedor">
+                                            <label for="descripcion"></label>
+                                            <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                        </div>
+                                        
+                                        <div class="input-contenedor">
+                                            <label for="archivo"></label>
+                                            <input type="file" id="archivo" name="archivo" required>
+                                        </div>
+                                        <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
+                                        <input type="hidden" name="id_us" value="">
+                                        <input name="entregar" type="submit" value="entregar"></input>
+                                        <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    ';
+
+
                 }
                 echo'</div>';
                 ?>
+
             </div>
         </div>
     </body>

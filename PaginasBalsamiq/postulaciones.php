@@ -44,6 +44,7 @@
     <div class="main"> 
         <?php
             $i = 0;
+            /* Copiar y pegar todo pero preguntando por  los trabajos ya asignados */
             $consultaConcurso = $conn->prepare("SELECT id_consulta FROM concurso WHERE id_us = '".$_SESSION['id_us']."'");
             $consultaConcurso ->execute();
             while ($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)) {
@@ -59,7 +60,7 @@
 
 
                     echo'
-                    <div class="publicacion_preview" onclick="EntrarPublicacion(this.id);" id="'.$resultadoConcurso['id_cons'].'">
+                    <div class="publicacion_preview" onclick="EntrarPublicacion(this.id);" id="'.$resultadoConcurso['id_consulta'].'">
                     <div class="data">
                         <div class="foto">
                             <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">
