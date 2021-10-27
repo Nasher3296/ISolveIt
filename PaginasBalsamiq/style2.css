@@ -72,26 +72,27 @@ a{
 }
 
 .sidebar{
-    background-color:  rgb(59, 44, 98);
+    background-color:  #34345c;
     grid-area: sidebar;
     text-align: center;
     color:rgb(26, 21, 21);
-    border-right:1px solid rgb(122, 110, 184);
+    border-right:1px solid #34345c;
     
 }
 
 .h2{
-background-color: rgb(78, 62, 155);
+background-color: #5a5a9c;
 color:white;
 border-radius: 30px;
 padding:11px;
 width: 85%;
-margin-left: 20px;
+margin-left: 23px;
+margin-top: 10%;
 }
 
 .h2:hover{
     transition: 0.5;
-    background-color: rgb(101, 88, 163);
+    background-color: #494980;
 }
 
 .h4{
@@ -109,7 +110,7 @@ font-size: 1rem;
 }
 
 .main{
-    background-color: rgb(59, 44, 98);
+    background-color: #494980;
     grid-area: main;
     overflow-y: scroll;
 }
@@ -123,7 +124,7 @@ font-size: 1rem;
 
 .a:hover{
     transition: 0.5s;
-    background-color:rgb(78, 62, 155);
+    background-color: #494980;
     color:white;
     border-radius: 50px;
 }

@@ -7,6 +7,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
+    
 }
 
 .cont{
@@ -30,7 +31,7 @@ a{
 
 .enviar{
     padding:15px;
-    background-color: rgb(106, 93, 168);
+    background-color: #4a4a80;
     color:white;
     border-radius: 30px;
     width: 300px;
@@ -42,7 +43,7 @@ a{
 .enviar:hover{
     cursor: pointer;
     transition: 0.5;
-    background-color: rgb(101, 88, 163);
+    background-color: #5a5a9c;
 }
 
 .main_form{
@@ -55,7 +56,7 @@ a{
     width: 800px;
     height: 400px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 65px;
 }
 
 input{
@@ -150,7 +151,7 @@ center{
     height: 50px;
     width: 50px;
     line-height: 50px;
-    background-color: #440080;
+    background-color: #34345c;
     text-align: center;
     color: white;
     font-size: 20px;

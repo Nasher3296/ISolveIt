@@ -199,7 +199,7 @@ justify-content: space-between;
 }
 
 .nav-link{
-color:darkslateblue;
+color:#355c7d;
 text-decoration: none;
 }
 
@@ -236,7 +236,7 @@ border-radius: 20px;
 
 .menu-nav-link:hover
 {
-  background-color:darkslateblue;
+  background-color:#355c7d;
   color: white;
   transition: 0.5s;
   box-shadow: 0px 10px 10px -6px rgb(185, 185, 185)
@@ -325,7 +325,7 @@ input[type="password"]
 .button
 {
   border: none;
-  width: 100%;
+  width: 95%;
   color: white;
   font-size: 20px;
   background: #1a2537;
