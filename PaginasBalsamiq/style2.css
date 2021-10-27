@@ -129,9 +129,19 @@ font-size: 1rem;
     border-radius: 50px;
 }
 
-
+.
 
 .iconos_sidebar {
     width: 10%;
     height: auto;
+}
+
+
+.posteo_datosusuario{
+    padding: 10px;
+}
+
+.posteo_recompensa {
+    display: flex;
+    position: ;
 }
