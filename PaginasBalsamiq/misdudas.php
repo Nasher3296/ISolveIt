@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="NO_TOCAR.css"> 
     <link rel="stylesheet" href="publicacion_plantilla.css">
+    <script src="EntrarPublicacion.js"></script>
 </head>
 <body class="grid_container">
     <?php
@@ -50,7 +51,7 @@
             $consulta ->execute();
             while ($resultadoUser = $consulta->fetch(PDO::FETCH_ASSOC)) {    
                 echo'
-                <div class="publicacion_preview">
+                <div class="publicacion_preview" onclick="EntrarPublicacion(this.id);" id="'.$resultadoUser['id_consulta'].'">
                 <div class="data">
                     <div class="foto">
                         <img class="fotoPerfil" src="recursos/fotoPerfil/'.$_SESSION['imagen'].'.png" alt="'.$_SESSION['username'].'">

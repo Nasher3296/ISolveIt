@@ -5,6 +5,7 @@
         <title>I solve it</title>
         <link rel="stylesheet" href="NO_TOCAR.css"> 
         <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="dentro-publicacion.css">
         <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
         <meta name="description" content="Publicacion">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +42,6 @@
             <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
         </aside>
         <div class="main">
-            <div>
                 <?php
 
                     $conCon = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$_GET['id']."'");
@@ -52,11 +52,12 @@
                     $conus ->execute();
                     $resus = $conus->fetch(PDO::FETCH_ASSOC);
 
-                    echo'
-                    <div class="publicacion_preview">
+                    echo' <div class="generalCont">';
+                    /* echo'
+                    <div class="publicacion">
                         <div class="data">
                             <div class="foto">
-                                <img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
+                                <!--<img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">-->
                             </div>
                             <div>
                                 <h4>'.$resus['nombre'].'</h4>
@@ -104,38 +105,49 @@
 
                     ';
                 }
+                 */
                 
-                echo'
-                    <div class="postulantesDiv">
-                        <div class="postulantesCuerpo">
-                            <h4>Postulados</h4>
-                            <ul class="postuladosLista">
-                                <li class="postulanteLi">
-                                    <img src="recursos/fotoPerfil/0.png" alt="">
-                                    <h5>Nombre</h5>
-                                    <h6>Arroba</h6>
-                                </li>
-                            </ul>
+                echo'</div>';
+                
+                if($resus['id_us'] == $_SESSION['id_us']){
+                $conConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$_GET['id']."'");
+                $conConcurso ->execute();
+                
+
+                
+                    echo'
+                        <div class="postulantesDiv">
+                            <div class="postulantesCuerpo">
+                                <h4>Postulados</h4>
+                                <ul class="postuladosLista">
+                    ';
+                    $i = 0;
+                    while ($resConcurso = $conConcurso->fetch(PDO::FETCH_ASSOC)) {
+                        $conus2 = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resConcurso['id_us']."'");
+                        $conus2 ->execute();
+                        $resus2 = $conus2->fetch(PDO::FETCH_ASSOC);
+                        echo'
+                                    <li class="postulanteLi">
+                                        <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                            <!--<img src="recursos/fotoPerfil/0.png" alt="">-->
+                                            <h5>'.$resus2['nombre'].'</h5>
+                                            <h6>'.$resus2['username'].'</h6>
+                                            <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
+                                            <input type="hidden" name="id_us" value="'.$resus2['id_us'].'">
+                                            <input value="Aceptar" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
+                                        </form>
+                                    </li>
+                        ';
+                    }
+                    echo'
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                ';
+                    ';
+                }
+                echo'</div>';
                 ?>
             </div>
         </div>
     </body>
-</html>
-
-<html>
-    <div class="postulantesDiv">
-        <div class="postulantesCuerpo">
-            <h4>Postulados</h4>
-            <ul class="postuladosLista">
-                <li class="postulanteLi">
-                    <img src="recursos/fotoPerfil/0.png" alt="">
-                    <h5>Nombre</h5>
-                    <h6>Arroba</h6>
-                </li>
-            </ul>
-        </div>
-    </div>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>I solve it</title>
+        <link rel="stylesheet" href="NO_TOCAR.css"> 
+        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="dentro-publicacion.css">
+        <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
+        <meta name="description" content="Publicacion">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="grid_container">
+        <header class="header">
+            <h1 class="ISolveIt">I solve it</h1>
+            <div class="buscador">
+                <input type="text" placeholder="Buscar..." required>
+                <div class="btn">
+                    <i class="fas fa-search icon"></i>
+                </div>
+            </div>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar_usuario">
+                <h4 class="h4">Emperador Juan</h4>
+                <h5 class="h5">@JIPDB</h5>
+            </div>
+            <div class="sidebar_menu">
+                <ul>
+                    <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
+                    <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                    <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
+                    <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
+                    <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
+                </ul>
+            </div>
+            <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
+        </aside>
+        <div class="main">
+            <div class="generalCont">
+                <div class="publicacion">
+                    <div class="data">
+                        <div class="foto">
+                            <!--<img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">-->
+                        </div>
+                        <div>
+                            <h4>NOMBRE</h4>
+                            <h5>NOMBRE</h5>
+                        </div>
+                        <div>
+                            <h4>Recompensa: $550</h4>
+                        </div>
+                        <div>
+                            <h4>Subida: 20/10/15 21:58:17</h4>
+                            <h4>Limite: 20/10/15 21:58:17</h4>
+                        </div>
+                    </div>
+                    <div class="cuerpo">
+                        <h2>Ayuda tp matematica</h2>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad veritatis qui corrupti consectetur, dolores saepe. Eum voluptas rem aliquid laborum. Quidem natus eligendi reprehenderit eum molestias doloremque. Et, consequuntur mollitia.</p>
+                    </div>
+                    <div class="tags">
+                        <h4>Etiquetas: </h4>
+                        <ul class="tags_list">
+                            <li class="tag">Programacion</li>'
+                            <li class="tag">Literatura</li>'
+                        </ul>
+                    </div>
+                    <!-- <div class="postularDiv">
+                        <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar">
+                            <input type="hidden" name="id_cons" value="">
+                            <input value="Ver postulantes" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar">
+                        </form>
+                    </div> -->
+                </div>  
+                <div class="postulantesDiv">
+                    <div class="postulantesCuerpo">
+                        <h4>Postulados</h4>
+                        <ul class="postuladosLista">
+                            <li class="postulanteLi">
+                                <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar">
+                                    <!--<img src="recursos/fotoPerfil/0.png" alt="">--> <!-- Sacar este comentario dsps y poner la foto como la gente -->
+                                    <h5>NOMBRE</h5>
+                                    <h6>NOMBRE</h6>
+                                    <input type="hidden" name="id_cons" value="">
+                                    <input type="hidden" name="id_us" value="">
+                                    <input value="Aceptar" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

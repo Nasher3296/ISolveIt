@@ -78,7 +78,7 @@
                                     $consulta4 ->execute();
                                     $resultadoUser = $consulta4->fetch(PDO::FETCH_ASSOC);
                                 echo'
-                                        <div class="publicacion_preview"  onclick="EntrarPublicacion(this.id);" id="'.$resultadoTag['id_cons'].'";">
+                                        <div class="publicacion_preview"  onclick="EntrarPublicacion(this.id);" id="'.$resultadoTag['id_cons'].'">
                                             <div class="data">
                                                 <div class="foto">
                                                     <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUser['imagen'].'.png" alt="'.$resultadoUser['username'].'">

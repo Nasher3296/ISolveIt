@@ -1,0 +1,19 @@
+.generalCont{
+    display: flex;
+    background-color: aqua;
+}
+
+.publicacion{
+    width: 80%;
+}
+
+.postulantesDiv{
+    width: 20%;
+    background-color: white;
+    height: 100%;
+}
+
+.postulanteLi{
+    background-color: red;
+    margin: 2px;
+}

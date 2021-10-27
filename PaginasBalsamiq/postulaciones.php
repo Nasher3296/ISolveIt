@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="NO_TOCAR.css"> 
     <link rel="stylesheet" href="publicacion_plantilla.css">
+    <script src="EntrarPublicacion.js"></script>
 </head>
 <body class="grid_container">
     <?php
@@ -58,7 +59,7 @@
 
 
                     echo'
-                    <div class="publicacion_preview">
+                    <div class="publicacion_preview" onclick="EntrarPublicacion(this.id);" id="'.$resultadoConcurso['id_cons'].'">
                     <div class="data">
                         <div class="foto">
                             <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">
