@@ -3,10 +3,10 @@
 include('config.php');
 session_start();
 if(isset($_POST['entregar'])){
-    $id_cons = $_POST['id_cons']
+    $consulta = $_POST['id_cons'];
     $entregar = $conn -> prepare("INSERT INTO entregado(id,id_cons,id_us,descripcion,archivo) VALUES (NULL,:id_cons,:id_us,NULL)");
     $entregar -> bindParam("id_consulta",$consulta,PDO::PARAM_STR);
-    $entregar -> bindParam("id_us",$user,PDO::PARAM_STR);
+    $entregar -> bindParam("id_us",$_SESSION['id_us'],PDO::PARAM_STR);
     $entregar ->execute();
     
     $borrar = $conn -> prepare("DELETE FROM asignado WHERE id_consulta = :id_consulta");

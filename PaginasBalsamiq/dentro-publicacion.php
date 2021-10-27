@@ -117,48 +117,6 @@
                         </div>
                 '; 
                 
-                
-                /* <button onclick="Alternar()">entregar</button>
-                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
-                        <div class="entregarDiv">
-                            <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                                <h2>Entregar trabajo</h2>
-                                <div class="contenedor">
-                                    <div class="input-contenedor">
-                                        <label for="descripcion"></label>
-                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
-                                    </div>
-                                    
-                                    <div class="input-contenedor">
-                                        <label for="archivo"></label>
-                                        <input type="file" id="archivo" name="archivo" required>
-                                    </div>
-                                    <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
-                                    <input type="hidden" name="id_us" value="">
-                                    <input name="entregar" type="submit" value="entregar"></input>
-                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div> */
-
-
-                if($resCon['id_us'] == $_SESSION['id_us']){
-                    echo'
-                        <div class="postularDiv">
-                            <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
-                                <input type="hidden" name="id_cons" value="'.$resCon['id_consulta'].'"> 
-                                <input value="Ver postulantes" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
-                            </form>
-                        </div>
-
-                    ';
-                }
-                
-                
-                echo'</div>';
-                
                 if($resus['id_us'] == $_SESSION['id_us']){
                 $conConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$_GET['id']."'");
                 $conConcurso ->execute();
@@ -166,6 +124,7 @@
 
                 
                     echo'
+                    </div>
                         <div class="postulantesDiv">
                             <div class="postulantesCuerpo">
                                 <h4>Postulados</h4>
@@ -196,32 +155,32 @@
                     ';
                 }else{
                     echo'
-                        <button onclick="Alternar()">entregar</button>
-                        <div class="entregarCanvas" style="display:none" id="entregarCanvas">
-                            <div class="entregarDiv">
-                                <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                                    <h2>Entregar trabajo</h2>
-                                    <div class="contenedor">
-                                        <div class="input-contenedor">
-                                            <label for="descripcion"></label>
-                                            <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
-                                        </div>
-                                        
-                                        <div class="input-contenedor">
-                                            <label for="archivo"></label>
-                                            <input type="file" id="archivo" name="archivo" required>
-                                        </div>
-                                        <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
-                                        <input type="hidden" name="id_us" value="">
-                                        <input name="entregar" type="submit" value="entregar"></input>
-                                        <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                    <button onclick="Alternar()">entregar</button>
+                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                        <div class="entregarDiv">
+                            <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                                <h2>Entregar trabajo</h2>
+                                <div class="contenedor">
+                                    <div class="input-contenedor">
+                                        <label for="descripcion"></label>
+                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
                                     </div>
-                                </form>
-                                
-                            </div>
+                                    
+                                    <div class="input-contenedor">
+                                        <label for="archivo"></label>
+                                        <input type="file" id="archivo" name="archivo" required>
+                                    </div>
+                                    <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
+                                    <input type="hidden" name="id_us" value="">
+                                    <input name="entregar" type="submit" value="entregar"></input>
+                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                                </div>
+                            </form>
+                            
                         </div>
-                    ';
-
+                    </div>
+                ';
+                    
 
                 }
                 echo'</div>';

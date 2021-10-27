@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2021 a las 15:07:07
+-- Tiempo de generación: 27-10-2021 a las 18:26:33
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -30,8 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `asignado` (
   `id` int(11) NOT NULL,
   `id_consulta` int(11) NOT NULL,
-  `id_us` int(11) NOT NULL,
-  `estado` int(11) NOT NULL
+  `id_us` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -80,6 +79,20 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 (2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00', ''),
 (6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR'),
 (8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entregado`
+--
+
+CREATE TABLE `entregado` (
+  `id` int(11) NOT NULL,
+  `id_cons` int(11) NOT NULL,
+  `id_us` int(11) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `archivo` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -218,6 +231,12 @@ ALTER TABLE `consulta`
   ADD KEY `usuario` (`id_us`);
 
 --
+-- Indices de la tabla `entregado`
+--
+ALTER TABLE `entregado`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `tag`
 --
 ALTER TABLE `tag`
@@ -262,6 +281,12 @@ ALTER TABLE `concurso`
 --
 ALTER TABLE `consulta`
   MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `entregado`
+--
+ALTER TABLE `entregado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tag`
