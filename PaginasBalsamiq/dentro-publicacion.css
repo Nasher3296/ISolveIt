@@ -1,6 +1,7 @@
 .generalCont{
     display: flex;
     background-color: aqua;
+    height: 100%;
 }
 
 .publicacion{
@@ -16,7 +17,7 @@
 }
 
 .postulanteLi{
-    background-color: red;
+    background-color: #34345c;
     margin: 2px;
     height: 100%;
 }
@@ -34,4 +35,14 @@
     background-color: white;
     height: 80%;
     width: 80%;
+}
+
+
+.posteo_datosusuario{
+    padding: 10px;
+}
+
+.posteo_recompensa {
+    display: flex;
+    position: ;
 }
