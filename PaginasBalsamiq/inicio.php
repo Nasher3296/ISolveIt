@@ -70,7 +70,7 @@
                             $consultaAsignado = $conn->prepare("SELECT id_consulta FROM asignado WHERE id_consulta = '".$resultadoTag['id_cons']."'");
                             $consultaAsignado ->execute();
                             if(!$resultadoAsignado = $consultaAsignado->fetch(PDO::FETCH_ASSOC)){
-                                $consultaEntregado = $conn->prepare("SELECT id_consulta FROM asignado WHERE id_consulta = '".$resultadoTag['id_cons']."'");
+                                $consultaEntregado = $conn->prepare("SELECT id_cons FROM entregado WHERE id_cons = '".$resultadoTag['id_cons']."'");
                                 $consultaEntregado ->execute();
                                 if(!$resultadoEntregado = $consultaEntregado->fetch(PDO::FETCH_ASSOC)){
 

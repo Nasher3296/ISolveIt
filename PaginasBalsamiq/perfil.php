@@ -9,11 +9,46 @@
     <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
-
+<script>
+        function Alternar(){
+            let tagList = document.getElementById("tagList");
+            let editarTag = document.getElementById("editarTag");
+            if(editarTag.style.display == "flex"){
+                    tagList.style.display = "flex";          
+                    editarTag.style.display = "none";       
+                }
+                else{
+                    tagList.style.display = "none";          
+                    editarTag.style.display = "flex";          
+                }
+            }
+        function AlternarNombre(){
+            let nombreCont = document.getElementById("nombreCont");
+            let editarNombre = document.getElementById("editarNom");
+            if(editarNom.style.display == "flex"){
+                nombreCont.style.display = "flex";          
+                    editarNom.style.display = "none";       
+                }
+                else{
+                    nombreCont.style.display = "none";          
+                    editarNom.style.display = "flex";          
+                }
+            }
+</script>
 <body class="grid_container">
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
+
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
@@ -59,14 +94,51 @@
                         </div>
                     </div>
                     <div class="perfil-usuario-body">
-                        <div class="perfil-usuario-bio">
-                            <h3 class="titulo">Juan Perez</h3>
-                            <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="perfil-usuario-bio" style="display:block">
+                            <div class="nombreDiv">
+                                <div class="nombreCont" style="display:flex" id="nombreCont">
+                                    <h3 class="titulo">'.$_SESSION['nombre'].'</h3>
+                                    <button class="editarNombre" onclick="AlternarNombre()">Editar</button>
+                                </div>
+                                <form action="../ImplementarPHP/editarNom.php" method="POST" id="editarNom" class="editarNom" style="display:none">
+                                    <div class="nomBtnDiv">
+                                        <input type="text" name="nom" value="'.$_SESSION['nombre'].'" class="nomTex">
+                                        <div class="btns">
+                                            <input value="Aceptar" type="submit" class="tagBtn aceptar" name="aceptar" form="editarNom">
+                                            <input value="cancelar" type="submit" class="tagBtn cancelar" name="cancelar" form="editarNom">
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                            
+                                <ul class="tagList" id="tagList">
+                                ';
+                                $tagStr = "";
+                                $consTagUs = $conn->prepare("SELECT tag_us FROM tag_usuario WHERE id_us = '".$_SESSION['id_us']."'");
+                                $consTagUs ->execute();
+                                while($resTagUs = $consTagUs->fetch(PDO::FETCH_ASSOC)){
+                                    $consTag = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resTagUs['tag_us']."'");
+                                    $consTag ->execute();
+                                    while($resultadoTag = $consTag->fetch(PDO::FETCH_ASSOC)){
+                                        echo'<li class="tag tagList">'.$resultadoTag['tag'].'</li>';
+                                        $tagStr = $tagStr.$resultadoTag['tag'].',';
+                                    }
+                                }
+                                echo'
+                                </ul>
+                                <form action="../ImplementarPHP/editarTag.php" method="POST" id="editarTag" class="editarTag" style="display:none">
+                                    <input type="text" name="tag" value="'.$tagStr.'" class="tagText">
+                                    <div class="tagBtnDiv">
+                                        <input value="Aceptar" type="submit" class="tagBtn aceptar" name="aceptar" form="editarTag">
+                                        <input value="Cancelar" type="submit" class="tagBtn cancelar" name="cancelar" form="editarTag">
+                                    </div>
+                                </form>
+                                <button class="alternarBtn" onclick="Alternar()">Editar</button>
                         </div>
                         <div class="perfil-usuario-footer">
                             <ul class="lista-datos">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam voluptatibus vel rem, cumque facere itaque. Nisi excepturi magni placeat quasi at ipsum, illum, est quas molestias, iste labore! Natus, iusto.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam voluptatibus vel rem, cumque facere itaque. Nisi excepturi magni pla ceat quasi at ipsum, illum, est quas molestias.
                                 <!-- <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
                                 <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
                                 <li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
