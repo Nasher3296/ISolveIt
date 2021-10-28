@@ -73,6 +73,7 @@
                     <h2>Titulo</h2>
                     <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima laudantium alias molestiae cumque. Veniam nesciunt consequatur quidem doloremque odit, ex sapiente, at eveniet repellat beatae sint esse quam libero?</p>
                 </div>
+                <div class="envolvedor">
                 <div class="tags">
                     <h4>Etiquetas: </h4>
                     <ul class="tags_list">
@@ -80,18 +81,15 @@
                         <li class="tag">Programacion</li>
                     </ul>
                 </div>
-            </div>
-            <div class="postularDiv">
-                <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
-                    <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
-                    <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/dentro-publicacion.php?id='.$_GET['id'].'">
-                    <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
-                </form>
-                <!-- <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
-                    <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
-                    <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/dentro-publicacion.php?id='.$_GET['id'].'">
-                    <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
-                </form> -->
+                <div class="cancelar_postulante">
+                    <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">               
+                        <input value="Cancelar postulacion" type="submit" class="postularBtn2" name="cancelar" form="postular'.$i.'">
+                    </form>
+                    <!-- <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
+                        <input value="Postularme" type="submit" class="postularBtn2" name="postular" form="postular'.$i.'">
+                    </form> -->
+                </div>
+                </div>
             </div>
         </div>
     </body>
