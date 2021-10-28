@@ -34,8 +34,8 @@
                 <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
                 <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
                 <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
+                <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>
+                <li class="botones_sidebar"><a class="a" href="entregados.php"><i class="far fa-envelope"></i> Entregados</a></li>
                 <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
             </ul>
         </div>
@@ -44,7 +44,89 @@
     <div class="main"> 
         <?php
             $i = 0;
-            /* Copiar y pegar todo pero preguntando por  los trabajos ya asignados */
+            
+            
+
+
+
+
+
+            $consultaAsignado = $conn->prepare("SELECT id_consulta FROM asignado WHERE id_us = '".$_SESSION['id_us']."'");
+            $consultaAsignado ->execute();
+            while ($resultadoAsignado = $consultaAsignado->fetch(PDO::FETCH_ASSOC)) {
+                $consultaConsulta = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$resultadoAsignado['id_consulta']."'");
+                $consultaConsulta ->execute();
+                if($resultadoConsulta = $consultaConsulta->fetch(PDO::FETCH_ASSOC)){
+
+                    
+                    $consultaUsr = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resultadoConsulta['id_us']."'");
+                    $consultaUsr ->execute();
+                    $resultadoUsr = $consultaUsr->fetch(PDO::FETCH_ASSOC);
+                
+
+
+                    echo'
+                    <div class="publicacion_preview" onclick="EntrarPublicacion(this.id);" id="'.$resultadoAsignado['id_consulta'].'">
+                    <div class="data">
+                        <div class="foto">
+                            <img class="fotoPerfil" src="recursos/fotoPerfil/'.$resultadoUsr['imagen'].'.png" alt="'.$resultadoUsr['username'].'">
+                        </div>
+                        <div class="usuario">
+                            <h4>'.$resultadoUsr["nombre"].'</h4>
+                            <h5>@'.$resultadoUsr["username"].'</h5>
+                        </div>
+                        <div class="recoyvenc">
+                            <h4>Recompensa: $'.$resultadoConsulta["recompensa"].'</h4>
+                            <!--Para el vencimiento un simbolito de reloj y el tiempo restante-->
+                            <h4>Vencimiento: '.$resultadoConsulta["fecha_limite"].'</h4>
+                        </div>
+                    </div>
+                    <div class="cuerpo">
+                        <h2>'.$resultadoConsulta['titulo'].'</h2>
+                        <!--Descripcion-->
+                        <p class="desc">'.$resultadoConsulta['descripcion'].'</p>
+                    </div>
+                    <div class="tags">
+                        <!--Que aparezcan iconos de archivos en caso de haberlos, similar a gmail-->
+                        <h4>Etiquetas: </h4>
+                        <ul class="tags_list">
+                    ';
+                    $consultaTagCons = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resultadoConsulta['id_consulta']."'");
+                    $consultaTagCons ->execute();
+                    while($resultadoTagCons = $consultaTagCons->fetch(PDO::FETCH_ASSOC)){
+                        $consultaTag = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
+                        $consultaTag ->execute();
+                        while($resultadoTag = $consultaTag->fetch(PDO::FETCH_ASSOC)){
+                            echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                        }
+                    }
+                                    
+                    echo'
+                                    </ul>
+                                </div>
+                        ';
+                            echo'
+                                <div class="postularDiv">
+                                    <input value="Entrega pendiente" type="submit" class="postularBtn" name="verPostulantes" style="background-color:red">
+                                </div>
+                            ';
+                        }
+                        echo'
+                            </div>
+                        
+                        ';
+                }
+            
+
+
+
+
+
+
+
+
+
+
             $consultaConcurso = $conn->prepare("SELECT id_consulta FROM concurso WHERE id_us = '".$_SESSION['id_us']."'");
             $consultaConcurso ->execute();
             while ($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)) {
