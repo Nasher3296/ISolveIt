@@ -63,6 +63,7 @@
         <div class="sidebar_usuario">
             <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
             <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
+            <h5 class="h5">$<?php echo $_SESSION['tokens']?></h5>
         </div>
         <div class="sidebar_menu">
             <ul>

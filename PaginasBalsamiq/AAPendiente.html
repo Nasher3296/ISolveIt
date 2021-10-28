@@ -81,38 +81,30 @@
                         <li class="tag">Programacion</li>
                     </ul>
                 </div>
-                <div class="cancelar_postulante">
-                    <form>               
-                        <input value="Trabajo pendiente" type="submit" class="postularBtn2" name="cancelar" form="postular'.$i.'">
-                    </form>
-                    <!-- <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
-                        <input value="Postularme" type="submit" class="postularBtn2" name="postular" form="postular'.$i.'">
-                    </form> -->
-                </div>
             </div>
-                <div class="entrega">
-                    <button onclick="Alternar()">entregar</button>
-                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
-                        <div class="entregarDiv">
-                            <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                                <h2>Entregar trabajo</h2>
-                                <div class="contenedor">
-                                    <div class="input-contenedor">
-                                        <label for="descripcion"></label>
-                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
-                                    </div> 
-                                    <div class="input-contenedor">
-                                        <label for="archivo"></label>
-                                        <input type="file" id="archivo" name="archivo" required>
-                                    </div>
-                                    <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
-                                    <input name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
-                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
+            <div class="entrega">
+                <button class="btnEntrega" onclick="Alternar()">entregar</button>
+                <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                    <div class="entregarDiv">
+                        <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                            <h2>Entregar trabajo</h2>
+                            <div class="contenedor">
+                                <div class="input-contenedor">
+                                    <label for="descripcion"></label>
+                                    <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                </div> 
+                                <div class="input-contenedor">
+                                    <label for="archivo"></label>
+                                    <input type="file" id="archivo" name="archivo" required>
                                 </div>
-                            </form>       
-                        </div>
+                                <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
+                                <input name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
+                                <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                            </div>
+                        </form>       
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </body>

@@ -24,6 +24,7 @@
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
         $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
 
     <header class="header">
@@ -39,6 +40,7 @@
         <div class="sidebar_usuario">
             <h4 class="h4"><?php echo $_SESSION['nombre']?></h4>
             <h5 class="h5">@<?php echo $_SESSION['username']?></h5>
+            <h5 class="h5">$<?php echo $_SESSION['tokens']?></h5>
         </div>
         <div class="sidebar_menu">
             <ul>
@@ -88,7 +90,7 @@
                                                     </div>
                                                     <div class="usuario">
                                                         <h4>'.$resultadoUser["nombre"].'</h4>
-                                                        <h5>@'.$resultadoUser["username"].'</h5>
+                                                        <h5>@'.$resultadoUser["username"].'</h5>                         
                                                     </div>
                                                     <div class="recoyvenc">
                                                         <h4>Recompensa: $'.$resultadoCon["recompensa"].'</h4>

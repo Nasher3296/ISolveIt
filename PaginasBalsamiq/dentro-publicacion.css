@@ -60,18 +60,29 @@
 }
 
 .entregarCanvas{
-    background-color: rgba(255, 0, 0, 0.424);
+    background-color: rgba(0, 0, 0, 0.075);
     position: absolute;
-    top:0;
     z-index: 0;
+    top: 0;
     height: 100%;
     width: 100%;
+    padding: 100px;
+    border-radius: 15px;
 }
 
 .entregarDiv{
+    position: absolute;
+    top:  0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
     background-color: white;
     height: 80%;
     width: 80%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid black
 }
 
 
@@ -126,6 +137,10 @@
     height: fit-content;
 }
 
+.postularBtn2:hover{
+    cursor: default;
+}
+
 .postularBtn:hover{
     background-color: #49497e;
 }
@@ -169,4 +184,28 @@
     right: 0;
     margin-right: 10px;
     margin-top: 10px;
+}
+
+.btnEntrega{
+    position: absolute;
+    right: 3%;
+    bottom: -1%;
+    background: none;
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.btnEntrega:hover{
+    cursor: pointer;
+}
+
+.input-contenedor{
+    width: 100%;
+}
+
+.contenedor{
+    width: 100%;
 }
