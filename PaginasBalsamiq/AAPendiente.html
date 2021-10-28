@@ -87,20 +87,26 @@
                 <div class="entregarCanvas" style="display:none" id="entregarCanvas">
                     <div class="entregarDiv">
                         <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                            <h2>Entregar trabajo</h2>
+                            <h2 class="entregar_trabajo">Entregar trabajo</h2>
                             <div class="contenedor">
+                                <div class="envolvedor">
                                 <div class="input-contenedor">
-                                    <label for="descripcion"></label>
-                                    <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                    <label for="descripcion_entrega"></label>
+                                    <input type="text" id="descripcion_entrega" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
                                 </div> 
-                                <div class="input-contenedor">
-                                    <label for="archivo"></label>
-                                    <input type="file" id="archivo" name="archivo" required>
+                                <div class="trash">
+                                <div class="input-contenedor-2">
+                                    <label class="archivo-entrega" for="archivo">Subir archivo</label>
+                                    <input type="file" id="archivo" name="archivo" required style="display:none">
                                 </div>
                                 <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
-                                <input name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
-                                <input type="submit" value="cancelar" onclick="Alternar()"></input>
+                                <div class="boton_canvas_definitivo">
+                                <input class="boton_canvas" name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
+                                <input class="boton_canvas" type="submit" value="cancelar" onclick="Alternar()"></input>
+                                </div>
                             </div>
+                            </div>
+                        </div>
                         </form>       
                     </div>
                 </div>
