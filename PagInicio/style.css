@@ -11,7 +11,7 @@ html{
 body{
   background:#3d1a7ddf;
   font-family: "corbel";
-  background-image: linear-gradient(to bottom, #355c7d, #6c5b7b, #C06c84, #f67280, #f8b195);
+  background-image: linear-gradient(to bottom, #2e2e57, #494980, #5a5a9c, #6a6aaa, #8989c3);
 }
 
 /* .login::after{
@@ -57,7 +57,7 @@ grid-template:
 .contacto{
   position: relative;
 grid-area: contacto;
-background-image: linear-gradient(to bottom, #6c5b7b, #C06c84, #f6727f91);
+background-image: linear-gradient(to bottom, #4a4a9e,  #5a5a9c, #6a6aaa);
 display: grid;
     grid-template:
       "ilustracion3     cont_contacto" 100% /
@@ -199,8 +199,10 @@ justify-content: space-between;
 }
 
 .nav-link{
-color:#355c7d;
-text-decoration: none;
+  width: 70px;
+  height: 79px;
+  text-decoration: none;
+  margin-left: 20px;
 }
 
 .logo
@@ -236,7 +238,7 @@ border-radius: 20px;
 
 .menu-nav-link:hover
 {
-  background-color:#355c7d;
+  background-color:#2f1f8a;
   color: white;
   transition: 0.5s;
   box-shadow: 0px 10px 10px -6px rgb(185, 185, 185)
