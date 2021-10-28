@@ -13,5 +13,7 @@ if(isset($_POST['aceptar'])){
     $borrar = $conn -> prepare("DELETE FROM concurso WHERE id_consulta = :id_consulta");
     $borrar -> bindParam("id_consulta",$consulta,PDO::PARAM_STR);
     $borrar ->execute();
+
+    header("Location:../PaginasBalsamiq/inicio.php");
 }
 ?>

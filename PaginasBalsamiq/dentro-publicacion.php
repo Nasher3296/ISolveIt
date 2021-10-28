@@ -26,16 +26,6 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
-
-        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
-        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
-        $consulta ->execute();
-        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
-
-        $_SESSION['nombre'] = $usuarioSession['nombre'];
-        $_SESSION['id_us'] = $usuarioSession['id_us'];
-        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
-        $_SESSION['imagen'] = $usuarioSession['imagen'];
     ?>
 
     <header class="header">
@@ -153,36 +143,43 @@
                             </div>
                         </div>
                     ';
-                }else{
-                    echo'
-                    <button onclick="Alternar()">entregar</button>
-                    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
-                        <div class="entregarDiv">
-                            <form class="formulario" action="ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                                <h2>Entregar trabajo</h2>
-                                <div class="contenedor">
-                                    <div class="input-contenedor">
-                                        <label for="descripcion"></label>
-                                        <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                }else
+                
+                $conAsig = $conn->prepare("SELECT id_us FROM asignado WHERE id_consulta = '".$_GET['id']."'");
+                $conAsig ->execute();
+                if($resAsig = $conAsig->fetch(PDO::FETCH_ASSOC)){
+                    if($_SESSION['id_us'] == $resAsig['id_us']){
+                        echo'
+                        <button onclick="Alternar()">entregar</button>
+                        <div class="entregarCanvas" style="display:none" id="entregarCanvas">
+                            <div class="entregarDiv">
+                                <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                                    <h2>Entregar trabajo</h2>
+                                    <div class="contenedor">
+                                        <div class="input-contenedor">
+                                            <label for="descripcion"></label>
+                                            <input type="text" id="descripcion" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
+                                        </div>
+                                        
+                                        <div class="input-contenedor">
+                                            <label for="archivo"></label>
+                                            <input type="file" id="archivo" name="archivo" required>
+                                        </div>
+                                        <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
+                                        <input name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
+                                        <input type="submit" value="cancelar" onclick="Alternar()"></input>
                                     </div>
-                                    
-                                    <div class="input-contenedor">
-                                        <label for="archivo"></label>
-                                        <input type="file" id="archivo" name="archivo" required>
-                                    </div>
-                                    <input name="id_cons" type="hidden" value=""></input> <!--Agregar las variables para pasar el parametro-->
-                                    <input type="hidden" name="id_us" value="">
-                                    <input name="entregar" type="submit" value="entregar"></input>
-                                    <input type="submit" value="cancelar" onclick="Alternar()"></input>
-                                </div>
-                            </form>
-                            
+                                </form>
+                                
+                            </div>
                         </div>
-                    </div>
-                ';
+                    ';
                     
 
-                }
+                    }
+                } 
+                    
+                    
                 echo'</div>';
                 ?>
 
