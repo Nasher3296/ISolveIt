@@ -66,51 +66,52 @@
                     $resus = $conus->fetch(PDO::FETCH_ASSOC);
 
                     
-                    echo' <div class="generalCont">';
-                    echo'
-                    <div class="publicacion">
-                        <div class="data">
-                        <div class="envolvedor">
-                            <div class="envolvedor">
-                                <img class="foto" src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
-                            <div class="posteo_datosusuario">
-                                <h4>'.$resus['nombre'].'</h4>
-                                <h5>@'.$resus['username'].'</h5>
-                            </div>
-                            </div>
-                            <div class="posteo_recompensa_fecha">
-                                <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
-                                <h4>Subida: '.$resCon['fecha_subida'].'</h4>
-                                <h4>Limite: '.$resCon['fecha_limite'].'</h4>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="cuerpo">
-                            <h2>'.$resCon['titulo'].'</h2>
-                            <p class="desc">'.$resCon['descripcion'].'</p>
-                        </div>
-                        <div class="tags">
-                            <h4>Etiquetas: </h4>
-                            <ul class="tags_list">
-                ';
+                    echo' 
+                    <div class="generalCont">
+                        <div class="publicacion">
+                            <div class="data">
+                                <div class="envolvedor">
+                                    <div class="envolvedor">
+                                        <img class="foto" src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
+                                            <div class="posteo_datosusuario">
+                                                <h4>'.$resus['nombre'].'</h4>
+                                                <h5>@'.$resus['username'].'</h5>
+                                            </div>
+                                        </div>
+                                        <div class="posteo_recompensa_fecha">
+                                            <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
+                                            <h4>Subida: '.$resCon['fecha_subida'].'</h4>
+                                            <h4>Limite: '.$resCon['fecha_limite'].'</h4>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="cuerpo">
+                                        <h2>'.$resCon['titulo'].'</h2>
+                                        <p class="desc">'.$resCon['descripcion'].'</p>
+                                    </div>
+                                    <div class="tags">
+                                        <h4>Etiquetas: </h4>
+                                        <ul class="tags_list">
+                    ';
                 $consulta5 = $conn->prepare("SELECT tag_cons FROM tag_cons WHERE id_cons = '".$resCon['id_consulta']."'");
                 $consulta5 ->execute();
                 while($resultadoTagCons = $consulta5->fetch(PDO::FETCH_ASSOC)){
                     $consulta6 = $conn->prepare("SELECT tag FROM tag WHERE id = '".$resultadoTagCons['tag_cons']."'");
                     $consulta6 ->execute();
                     while($resultadoTag = $consulta6->fetch(PDO::FETCH_ASSOC)){
-                        echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
+                                    echo'<li class="tag">'.$resultadoTag['tag'].'</li>';
                     }
                 }                      
                 echo'
-                            </ul>
-                        </div>
+                                        </ul>
+                                    </div>
                 '; 
                 
+
+
                 if($resus['id_us'] == $_SESSION['id_us']){
                 $conConcurso = $conn->prepare("SELECT id_us FROM concurso WHERE id_consulta = '".$_GET['id']."'");
                 $conConcurso ->execute();
-                
 
                 
                     echo'
@@ -178,9 +179,37 @@
                         ';
                     
                         }
+                    }else{
+                            echo'
+                            </div>
+                                <div class="postularDiv">
+                            ';
+                            $i++;
+                            $consultaConcurso = $conn->prepare("SELECT id_concurso FROM concurso WHERE (id_consulta = '".$_GET["id"]."' AND id_us = '".$_SESSION['id_us']."')");
+                            $consultaConcurso ->execute();
+                            if($resultadoConcurso = $consultaConcurso->fetch(PDO::FETCH_ASSOC)){        
+                                echo'
+                                    <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="cancelar'.$i.'">
+                                        <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
+                                        <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/dentro-publicacion.php?id='.$_GET['id'].'">
+                                        <input value="Cancelar postulacion" type="submit" class="postularBtn cancelar" name="cancelar" form="cancelar'.$i.'">
+                                    </form>
+                                ';
+                            }
+                            else{
+                                echo'
+                                <form action="../ImplementarPHP/postular-cancelar.php" method="POST" id="postular'.$i.'">
+                                    <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
+                                    <input type="hidden" name="dir" value="Location:../PaginasBalsamiq/dentro-publicacion.php?id='.$_GET['id'].'">
+                                    <input value="Postularme" type="submit" class="postularBtn postular" name="postular" form="postular'.$i.'">
+                                </form>
+                                ';
+                            }
+                            echo'
+                                </div>
+                            ';
+                        }
                     }
-                } 
-                    
                     
                 
                 ?>

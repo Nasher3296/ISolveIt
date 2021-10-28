@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2021 a las 18:26:33
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 28-10-2021 a las 20:15:16
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,8 +50,7 @@ CREATE TABLE `concurso` (
 --
 
 INSERT INTO `concurso` (`id_concurso`, `id_consulta`, `id_us`) VALUES
-(55, 8, 6),
-(56, 2, 6);
+(60, 8, 6);
 
 -- --------------------------------------------------------
 
@@ -78,7 +77,8 @@ INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recomp
 (1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06 00:00:00', ''),
 (2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00', ''),
 (6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR'),
-(8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR');
+(8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR'),
+(9, 17, 'otro', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR');
 
 -- --------------------------------------------------------
 
@@ -90,9 +90,17 @@ CREATE TABLE `entregado` (
   `id` int(11) NOT NULL,
   `id_cons` int(11) NOT NULL,
   `id_us` int(11) NOT NULL,
-  `descripcion` varchar(255) NOT NULL,
-  `archivo` blob NOT NULL
+  `descripcion` varchar(255) DEFAULT NULL,
+  `archivo` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `entregado`
+--
+
+INSERT INTO `entregado` (`id`, `id_cons`, `id_us`, `descripcion`, `archivo`) VALUES
+(6, 6, 6, NULL, NULL),
+(7, 1, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,7 +121,13 @@ INSERT INTO `tag` (`id`, `tag`) VALUES
 (1, 'matematica'),
 (2, 'literatura'),
 (3, 'historia'),
-(4, 'alistar');
+(4, 'alistar'),
+(5, 'lengua'),
+(6, 'pato'),
+(7, 'catequesis'),
+(9, ''),
+(10, 'juan'),
+(11, 'programacion');
 
 -- --------------------------------------------------------
 
@@ -135,7 +149,9 @@ INSERT INTO `tag_cons` (`id`, `id_cons`, `tag_cons`) VALUES
 (1, 6, 1),
 (2, 6, 2),
 (3, 2, 1),
-(9, 8, 1);
+(9, 8, 1),
+(10, 1, 2),
+(11, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -154,8 +170,10 @@ CREATE TABLE `tag_usuario` (
 --
 
 INSERT INTO `tag_usuario` (`id`, `id_us`, `tag_us`) VALUES
-(1, 6, 1),
-(2, 6, 2);
+(37, 6, 1),
+(38, 6, 2),
+(39, 6, 10),
+(40, 6, 11);
 
 -- --------------------------------------------------------
 
@@ -187,7 +205,7 @@ INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas
 (3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, '', 0, 0),
 (4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, '', 0, 0),
 (5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, '', 0, 0),
-(6, 'juanperez', 'ElJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 500, 0),
+(6, 'juanperez', 'elJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 600, 0),
 (8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, '', 0, 0),
 (9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, '', 0, 0),
 (10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, '', 0, 0),
@@ -268,43 +286,43 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `asignado`
 --
 ALTER TABLE `asignado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `concurso`
 --
 ALTER TABLE `concurso`
-  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `entregado`
 --
 ALTER TABLE `entregado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_cons`
 --
 ALTER TABLE `tag_cons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_usuario`
 --
 ALTER TABLE `tag_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>I solve it</title>
+        <link rel="stylesheet" href="NO_TOCAR.css"> 
+        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="dentro-publicacion.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <meta name="author" content="Santiago Corvalan, Ignacio Fernandez, Belen Arrota, Ulises Argañaraz, Gonzalo Escobar">
+        <meta name="description" content="Publicacion">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+    <script>
+        function Alternar(){
+            let cancelar = document.getElementById("entregarCanvas");
+            if(cancelar.style.display == "block"){
+                    cancelar.style.display = "none";          
+                }
+                else{
+                    cancelar.style.display = "block";
+                }
+            }
+    </script>
+    <body class="grid_container">
+    
+    <header class="header">
+    <h1 class="ISolveIt">I solve it</h1>
+        <div class="buscador">
+        <input type="text" placeholder="Buscar..." required>
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <div class="sidebar_usuario">
+            <h4 class="h4"></h4>
+            <h5 class="h5">@</h5>
+        </div>
+        <div class="sidebar_menu">
+            <ul>
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>
+                <li class="botones_sidebar"><a class="a" href="entregados.php"><i class="far fa-envelope"></i> Entregados</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
+            </ul>
+        </div>
+        <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
+    </aside>
+    <div class="main">
+        <div class="generalCont">
+            <div class="publicacion">
+                <div class="data">
+                    <div class="envolvedor">
+                        <div class="envolvedor">
+                            <img class="foto" src="recursos/fotoPerfil/0.png" alt="">
+                            <div class="posteo_datosusuario">
+                                <h4>Nombre</h4>
+                                <h5>@usuario</h5>
+                            </div>
+                        </div>
+                        <div class="posteo_recompensa_fecha">
+                            <h4>Recompensa: $500</h4>
+                            <h4>Subida: 20/20/2000 15:15:15</h4>
+                            <h4>Limite: 20/20/2000 15:15:15</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="cuerpo">
+                    <h2>Titulo</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima laudantium alias molestiae cumque. Veniam nesciunt consequatur quidem doloremque odit, ex sapiente, at eveniet repellat beatae sint esse quam libero?</p>
+                </div>
+                <div class="tags">
+                    <h4>Etiquetas: </h4>
+                    <ul class="tags_list">
+                        <li class="tag">Programacion</li>
+                        <li class="tag">Programacion</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="postulantesDiv">
+                <div class="postulantesCuerpo">
+                    <h4 class="postulados_dudas">Postulados</h4>
+                    <ul class="postuladosLista">
+                        <li class="postulanteLi">
+                            <form class="envolvedor" action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                <div class="userdata">
+                                    <!--<img src="recursos/fotoPerfil/0.png" alt="">-->
+                                    <h5 class="nombre_postulado">Juan</h5>
+                                    <h6 class="usuario_postulado">@juan</h6>
+                                </div>
+                                <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
+                                <input type="hidden" name="id_us" value="'.$resus2['id_us'].'">
+                                <input value="Aceptar" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+    </body>
+</html>
