@@ -98,7 +98,7 @@
                             <div class="nombreDiv">
                                 <div class="nombreCont" style="display:flex" id="nombreCont">
                                     <h3 class="titulo">'.$_SESSION['nombre'].'</h3>
-                                    <button class="editarNombre" onclick="AlternarNombre()">Editar</button>
+                                    <button class="editarNombre" onclick="AlternarNombre()"><i class="far fa-edit"></i></button>
                                 </div>
                                 <form action="../ImplementarPHP/editarNom.php" method="POST" id="editarNom" class="editarNom" style="display:none">
                                     <div class="nomBtnDiv">
@@ -134,7 +134,7 @@
                                         <input value="Cancelar" type="submit" class="tagBtn cancelar" name="cancelar" form="editarTag">
                                     </div>
                                 </form>
-                                <button class="alternarBtn" onclick="Alternar()">Editar</button>
+                                <button class="alternarBtn" onclick="Alternar()"><i class="far fa-edit"></i></i></button>
                         </div>
                         <div class="perfil-usuario-footer">
                             <ul class="lista-datos">

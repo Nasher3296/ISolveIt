@@ -1,7 +1,13 @@
 .generalCont{
     display: flex;
     background-color: aqua;
-    height: 100%;
+    height: 85%;
+    background-color: white;
+    border-radius: 30px;
+    text-align: left;
+    width: 700px;
+    margin: auto;
+    margin-top: 40px;
 }
 
 .publicacion{
@@ -11,15 +17,44 @@
 
 .postulantesDiv{
     width: 20%;
-    background-color: white;
+    background-color: #34345c;
     position: relative;
     height: 100%;
+    border-radius: 30px;
+    color:white;
+    text-align: left;
+}
+
+.postulados_dudas{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.postulantesCuerpo{
+    background-color: #34345c;
+    height: 100%;
+    border-top-right-radius:30px;
+    border-bottom-right-radius: 30px;
+    width:200px;
 }
 
 .postulanteLi{
-    background-color: #34345c;
-    margin: 2px;
-    height: 100%;
+    background-color: #5a5a9c;
+    margin: 10px;
+    padding-bottom: 10px;
+    height:  max-content;
+    list-style: none;
+    border-radius: 10px;
+}
+
+.nombre_postulado{
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+.usuario_postulado{
+    font-size: 0.9rem;
+    margin-left: 5px;
 }
 
 .entregarCanvas{
@@ -44,5 +79,74 @@
 
 .posteo_recompensa {
     display: flex;
-    position: ;
+}
+
+.tag{
+    background-color: #5a5a9c;
+    color: white;
+    border-radius: 12px;
+    padding: 8px;
+    margin: 10px;
+    width: max-content;
+}
+
+.tags_list{
+    list-style: none;
+    display: flex;
+}
+
+.postularBtn{
+    margin-left:5px;
+    margin-top: 5px;
+    background: none;
+    border-radius: 10px;
+    border:none;
+    cursor:pointer;
+    color:white;
+    padding: 5px;
+    background-color: #34345c;
+}
+
+.postularBtn:hover{
+    background-color: #49497e;
+}
+
+.cuerpo{
+    font-size: 25px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.desc{
+    font-size: 15px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.tags{
+    margin-left: 10px;
+}
+
+.posteo_datosusuario{
+    margin:10px;
+
+}
+
+.foto{
+    width: 50px;
+    margin-left:10px;
+    margin-top:10px;
+    height: 50px;
+}
+
+.envolvedor{
+    display:flex;
+}
+ 
+.posteo_recompensa_fecha{
+    text-align: right;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 10px;
 }

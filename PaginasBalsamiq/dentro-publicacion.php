@@ -70,19 +70,19 @@
                     echo'
                     <div class="publicacion">
                         <div class="data">
-                            <div class="foto">
-                                <!--<img src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">-->
-                            </div>
-                            <div>
+                        <div class="envolvedor">
+                            <div class="envolvedor">
+                                <img class="foto" src="recursos/fotoPerfil/'.$resus['imagen'].'.png" alt="'.$resus['nombre'].'">
+                            <div class="posteo_datosusuario">
                                 <h4>'.$resus['nombre'].'</h4>
                                 <h5>@'.$resus['username'].'</h5>
                             </div>
-                            <div>
-                            <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
                             </div>
-                            <div>
+                            <div class="posteo_recompensa_fecha">
+                                <h4>Recompensa: $'.$resCon['recompensa'].'</h4>
                                 <h4>Subida: '.$resCon['fecha_subida'].'</h4>
                                 <h4>Limite: '.$resCon['fecha_limite'].'</h4>
+                            </div>
                             </div>
                         </div>
                         <div class="cuerpo">
@@ -117,7 +117,7 @@
                     </div>
                         <div class="postulantesDiv">
                             <div class="postulantesCuerpo">
-                                <h4>Postulados</h4>
+                                <h4 class="postulados_dudas">Postulados</h4>
                                 <ul class="postuladosLista">
                     ';
                     $i = 0;
@@ -127,10 +127,12 @@
                         $resus2 = $conus2->fetch(PDO::FETCH_ASSOC);
                         echo'
                                     <li class="postulanteLi">
-                                        <form action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                        <form class="envolvedor" action="../ImplementarPHP/aceptarPostulante.php" method="POST" id="aceptar'.$i.'">
+                                        <div class="userdata">
                                             <!--<img src="recursos/fotoPerfil/0.png" alt="">-->
-                                            <h5>'.$resus2['nombre'].'</h5>
-                                            <h6>'.$resus2['username'].'</h6>
+                                            <h5 class="nombre_postulado">'.$resus2['nombre'].'</h5>
+                                            <h6 class="usuario_postulado">@'.$resus2['username'].'</h6>
+                                        </div>
                                             <input type="hidden" name="id_cons" value="'.$_GET['id'].'">
                                             <input type="hidden" name="id_us" value="'.$resus2['id_us'].'">
                                             <input value="Aceptar" type="submit" class="postularBtn aceptar" name="aceptar" form="aceptar'.$i.'">
