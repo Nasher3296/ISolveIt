@@ -322,4 +322,12 @@ Copiar esto
     height: 10%;
 }
 
+.tagBtn{
+    font-size: 20px;
+    background:none;
+    cursor: pointer;
+}
 
+.tagBtnDiv{
+    margin-right: 10px;
+}

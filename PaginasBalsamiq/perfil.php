@@ -104,8 +104,8 @@
                                     <div class="nomBtnDiv">
                                         <input type="text" name="nom" value="'.$_SESSION['nombre'].'" class="nomTex">
                                         <div class="btns">
-                                            <input value="Aceptar" type="submit" class="tagBtn aceptar" name="aceptar" form="editarNom">
-                                            <input value="cancelar" type="submit" class="tagBtn cancelar" name="cancelar" form="editarNom">
+                                            <input value="✔" type="submit" class="tagBtn aceptar" name="aceptar" form="editarNom">
+                                            <input value="✗" type="submit" class="tagBtn cancelar" name="cancelar" form="editarNom">
                                         </div>
                                     </div>
                                 </form>
@@ -130,8 +130,8 @@
                                 <form action="../ImplementarPHP/editarTag.php" method="POST" id="editarTag" class="editarTag" style="display:none">
                                     <input type="text" name="tag" value="'.$tagStr.'" class="tagText">
                                     <div class="tagBtnDiv">
-                                        <input value="Aceptar" type="submit" class="tagBtn aceptar" name="aceptar" form="editarTag">
-                                        <input value="Cancelar" type="submit" class="tagBtn cancelar" name="cancelar" form="editarTag">
+                                        <input value="✔" type="submit" class="tagBtn aceptar" name="aceptar" form="editarTag">
+                                        <input value="✗" type="submit" class="tagBtn cancelar" name="cancelar" form="editarTag">
                                     </div>
                                 </form>
                                 <button class="alternarBtn" onclick="Alternar()"><i class="far fa-edit"></i></i></button>
