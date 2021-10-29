@@ -1,1 +1,15 @@
-<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251 251"><defs><style>.cls-1{fill:none;stroke:#fff;stroke-miterlimit:10;}</style></defs><g id="Mi_Perfil" data-name="Mi Perfil"><circle class="cls-1" cx="125.5" cy="125.5" r="125"/><circle class="cls-1" cx="123.54" cy="98.12" r="47.55"/><path class="cls-1" d="M222.65,203c-5.68-6.95-21.67-21.48-37.39-29.75a101.53,101.53,0,0,0-22.09-8.49,27.2,27.2,0,0,0-14.75.54A74.33,74.33,0,0,1,136,168a73.45,73.45,0,0,1-13,.41,72.72,72.72,0,0,1-25.38-3,27.2,27.2,0,0,0-14.75-.54,101.53,101.53,0,0,0-22.09,8.49C45.1,181.55,30.73,193.11,25,200.06" transform="translate(0.5 0.5)"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:15;stroke-miterlimit:10;}
+</style>
+<g id="Mi_Perfil">
+	<circle class="st0" cx="240" cy="240" r="225"/>
+	<circle class="st0" cx="236.5" cy="190.7" r="85.6"/>
+	<path class="st0" d="M415.8,380.4c-10.2-12.5-39-38.7-67.3-53.5c-12.6-6.6-26-11.8-39.8-15.3c-8.8-2.1-18-1.8-26.5,1
+		c-7.3,2.3-14.8,3.9-22.4,4.9c-7.8,0.9-15.6,1.2-23.4,0.7c-15.4,0.9-30.9-0.9-45.7-5.4c-8.6-2.8-17.8-3.1-26.6-1
+		c-13.8,3.5-27.1,8.7-39.8,15.3c-28.2,14.7-54.1,35.5-64.4,48.1"/>
+</g>
+</svg>

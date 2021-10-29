@@ -26,12 +26,12 @@
         </div>
         <div class="sidebar_menu">
             <ul>
-                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-question"></i> Dudas</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="fas fa-users"></i> Seguidos</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-envelope"></i> Mensajes</a></li>
-                <li class="botones_sidebar"><a class="a" href=""><i class="far fa-user-circle"></i> Mi perfil</a></li>
+                <li class="botones_sidebar"><a class="a" href="inicio.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Inicio.svg" alt=""> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Dudas.svg" alt=""> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Postulaciones.svg" alt=""> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Seguidos.svg" alt=""> Seguidos</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><i id="icono_mensaje" class="far fa-envelope"></i> Mensajes</a></li>
+                <li class="botones_sidebar"><a class="a" href=""><img class="iconos_sidebar" id="icono_miperfil" src="../PagInicio/Recursos/iconos/Mi Perfil.svg" alt=""> Mi perfil</a></li>
             </ul>
         </div>
         <a href=""><h2 class="h2">Nueva duda</h2></a>
@@ -43,57 +43,44 @@
                         <div class="contenedor">
                             <h2 id="h2">Crea tu consulta</h2>
                             <!-- <div class="cont"> -->
-                                <center>
                             <div class="form2">
                                 <input type="text" id="titulo" class="form__input" autocomplete="off" placeholder=" ">
                                 <label for="email" class="form__label">Título</label>
                             </div>
-                                </center>
                             <!-- </div> -->
                             
                             <!-- <div class="cont" id="cont_grande"> -->
-                                <center>
                                 <div class="form2">
                                     <input type="text" name="desc" class="form__input" autocomplete="off" placeholder=" ">
                                     <label for="" class="form__label">Descripción</label>
                                 </div>
-                                </center>
                                 <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
                             <!-- </div> -->
                     
                             <!-- <div class="cont"> -->
-                                <center>
-                               
                                 <div class="form2">
                                     <input type="number" name=rec class="form__input" autocomplete="off" placeholder=" ">
                                     <label for="" class="form__label">Recompensa</label>
                                 </div>
-                                </center>
                             <!-- </div> -->
 
                             <!-- <div class="cont"> -->
-                                <center>
                                 <div class="form2">
                                     <input type="datetime-local" name="lim" class="form__input" autocomplete="off" placeholder=" ">
                                     <label for="email" class="form__label"></label>
                                 </div>
-                                </center>
                             <!-- </div> -->
 
                             <!-- <div class="cont"> -->
-                                <center>
                                 <div class="form2">
                                     <input type="text" name="tag" class="form__input" autocomplete="off" placeholder=" ">
                                     <label for="tag" class="form__label">Tags</label>
                                 </div>
-                                </center>
                             <!-- </div> -->
                             
                             <div class="enviar">
-                                <center>
                                 <a href="" type="submit" name="postear"><h6>Enviar</h6></a>
-                                </center>
-                            </div>
+                             </div>
                         </div>
                     </form>
                 </div>
