@@ -14,6 +14,17 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
+
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
@@ -34,7 +45,7 @@
             <ul>
                 <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
                 <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
-                <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"style="background-color: #5a5a9c"></i> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href="postulaciones.php" style="background-color: #5a5a9c"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>
                 <li class="botones_sidebar"><a class="a" href="entregados.php"><i class="far fa-envelope"></i> Entregados</a></li>
                 <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>

@@ -44,7 +44,7 @@
         </div>
         <div class="sidebar_menu">
             <ul>
-                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"style="background-color: #5a5a9c"></i> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href="inicio.php" style="background-color: #5a5a9c"><i class="fas fa-home"></i> Inicio</a></li>
                 <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
                 <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>

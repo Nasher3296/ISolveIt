@@ -49,6 +49,7 @@
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
         $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
@@ -72,7 +73,7 @@
                 <li class="botones_sidebar"><a class="a" href="postulaciones.php"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>
                 <li class="botones_sidebar"><a class="a" href="entregados.php"><i class="far fa-envelope"></i> Entregados</a></li>
-                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"style="background-color: #5a5a9c"></i> Mi perfil</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php" style="background-color: #5a5a9c"><i class="far fa-user-circle"></i> Mi perfil</a></li>
             </ul>
         </div>
         <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
