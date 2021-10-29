@@ -133,9 +133,17 @@ font-size: 1rem;
 }
 
 .iconos_sidebar {
+    position: relative;
+    top: 10px;
+
     width: 10%;
     height: auto;
 }
+
+#icono_mensaje {
+    font-size: 32px;
+}
+
 
 
 .posteo_datosusuario{
@@ -145,3 +153,5 @@ font-size: 1rem;
 .posteo_recompensa {
     display: flex;
 }
+
+
