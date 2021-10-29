@@ -2,6 +2,30 @@
     include('config.php');
     session_start();
     if(isset($_POST["postear"])){
+
+
+
+        $target_dir = "../archivos/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+
+        $i = 0;
+        $exist = 1;
+        while($exist == 1){
+            echo'exist '.$i;
+            if (!(file_exists($target_file))){
+                $exist = 0;
+            }
+            else{
+                $target_file = $target_dir.$i.basename($_FILES["fileToUpload"]["name"]);
+                $i++;
+                $exist = 1;
+            }
+            
+        } 
+        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+
+
         $tit=$_POST["titulo"];
         $desc=$_POST["desc"];
         $rec=$_POST["rec"];
@@ -17,12 +41,13 @@
             $actualizar ->execute();
             $resActualizar = $actualizar->fetch(PDO::FETCH_ASSOC);
             
-            $publicar = $conn -> prepare("INSERT INTO consulta(id_consulta, id_us, titulo, descripcion, recompensa, fecha_limite) VALUES (NULL, :id_us, :titulo , :descripcion, :recompensa,  :fecha_limite)");
+            $publicar = $conn -> prepare("INSERT INTO consulta(id_consulta, id_us, titulo, descripcion, recompensa, fecha_limite, archivo) VALUES (NULL, :id_us, :titulo , :descripcion, :recompensa,  :fecha_limite, :archivo)");
             $publicar -> bindParam("id_us",$_SESSION['id_us'],PDO::PARAM_STR);
             $publicar -> bindParam("titulo",$tit,PDO::PARAM_STR);
             $publicar -> bindParam("descripcion",$desc,PDO::PARAM_STR);
             $publicar -> bindParam("recompensa",$rec,PDO::PARAM_STR);
             $publicar -> bindParam("fecha_limite",$lim,PDO::PARAM_STR);
+            $publicar -> bindParam("archivo",$target_file,PDO::PARAM_STR);
             $publicar ->execute();
 
             

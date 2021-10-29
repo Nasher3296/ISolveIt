@@ -26,6 +26,17 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
+
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
 
     <header class="header">
@@ -89,6 +100,9 @@
                         <div class="cuerpo">
                             <h2>'.$resCon['titulo'].'</h2>
                             <p class="desc">'.$resCon['descripcion'].'
+                            <div class="archivo_consulta">
+                                <a href="'.$resCon['archivo'].'" download>Descargar archivo</a>
+                            </div>
                         </div>
                         <div class="envolvedor">
                             <div class="tags">
@@ -124,7 +138,7 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
                                     '.$resEnt['descripcion'].'
                                 </p>
                                 <div class="archivo">
-                                    ACA VA EL ARCHIVO XD
+                                    <a href="'.$resEnt['archivo'].'" download>Descargar solucion</a>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +181,7 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
                 <button class="btnEntrega" onclick="Alternar()">entregar</button>
                 <div class="entregarCanvas" style="display:none" id="entregarCanvas">
                     <div class="entregarDiv">
-                        <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
+                        <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar" enctype="multipart/form-data"> 
                             <h2 class="entregar_trabajo">Entregar trabajo</h2>
                             <div class="contenedor">
                                 <div class="envolvedor">
@@ -178,7 +192,7 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
                                     <div class="trash">
                                         <div class="input-contenedor-2">
                                             <label class="archivo-entrega" for="archivo">Subir archivo</label>
-                                            <input type="file" id="archivo" name="archivo" required style="display:none">
+                                            <input type="file" id="archivo" name="fileToUpload" id="fileToUpload" required style="display:none">
                                         </div>
                                         <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
                                         <div class="boton_canvas_definitivo">

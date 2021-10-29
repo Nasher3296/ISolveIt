@@ -11,6 +11,17 @@
     <?php
         include('../ImplementarPHP/config.php');
         session_start();
+
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE username= :username"); 
+        $consulta -> bindParam("username",$_SESSION['username'],PDO::PARAM_STR);
+        $consulta ->execute();
+        $usuarioSession =  $consulta->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION['nombre'] = $usuarioSession['nombre'];
+        $_SESSION['id_us'] = $usuarioSession['id_us'];
+        $_SESSION['descripcion'] = $usuarioSession['descripcion'];
+        $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
@@ -42,7 +53,7 @@
     <div class="main">
         <div class="main_form">
                 <div class="form">
-                    <form action="../ImplementarPHP/publicar.php" method="POST" id="formPost">
+                    <form action="../ImplementarPHP/publicar.php" method="POST" id="formPost" enctype="multipart/form-data">
                         <div class="contenedor">
                             <h2 id="h2">Crea tu consulta</h2>
                             <!-- <div class="cont"> -->
@@ -91,7 +102,12 @@
                                 </div>
                                 </center>
                             <!-- </div> -->
-                            
+                                <center>
+                                <div class="form2">
+                                    <input type="file" name="fileToUpload" id="fileToUpload" class="form__input" autocomplete="off" placeholder=" " required>
+                                    <label for="fileToUpload" class="form__label">archivo</label>
+                                </div>
+                                </center>
                             
                                 <center>
                                 <input type="submit" value="Enviar" name="postear" form="formPost" class="enviar">

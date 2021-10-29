@@ -271,3 +271,26 @@
     border-radius: 10px;
     padding: 6px;
 }
+
+.archivo > a{
+    background-color: #34345c;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.explicacion{
+    margin-bottom: 20px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.archivo_consulta{
+    background-color: #34345c;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 15px 0;
+    font-size: 15px;
+    width: fit-content;
+}

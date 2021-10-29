@@ -49,6 +49,7 @@
         $_SESSION['id_us'] = $usuarioSession['id_us'];
         $_SESSION['descripcion'] = $usuarioSession['descripcion'];
         $_SESSION['imagen'] = $usuarioSession['imagen'];
+        $_SESSION['tokens'] = $usuarioSession['tokens'];
     ?>
     <header class="header">
         <h1 class="ISolveIt">I solve it</h1>
