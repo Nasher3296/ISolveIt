@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2021 a las 20:15:16
+-- Tiempo de generación: 29-10-2021 a las 15:02:08
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -33,6 +33,13 @@ CREATE TABLE `asignado` (
   `id_us` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `asignado`
+--
+
+INSERT INTO `asignado` (`id`, `id_consulta`, `id_us`) VALUES
+(13, 6, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -50,7 +57,9 @@ CREATE TABLE `concurso` (
 --
 
 INSERT INTO `concurso` (`id_concurso`, `id_consulta`, `id_us`) VALUES
-(60, 8, 6);
+(95, 1, 6),
+(96, 8, 6),
+(97, 9, 6);
 
 -- --------------------------------------------------------
 
@@ -66,19 +75,20 @@ CREATE TABLE `consulta` (
   `recompensa` float NOT NULL,
   `fecha_subida` datetime NOT NULL DEFAULT current_timestamp(),
   `fecha_limite` datetime NOT NULL,
-  `tag` varchar(100) NOT NULL
+  `archivo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `consulta`
 --
 
-INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`, `tag`) VALUES
-(1, 2, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06 00:00:00', ''),
+INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`, `archivo`) VALUES
+(1, 2, 'Consulta1', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06 00:00:00', ''),
 (2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00', ''),
-(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR'),
-(8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR'),
-(9, 17, 'otro', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', 'ETIQUETA1,ETIQUETA2,ETIQUETA3,AMONGAAAAAAAS,WHEN THE IMPOSTOR');
+(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
+(8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
+(9, 17, 'otro', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
+(10, 6, 'ArchivoPrueba2', 'archivooo', 100, '2021-10-29 09:42:52', '2021-10-13 09:42:00', '../archivos/descarga.jfif');
 
 -- --------------------------------------------------------
 
@@ -91,7 +101,7 @@ CREATE TABLE `entregado` (
   `id_cons` int(11) NOT NULL,
   `id_us` int(11) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
-  `archivo` blob DEFAULT NULL
+  `archivo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -99,8 +109,9 @@ CREATE TABLE `entregado` (
 --
 
 INSERT INTO `entregado` (`id`, `id_cons`, `id_us`, `descripcion`, `archivo`) VALUES
-(6, 6, 6, NULL, NULL),
-(7, 1, 6, NULL, NULL);
+(39, 6, 2, 'a', '../archivos/0munera_data_base.sql'),
+(40, 8, 6, 'lorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldw', '../archivos/CuteNinjaBakery.txt'),
+(43, 9, 6, 'dadwa', '../archivos/0CuteNinjaBakery (4).txt');
 
 -- --------------------------------------------------------
 
@@ -121,12 +132,8 @@ INSERT INTO `tag` (`id`, `tag`) VALUES
 (1, 'matematica'),
 (2, 'literatura'),
 (3, 'historia'),
-(4, 'alistar'),
 (5, 'lengua'),
-(6, 'pato'),
 (7, 'catequesis'),
-(9, ''),
-(10, 'juan'),
 (11, 'programacion');
 
 -- --------------------------------------------------------
@@ -151,7 +158,9 @@ INSERT INTO `tag_cons` (`id`, `id_cons`, `tag_cons`) VALUES
 (3, 2, 1),
 (9, 8, 1),
 (10, 1, 2),
-(11, 9, 1);
+(11, 9, 1),
+(12, 10, 3),
+(13, 10, 7);
 
 -- --------------------------------------------------------
 
@@ -205,7 +214,7 @@ INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas
 (3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, '', 0, 0),
 (4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, '', 0, 0),
 (5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, '', 0, 0),
-(6, 'juanperez', 'elJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 600, 0),
+(6, 'juanperez', 'elJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 352, 0),
 (8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, '', 0, 0),
 (9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, '', 0, 0),
 (10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, '', 0, 0),
@@ -286,37 +295,37 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `asignado`
 --
 ALTER TABLE `asignado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `concurso`
 --
 ALTER TABLE `concurso`
-  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT de la tabla `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `entregado`
 --
 ALTER TABLE `entregado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_cons`
 --
 ALTER TABLE `tag_cons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_usuario`
