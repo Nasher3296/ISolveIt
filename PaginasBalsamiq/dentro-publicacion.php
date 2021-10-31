@@ -71,7 +71,9 @@
             $i = 0;
             $conCon = $conn->prepare("SELECT * FROM consulta WHERE id_consulta = '".$_GET['id']."'");
             $conCon ->execute();
-            $resCon = $conCon->fetch(PDO::FETCH_ASSOC);
+            if($resCon = $conCon->fetch(PDO::FETCH_ASSOC)){
+
+            
 
             $conus = $conn->prepare("SELECT * FROM usuario WHERE id_us = '".$resCon['id_us']."'");
             $conus ->execute();
@@ -305,6 +307,9 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
     ';
     }
 }
+}else{
+    header("Location:../PaginasBalsamiq/inicio.php");
+}
 
 
 
@@ -327,48 +332,3 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
     </div>
 </body>
 </html>
-
-
-
-
-<?php
-
-/*
-
-
-<div class="entrega">
-    <button class="btnEntrega" onclick="Alternar()">entregar</button>
-    <div class="entregarCanvas" style="display:none" id="entregarCanvas">
-        <div class="entregarDiv">
-            <form class="formulario" action="../ImplementarPHP/entregar.php" method="POST" id="formEntregar">
-                <h2 class="entregar_trabajo">Entregar trabajo</h2>
-                <div class="contenedor">
-                    <div class="envolvedor">
-                        <div class="input-contenedor">
-                            <label for="descripcion_entrega"></label>
-                            <input type="text" id="descripcion_entrega" name="descripcion" placeholder="Explica un poco la resolucion del problema" required>
-                        </div> 
-                        <div class="trash">
-                            <div class="input-contenedor-2">
-                                <label class="archivo-entrega" for="archivo">Subir archivo</label>
-                                <input type="file" id="archivo" name="archivo" required style="display:none">
-                            </div>
-                            <input name="id_cons" type="hidden" value="'.$_GET['id'].'"></input> <!--Agregar las variables para pasar el parametro-->
-                            <div class="boton_canvas_definitivo">
-                                <input class="boton_canvas" name="entregar" type="submit" value="entregar" id="entregar" form="formEntregar"></input>
-                                <input class="boton_canvas" type="submit" value="cancelar" onclick="Alternar()"></input>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>       
-        </div>
-    </div>
-</div>
-
-
-';
-
-
-*/
-?>
