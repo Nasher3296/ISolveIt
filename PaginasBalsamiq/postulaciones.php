@@ -43,12 +43,12 @@
         </div>
         <div class="sidebar_menu">
             <ul>
-                <li class="botones_sidebar"><a class="a" href="inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
-                <li class="botones_sidebar"><a class="a" href="misdudas.php"><i class="fas fa-question"></i> Dudas</a></li>
-                <li class="botones_sidebar"><a class="a" href="postulaciones.php" style="background-color: #5a5a9c"><i class="fas fa-hands-helping"></i> Postulaciones</a></li>
-                <li class="botones_sidebar"><a class="a" href="recibidos.php"><i class="fas fa-users"></i> Recibidos</a></li>
-                <li class="botones_sidebar"><a class="a" href="entregados.php"><i class="far fa-envelope"></i> Entregados</a></li>
-                <li class="botones_sidebar"><a class="a" href="perfil.php"><i class="far fa-user-circle"></i> Mi perfil</a></li>
+            <li class="botones_sidebar"><a class="a" href="inicio.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Inicio.svg" alt=""> Inicio</a></li>
+                <li class="botones_sidebar"><a class="a" href="misdudas.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Dudas.svg" alt=""> Dudas</a></li>
+                <li class="botones_sidebar"><a class="a" href="postulaciones.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Postulaciones.svg" alt=""> Postulaciones</a></li>
+                <li class="botones_sidebar"><a class="a" href="recibidos.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Publicaciones_que_te_entregaron.svg" alt=""> Recibidos</a></li>
+                <li class="botones_sidebar"><a class="a" href="entregados.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Publicaciones_Entregadas.svg" alt=""> Entregados</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php"><img class="iconos_sidebar" id="icono_miperfil" src="../PagInicio/Recursos/iconos/Mi Perfil.svg" alt=""> Mi perfil</a></li>
             </ul>
         </div>
         <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
