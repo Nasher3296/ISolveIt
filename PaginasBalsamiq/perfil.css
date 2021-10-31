@@ -278,6 +278,10 @@ Copiar esto
     border: 1px solid gray;
 }
 
+.nomTex{
+    border: 1px solid gray;
+}
+
 .editarNombre{
     position: relative;
     background: none;
@@ -318,7 +322,7 @@ Copiar esto
 }
 
 .btns{
-    display: block;
+    display:block;
     height: 10%;
 }
 
@@ -330,4 +334,8 @@ Copiar esto
 
 .tagBtnDiv{
     margin-right: 10px;
+}
+
+.envolver{
+    display:flex;
 }

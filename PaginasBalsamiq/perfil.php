@@ -105,7 +105,7 @@
                                 <form action="../ImplementarPHP/editarNom.php" method="POST" id="editarNom" class="editarNom" style="display:none">
                                     <div class="nomBtnDiv">
                                         <input type="text" name="nom" value="'.$_SESSION['nombre'].'" class="nomTex">
-                                        <div class="btns">
+                                        <div class="btns" style="display:flex">
                                             <input value="✔" type="submit" class="tagBtn aceptar" name="aceptar" form="editarNom">
                                             <input value="✗" type="submit" class="tagBtn cancelar" name="cancelar" form="editarNom">
                                         </div>
