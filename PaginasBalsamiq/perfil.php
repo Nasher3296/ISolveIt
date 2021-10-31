@@ -73,7 +73,7 @@
                 <li class="botones_sidebar"><a class="a" href="postulaciones.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Postulaciones.svg" alt=""> Postulaciones</a></li>
                 <li class="botones_sidebar"><a class="a" href="recibidos.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Publicaciones_que_te_entregaron.svg" alt=""> Recibidos</a></li>
                 <li class="botones_sidebar"><a class="a" href="entregados.php"><img class="iconos_sidebar" src="../PagInicio/Recursos/iconos/Publicaciones_Entregadas.svg" alt=""> Entregados</a></li>
-                <li class="botones_sidebar"><a class="a" href="perfil.php"><img class="iconos_sidebar" id="icono_miperfil" src="../PagInicio/Recursos/iconos/Mi Perfil.svg" alt=""> Mi perfil</a></li>
+                <li class="botones_sidebar"><a class="a" href="perfil.php" style="background-color: #5a5a9c"><img class="iconos_sidebar" id="icono_miperfil" src="../PagInicio/Recursos/iconos/Mi Perfil.svg" alt=""> Mi perfil</a></li>
             </ul>
         </div>
         <a href="nuevaPublicacion.php"><h2 class="h2">Nueva duda</h2></a>
