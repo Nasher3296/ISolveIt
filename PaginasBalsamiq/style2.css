@@ -111,6 +111,14 @@ margin:40px;
 font-size: 1rem;
 }
 
+.tokens{
+    color: white;
+    margin-right: 200px;
+    font-size: large;
+    font-family: corbel;
+}
+
+
 .main{
     background-color: #494980;
     grid-area: main;

@@ -35,7 +35,7 @@ a{
     border-radius: 30px;
     width: 300px;
     margin:auto;
-    font-size: 30px;
+    font-size: 20px;
     border: none;
 }
 
@@ -55,7 +55,7 @@ a{
     width: 800px;
     height: 400px;
     margin: auto;
-    margin-top: 65px;
+    margin-top: 35px;
 }
 
 input{
@@ -166,3 +166,4 @@ center{
 .buscador input:focus{
     width: 220px;
 }
+

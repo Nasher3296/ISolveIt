@@ -123,6 +123,10 @@ Copiar esto
     font-size: 0.95em;
 }
 
+.perfil-usuario-bio{
+    min-height: 150px;
+}
+
 .seccion-perfil-usuario .perfil-usuario-footer,
 .seccion-perfil-usuario .perfil-usuario-bio {
     display: flex;
@@ -260,6 +264,7 @@ Copiar esto
 
 .tagList{
     display: flex;
+    margin-top: 20px;
 }
 
 .editarTag{
@@ -272,10 +277,12 @@ Copiar esto
     position: absolute;
     display: flex;
     right: 10px;
+    margin-right: 290px;
 }
 
 .tagText{
     border: 1px solid gray;
+    font-size: large;
 }
 
 .nomTex{
@@ -330,10 +337,6 @@ Copiar esto
     font-size: 20px;
     background:none;
     cursor: pointer;
-}
-
-.tagBtnDiv{
-    margin-right: 10px;
 }
 
 .envolver{

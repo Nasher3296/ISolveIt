@@ -139,6 +139,9 @@
     position: absolute;
     right:0;
     height: fit-content;
+    margin-top: 27px;
+    
+
 }
 
 .postularBtn2:hover{
