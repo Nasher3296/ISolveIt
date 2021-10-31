@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="cuerpo">
-                            <h2>'.$resCon['titulo'].'</h2>
+                            <h2 class="tituPub">'.$resCon['titulo'].'</h2>
                             <p class="desc">'.$resCon['descripcion'].'
                             <div class="archivo_consulta">
                                 <a href="'.$resCon['archivo'].'" download>Descargar archivo</a>
@@ -299,6 +299,7 @@ if($resEnt = $conEnt->fetch(PDO::FETCH_ASSOC)){
                         </form>
                     </li>
         ';
+        $i++;
     }
     echo'
                 </ul>

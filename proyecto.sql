@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2021 a las 15:02:08
+-- Tiempo de generación: 01-11-2021 a las 00:30:50
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -38,7 +38,7 @@ CREATE TABLE `asignado` (
 --
 
 INSERT INTO `asignado` (`id`, `id_consulta`, `id_us`) VALUES
-(13, 6, 2);
+(21, 15, 28);
 
 -- --------------------------------------------------------
 
@@ -57,9 +57,8 @@ CREATE TABLE `concurso` (
 --
 
 INSERT INTO `concurso` (`id_concurso`, `id_consulta`, `id_us`) VALUES
-(95, 1, 6),
-(96, 8, 6),
-(97, 9, 6);
+(100, 11, 27),
+(102, 12, 28);
 
 -- --------------------------------------------------------
 
@@ -70,12 +69,12 @@ INSERT INTO `concurso` (`id_concurso`, `id_consulta`, `id_us`) VALUES
 CREATE TABLE `consulta` (
   `id_consulta` int(11) NOT NULL,
   `id_us` int(11) NOT NULL,
-  `titulo` varchar(20) NOT NULL,
+  `titulo` varchar(40) NOT NULL,
   `descripcion` varchar(280) NOT NULL,
   `recompensa` float NOT NULL,
   `fecha_subida` datetime NOT NULL DEFAULT current_timestamp(),
   `fecha_limite` datetime NOT NULL,
-  `archivo` varchar(50) NOT NULL
+  `archivo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -83,12 +82,11 @@ CREATE TABLE `consulta` (
 --
 
 INSERT INTO `consulta` (`id_consulta`, `id_us`, `titulo`, `descripcion`, `recompensa`, `fecha_subida`, `fecha_limite`, `archivo`) VALUES
-(1, 2, 'Consulta1', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-12 00:00:00', '2021-10-06 00:00:00', ''),
-(2, 1, 'Tituloxd', 'descripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripciondescripcion', 600, '2021-10-29 00:00:00', '2021-10-31 00:00:00', ''),
-(6, 6, 'dawdawd', 'DESCIPCION', 3424, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
-(8, 17, 'lucass', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
-(9, 17, 'otro', 'lucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucasslucass', 88, '2021-10-12 08:24:48', '2021-10-27 00:00:00', ''),
-(10, 6, 'ArchivoPrueba2', 'archivooo', 100, '2021-10-29 09:42:52', '2021-10-13 09:42:00', '../archivos/descarga.jfif');
+(11, 26, 'La filosofia de socrates', 'Tengo que realizar un informe sobre los principales postulados del filosofo', 300, '2021-10-31 19:42:49', '2021-11-10 20:00:00', '../archivos/La filosofia de Socrates.pdf'),
+(12, 26, 'Polinomios de segundo grado', 'Necesito ayuda con este trabajo para el colegio. No entiendo el tema', 100, '2021-10-31 19:48:06', '2021-11-05 19:45:00', '../archivos/Trabajo sobre polinomios.pdf'),
+(13, 27, 'economia en tiempos de Jesus', 'Elaborar un informe sobre las diferencias sociales rondando el año 0 d.c.', 400, '2021-10-31 19:53:02', '2021-11-06 19:51:00', '../archivos/Economia en tiempos de Jesus.pdf'),
+(15, 27, 'Problema de DNS', 'Al intentar entrar en cuevana me aparece este error (adjunto imagen) en pantalla. Ayuda! quiero ver doctor milagro', 50, '2021-10-31 19:59:57', '2021-11-04 19:59:00', '../archivos/Fix-Server-DNS-address-could-not-be-found-error-in-Chrome.png'),
+(16, 28, 'coreccion de hortografia', 'alluda nesesito que alguien haga una rebision a este trabajo', 225, '2021-10-31 20:08:21', '2021-11-25 20:06:00', '../archivos/El principito.pdf');
 
 -- --------------------------------------------------------
 
@@ -101,7 +99,7 @@ CREATE TABLE `entregado` (
   `id_cons` int(11) NOT NULL,
   `id_us` int(11) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
-  `archivo` varchar(50) NOT NULL
+  `archivo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -109,9 +107,7 @@ CREATE TABLE `entregado` (
 --
 
 INSERT INTO `entregado` (`id`, `id_cons`, `id_us`, `descripcion`, `archivo`) VALUES
-(39, 6, 2, 'a', '../archivos/0munera_data_base.sql'),
-(40, 8, 6, 'lorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldwlorem ipsum tulio dauiwldw', '../archivos/CuteNinjaBakery.txt'),
-(43, 9, 6, 'dadwa', '../archivos/0CuteNinjaBakery (4).txt');
+(44, 13, 26, 'Ahi está subido, mucha suerte!', '../archivos/La economia en tiempos de Jesus.pdf');
 
 -- --------------------------------------------------------
 
@@ -134,7 +130,17 @@ INSERT INTO `tag` (`id`, `tag`) VALUES
 (3, 'historia'),
 (5, 'lengua'),
 (7, 'catequesis'),
-(11, 'programacion');
+(11, 'programacion'),
+(13, ' lengua'),
+(14, 'Filosofia'),
+(15, 'socrates'),
+(16, 'polinomios'),
+(17, 'gauss'),
+(18, 'jesus'),
+(19, 'economia'),
+(20, 'google'),
+(21, 'dns'),
+(22, 'chrome');
 
 -- --------------------------------------------------------
 
@@ -153,14 +159,19 @@ CREATE TABLE `tag_cons` (
 --
 
 INSERT INTO `tag_cons` (`id`, `id_cons`, `tag_cons`) VALUES
-(1, 6, 1),
-(2, 6, 2),
-(3, 2, 1),
-(9, 8, 1),
-(10, 1, 2),
-(11, 9, 1),
-(12, 10, 3),
-(13, 10, 7);
+(14, 11, 14),
+(15, 11, 15),
+(16, 12, 1),
+(17, 12, 16),
+(18, 12, 17),
+(19, 13, 7),
+(20, 13, 18),
+(21, 13, 19),
+(22, 14, 3),
+(23, 15, 20),
+(24, 15, 21),
+(25, 15, 22),
+(26, 16, 2);
 
 -- --------------------------------------------------------
 
@@ -179,10 +190,14 @@ CREATE TABLE `tag_usuario` (
 --
 
 INSERT INTO `tag_usuario` (`id`, `id_us`, `tag_us`) VALUES
-(37, 6, 1),
-(38, 6, 2),
-(39, 6, 10),
-(40, 6, 11);
+(45, 27, 1),
+(46, 27, 14),
+(48, 28, 1),
+(49, 28, 7),
+(50, 28, 21),
+(51, 26, 2),
+(52, 26, 13),
+(53, 26, 21);
 
 -- --------------------------------------------------------
 
@@ -200,7 +215,7 @@ CREATE TABLE `usuario` (
   `empleo` tinyint(1) NOT NULL,
   `descripcion` varchar(256) DEFAULT '"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!',
   `tag` varchar(100) NOT NULL DEFAULT 'matematica,historia,literatura',
-  `tokens` double NOT NULL,
+  `tokens` double NOT NULL DEFAULT 500,
   `imagen` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -209,30 +224,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_us`, `username`, `nombre`, `pass`, `mail`, `estrellas`, `empleo`, `descripcion`, `tag`, `tokens`, `imagen`) VALUES
-(1, 'fesf', '', '$2y$10$GofLEAsZgDuMFhkUL3eeDuXZ/0R/W3MDRo1Em1l/ogHMqTxiBCIoO', 'fsef', NULL, 0, NULL, '', 0, 0),
-(2, 'juan', '', '$2y$10$Rt/IF.whnxzlIJJGDA2PwOngOr1xcTKjpCHUV5n8pitqXEUYsqmkC', 'juan', NULL, 0, NULL, '', 0, 0),
-(3, 'a', '', '$2y$10$6I24vgfGmHlS/skTouT3wufqiKhhZWHZ2CSIEIFZFoeFou7QQdk4W', 'a', NULL, 0, NULL, '', 0, 0),
-(4, 'v', '', '$2y$10$RN9ctk2WA/3sSjRr2/k11Okger3nQj.N.nmiQ5ZW8meRsjr0CxVBa', 'v', NULL, 0, NULL, '', 0, 0),
-(5, 'fe', '', '$2y$10$1Xsneoh3d44cKbTNdW05p.hFnnPfXvQ8nH8dBdq5HobS4GBmeabuu', 'fe', NULL, 0, NULL, '', 0, 0),
-(6, 'juanperez', 'elJaime3296', '$2y$10$lqlvr4bfxwvE9xhpl1XMKuDoiQqcCDRnuV79yeQgxjCX/k9bcwmvy', 'juanperez', NULL, 0, 'Soy Juan, el gran Jaime1. Me gusta hacer tps de juan y soy juan', 'matematica,ETIQUETA1', 352, 0),
-(8, 'pepepepe', '', '$2y$10$Sc31n7d2XcYRW8jfySmwIe6VO.k6awGKUUpwXoBzY6E5EPv71N05.', 'pepepepe', NULL, 0, NULL, '', 0, 0),
-(9, 'pepepepepepepepe', '', '$2y$10$1H8nq2eU50PxrBvysAWguOTnMVy9yziQbsGcX0ZBD7ZRHtoTkloue', 'pepepepepepepepe', NULL, 0, NULL, '', 0, 0),
-(10, '1234', '', '$2y$10$uh1W5PZOsDOeljyd8.F13.EyEMWOJUn.y1NmjKBr13QTg4WAi4pgi', '1234', NULL, 0, NULL, '', 0, 0),
-(11, '12345', '', '$2y$10$JfzIMSlwJKR8UnpE.bb.QOwgwpQclYfr8h5mJmKBCuhWh3CIZG2A2', '12345', NULL, 0, NULL, '', 0, 0),
-(12, '123456', '', '$2y$10$fSc/fE6vNdmLqkF.PkMVf.RPiYNqZc2ZL1bWRLu75bvDH1uX2gb5O', '123456', NULL, 0, NULL, '', 0, 0),
-(13, 'po', '', '$2y$10$c/mB9RTFS6fhr4G6EjJuBO/9ppE4qAVPDolaCEHQQchy2WAkykyg6', 'po', NULL, 0, NULL, '', 0, 0),
-(14, 'pe', '', '$2y$10$fyCBYUOIRXCplAgroTA4QOoxVhPtG.HWu0Nkkq4xf26kWEIvSYPNi', 'pe', NULL, 0, NULL, '', 0, 0),
-(15, 'dadaw', '', '$2y$10$GjBxpVaBNShQLxWGBS0IvOGzhOx/Ksxk93Nhe/XY/zIelhvSATFtK', 'dadaw', NULL, 0, NULL, '', 0, 0),
-(16, 'fesfs', '', '$2y$10$0QNdGSTIp0nNkcAqenGi7e5.D9QXdncQtaGnokivFjGdMx4jsC5u2', 'faefesf', NULL, 0, NULL, '', 0, 0),
-(17, 'lucas', '', '$2y$10$83oFp/b7Q2PAg2OQEcBbD.wd0L.2ADN3qeboknWkUxYqATY3.SFZO', 'lucas', NULL, 0, NULL, '', 0, 0),
-(18, 'juancho', '', '$2y$10$cCP4f9y/a63JDmDtJCq5D.xkHvVosBwuo7C5io/Ygw./X2QOx4VTi', 'juancho', NULL, 0, NULL, '', 0, 0),
-(19, '654', '', '$2y$10$ETdzVrPrOXaA8HeEPoMt9.iIyzvhATIR5o8.tCp.Kq6yCke8Ls.76', '654', NULL, 0, NULL, '', 0, 0),
-(20, '987', '', '$2y$10$wLK6hZruKtnR22QVok4H6.yJpnUTKmJ2XvbuWdSwGhYkgyfQzMeO.', '987', NULL, 0, NULL, '', 0, 0),
-(21, '9876', '', '$2y$10$A4yDK/cCtaCgOlwT/gH4XOKcCwyurbVlVJynjrfg7Tfh34eMqZQnu', '9876', NULL, 0, NULL, '', 0, 0),
-(22, '132', '', '$2y$10$rIrlBbNKR4nxddPcfpUNR.DMJhzKWoiumHDA96KNKvTpQoc9B0/T2', '132', NULL, 0, NULL, '', 0, 0),
-(23, '96', 'Nuevo usuario', '$2y$10$QjDBnWjFO2ixlKyJwbGVDuwZnijAOg/dBfzdegmDRQjO5cbllP72.', '96', NULL, 0, NULL, '', 0, 0),
-(24, 'yup', 'Nuevo usuario', '$2y$10$2aumV3EfUYtUULFrBbsnyO8hoFq0JdKwY6IWYWhpVOKXaQ5zO8dZa', 'yup', NULL, 0, NULL, '', 0, 0),
-(25, 'rivero', 'Nuevo usuario', '$2y$10$K8Y6HUE80vlGB7vYXgngreq6YjpWdTImQHRriXSv69cYy7g2NFyhO', 'rivero', NULL, 0, '\"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!', 'matematica,historia,literatura', 0, 0);
+(26, 'juanperez', 'El Jaime 3296', '$2y$10$zSw3EkB/LM/fDLDTy1YWUeNFd9.iETnCTENLbPQIyPFRHpu.AGAyS', 'juanperez', NULL, 0, '\"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!', 'matematica,historia,literatura', 500, 0),
+(27, 'GonzaPuga', 'Gonzaa', '$2y$10$Qj/1UgyQxeRTmH5QjP28/u.CHaSB74qtTR/EvbW3Hc0QCSgnJYL46', 'GonzaPuga@hotmail.com', NULL, 0, '\"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!', 'matematica,historia,literatura', 46, 0),
+(28, 'Amonger', 'Nuevo usuario', '$2y$10$rkqkSkfbnVkkdjcMXYZdA.ukMs.lGhUDGOlULBDC/BbNB0vxNBDEi', 'amongus@impostor.com', NULL, 0, '\"Hola. Soy un nuevo usuario de I Solve It. Espero que podamos ayudarnos mutuamente!', 'matematica,historia,literatura', 275, 0);
 
 --
 -- Índices para tablas volcadas
@@ -295,49 +289,49 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `asignado`
 --
 ALTER TABLE `asignado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `concurso`
 --
 ALTER TABLE `concurso`
-  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id_concurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT de la tabla `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `entregado`
 --
 ALTER TABLE `entregado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_cons`
 --
 ALTER TABLE `tag_cons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_usuario`
 --
 ALTER TABLE `tag_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Restricciones para tablas volcadas
