@@ -115,7 +115,7 @@
                             ';
                                 echo'
                                     <div class="postularDiv">
-                                        <input value="Recibido" type="submit" class="postularBtn" name="verPostulantes" style="background-color:red">
+                                        <input value="Recibido" type="submit" class="postularBtn" name="verPostulantes" style="background-color:#5050ac">
                                     </div>
                                 ';
                             }
