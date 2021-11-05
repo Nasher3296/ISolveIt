@@ -119,7 +119,7 @@
                         ';
                             echo'
                                 <div class="postularDiv">
-                                    <input value="Entrega pendiente" type="submit" class="postularBtn" name="verPostulantes" style="background-color:red">
+                                    <input value="Entrega pendiente" type="submit" class="postularBtn" name="verPostulantes" style="background-color:#5050ac">
                                 </div>
                             ';
                         }
